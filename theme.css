@@ -1,0 +1,150 @@
+/* 
+ * KITT OP - Theme Styles
+ * 處理深淺色切換邏輯與四階層顏色定義
+ */
+
+/* ================= 階層顏色定義 (預設深色模式) ================= */
+.color-lv3 { color: #FF4444; } /* 極高波動：正紅色 */
+.color-lv2 { color: #FF9800; } /* 高波動：純橘色 */
+.color-lv1 { color: #FDE047; } /* 中高波動：鵝黃色 */
+.color-lv0 { color: #E5E7EB; } /* 日常波動：白色 */
+.cell-highlight { background-color: #5D4A1F !important; } /* 高亮標記 (深色) */
+
+/* ================= 淺色主題 (可愛咖啡風) 覆蓋 ================= */
+
+/* 全局背景與文字 */
+body.theme-light {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FDF5E6 100%) !important;
+    color: #4A3C31 !important;
+}
+
+/* 玻璃面板 (glass-panel) 淺色版 */
+body.theme-light .glass-panel {
+    background: rgba(255, 248, 235, 0.85) !important;
+    border: 1px solid rgba(210, 180, 140, 0.6) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 表格表頭與邊框 */
+body.theme-light table th {
+    background: #E6D5B8 !important; /* 加深表頭背景 */
+    color: #3E2723 !important; /* 加深表頭文字 */
+}
+body.theme-light table th, 
+body.theme-light table td {
+    border-color: rgba(210, 180, 140, 0.4) !important;
+}
+
+/* 側邊欄固定列與行標題 */
+body.theme-light .sticky-col {
+    background-color: #F0E6D2 !important; /* 加深固定列背景 */
+    border-right: 2px solid #C4A47C !important;
+}
+body.theme-light .row-header {
+    background-color: #F0E6D2 !important; /* 加深行標題背景 */
+    color: #3E2723 !important; /* 加深行標題文字 */
+}
+
+/* 特殊文字顏色微調 (淺色模式下的辨識度) */
+body.theme-light .color-avg { color: #1E3A8A !important; font-weight: 900 !important; background-color: rgba(59, 130, 246, 0.15) !important; } /* 平均色改為深藍並加粗 */
+body.theme-light .color-gray { color: #9CA3AF !important; } /* 休市維持灰 */
+body.theme-light .color-w { color: #6D28D9 !important; font-weight: 800 !important; } /* 週別標題加深 */
+
+/* 階層顏色覆蓋 (淺色模式) */
+body.theme-light .color-lv3 { color: #D32F2F !important; } /* 極高：較暗的紅 */
+body.theme-light .color-lv2 { color: #E65100 !important; } /* 高：深橘色 */
+body.theme-light .color-lv1 { color: #B8860B !important; } /* 中高：焦糖色/深棕黃色，避免白底隱形 */
+body.theme-light .color-lv0 { color: #1C1917 !important; } /* 日常：白字轉黑字 */
+body.theme-light .cell-highlight { background-color: #FFE082 !important; color: #D84315 !important; font-weight: 900 !important; } /* 淺色高亮：亮黃底+深橘字 */
+
+/* ================= 佈局組件 (Navbar, Sidebar) 淺色覆蓋 ================= */
+body.theme-light nav,
+body.theme-light aside {
+    background-color: rgba(250, 244, 232, 0.95) !important;
+    border-color: #E5D3B3 !important;
+}
+
+/* 標題與內文顏色切換 */
+body.theme-light .text-slate-100,
+body.theme-light .text-slate-200, 
+body.theme-light .text-gray-200 {
+    color: #3E2723 !important; /* 轉深咖啡/黑色 */
+}
+body.theme-light .text-slate-400,
+body.theme-light .text-gray-400,
+body.theme-light .text-gray-500,
+body.theme-light .text-slate-500 {
+    color: #5D4037 !important; /* 轉深咖啡色 */
+}
+
+/* ================= 終極文字顏色對比修正 ================= */
+body.theme-light .text-blue-400,
+body.theme-light .text-blue-300 { color: #1E3A8A !important; }
+
+body.theme-light .text-green-400,
+body.theme-light .text-lime-400 { color: #166534 !important; }
+
+body.theme-light .text-red-400 { color: #991B1B !important; }
+
+body.theme-light .text-yellow-500,
+body.theme-light .text-yellow-400 { color: #92400E !important; }
+
+body.theme-light .text-slate-100\/30 { color: #8D6E63 !important; }
+
+/* 按鈕與區塊背景切換 */
+body.theme-light .bg-gray-900,
+body.theme-light .bg-slate-950,
+body.theme-light .bg-slate-900,
+body.theme-light .bg-gray-800,
+body.theme-light .bg-slate-800,
+body.theme-light .bg-gray-700,
+body.theme-light .bg-\[\#1E293B\],
+body.theme-light .from-slate-800 {
+    background-color: #FFF8DC !important;
+    background-image: none !important; /* 移除深色漸層 */
+    border-color: #E5D3B3 !important;
+    color: #4A3C31 !important;
+}
+body.theme-light .hover\:bg-gray-700:hover,
+body.theme-light .hover\:bg-gray-600:hover,
+body.theme-light .hover\:bg-gray-800:hover {
+    background-color: #F5E6CC !important;
+}
+
+/* 分隔線切換 */
+body.theme-light .border-gray-700,
+body.theme-light .border-slate-700\/50,
+body.theme-light .border-slate-800 {
+    border-color: #E5D3B3 !important;
+}
+
+/* 獨立控制面板 (Dashboard 上方查詢區) 淺色覆蓋 */
+body.theme-light .control-panel {
+    background-color: #E6D5B8 !important; /* 較深的咖啡/奶茶底色 */
+    border-color: #D2B48C !important;
+}
+
+/* ================= 儀表板 Dashboard 特定覆蓋 ================= */
+body.theme-light .nav-item { color: #795548 !important; }
+body.theme-light .nav-item:hover { background: #E5D3B3 !important; color: #4A3C31 !important; }
+body.theme-light .nav-item.active { background: #E5D3B3 !important; color: #1E3A8A !important; border-left-color: #2563EB !important; font-weight: bold !important; }
+body.theme-light .nav-header { color: #8D6E63 !important; }
+
+body.theme-light table.k3-table th { background: #E6D5B8 !important; color: #3E2723 !important; }
+body.theme-light table.k3-table th, 
+body.theme-light table.k3-table td { border-color: rgba(210, 180, 140, 0.4) !important; }
+body.theme-light table.k3-table tr:hover td { background-color: rgba(210, 180, 140, 0.2) !important; }
+
+/* ================= 輸入框 (Oracle, Dashboard) 覆蓋 ================= */
+body.theme-light input,
+body.theme-light select {
+    background-color: #FDF8F0 !important;
+    border-color: #D2B48C !important;
+    color: #3E2723 !important;
+}
+
+/* ================= 財經日曆 Calendar 特定覆蓋 ================= */
+body.theme-light .text-slate-300 { color: #5D4037 !important; font-weight: 600 !important; }
+body.theme-light .text-blue-200 { color: #1E3A8A !important; font-weight: 700 !important; }
+body.theme-light .star-high { color: #D84315 !important; } /* 深橘紅 */
+body.theme-light .star-med { color: #E65100 !important; } /* 深橘 */

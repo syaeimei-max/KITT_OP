@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K3 決策主控台 - 嘆息之牆</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="theme.css">
+    <script src="data_k3_history.js"></script>
+    <script src="theme.js"></script>
+    <style>
+        body { background-color: #111827; color: #F3F4F6; font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
+        .sidebar { background: #1F2937; border-right: 1px solid #374151; }
+        
+        .nav-item { padding: 12px 20px; color: #9CA3AF; cursor: pointer; transition: all 0.2s; border-left: 3px solid transparent; }
+        .nav-item:hover { background: #374151; color: #F3F4F6; }
+        .nav-item.active { background: #374151; color: #60A5FA; border-left-color: #3B82F6; font-weight: bold; }
+        .nav-header { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #6B7280; padding: 20px 20px 8px 20px; font-weight: bold; }
+        
+        .glass-panel { background: rgba(31, 41, 55, 0.8); border: 1px solid rgba(75, 85, 99, 0.4); }
+        
+        /* 表格樣式 */
+        table.k3-table { border-collapse: separate; border-spacing: 0; width: 100%; }
+        table.k3-table th, table.k3-table td { font-size: 0.85rem; padding: 8px 12px; text-align: center; border-bottom: 1px solid #374151; border-right: 1px solid #374151; }
+        table.k3-table th:first-child, table.k3-table td:first-child { border-left: 1px solid #374151; }
+        table.k3-table th { background: #1F2937; color: #9CA3AF; font-weight: 600; font-size: 0.8rem; position: sticky; top: 0; z-index: 10; }
+        table.k3-table tr:hover td { background-color: rgba(55, 65, 81, 0.5); }
+        
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 顏色定義 */
+        .color-w { color: #9cdb9e; }
+        .color-f { color: #00DDAA; }
+        .color-m { color: #60A5FA; }
+        .color-avg { color: #FACC15; font-weight: bold; }
+        .color-gray { color: #6B7280; }
+        .color-up { color: #FF4444; }
+        .color-down { color: #00FF00; }
+        .row-header { background-color: #1F2937; font-weight: bold; }
+        
+        /* 隱藏水平捲軸但保留滑動功能 */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="flex flex-col h-screen">
+
+            <!-- 頂部導航列 (Sticky) -->
+    
+
+
+    <!-- 內容區 -->
+    <div class="flex flex-1 overflow-hidden">
+        <!-- 左側 Sidebar -->
+        <aside class="w-[220px] sidebar flex flex-col z-20 shrink-0 bg-gray-900 border-r border-gray-700 shadow-2xl relative h-full">
+    <!-- 頂部 Logo -->
+    <div class="h-[60px] flex items-center justify-center gap-2 border-b border-gray-800 bg-black/20 shrink-0">
+        <span class="logo-icon text-2xl text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]">⚡</span>
+        <span class="text-lg tracking-wider text-slate-100 drop-shadow-md">KITT OP</span>
+    </div>
+
+    <!-- 滾動區塊 (雙軸) -->
+    <div class="flex-1 overflow-y-auto" style="scrollbar-width: none;">
+        <style>.overflow-y-auto::-webkit-scrollbar { display: none; }</style>
+        
+        <!-- 核心導航 (極致緊湊) -->
+        <div class="p-3 space-y-1.5 border-b border-gray-800">
+            <span class="text-sm text-gray-400 uppercase tracking-wider mb-1 block px-2">核心系統</span>
+            
+            <a href="index.html" class="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-teal-500/30 bg-teal-800/50 hover:bg-teal-700/70 hover:scale-[1.02] hover:shadow-lg hover:shadow-teal-900/50 transition-all group">
+                <span class="text-sm">📊</span>
+                <span class="text-sm text-white group-hover:text-teal-200">首頁：五小牆</span>
+            </a>
+            
+            <a href="dashboard.html" class="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-rose-500/30 bg-rose-700/80 border-rose-400 shadow-[0_0_15px_rgba(244,63,94,0.5)] hover:bg-rose-700/70 hover:scale-[1.02] hover:shadow-lg hover:shadow-rose-900/50 transition-all group">
+                <span class="text-sm">📉</span>
+                <span class="text-sm text-white group-hover:text-rose-200">嘆息之牆</span>
+            </a>
+
+            <a href="oracle.html" class="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-lime-500/30 bg-lime-800/50 hover:bg-lime-700/70 hover:scale-[1.02] hover:shadow-lg hover:shadow-lime-900/50 transition-all group">
+                <span class="text-sm">🏛️</span>
+                <span class="text-sm text-white group-hover:text-lime-200">希臘神算殿</span>
+            </a>
+
+            <a href="calendar.html" class="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-amber-500/30 bg-amber-800/50 hover:bg-amber-700/70 hover:scale-[1.02] hover:shadow-lg hover:shadow-amber-900/50 transition-all group">
+                <span class="text-sm">📅</span>
+                <span class="text-sm text-white group-hover:text-amber-200">財經行事曆</span>
+            </a>
+        </div>
+
+        <!-- 全站設定區 -->
+        <div class="p-3 border-b border-gray-800">
+            <span class="text-sm text-gray-400 uppercase tracking-wider mb-1 block px-2">深淺底色變更</span>
+            <button onclick="toggleTheme()" class="w-full flex items-center justify-between py-2 px-3 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 transition-colors group">
+                <div class="flex items-center gap-2">
+                    <span id="themeIcon" class="text-sm">🌙</span>
+                    <span id="themeText" class="text-sm text-slate-200">科技深色</span>
+                </div>
+                <span class="text-sm text-gray-400 group-hover:text-blue-400">切換</span>
+            </button>
+        </div>
+        
+        <!-- 社群與外部連結 -->
+        <div class="p-3 border-b border-gray-800">
+            <span class="text-sm text-gray-400 uppercase tracking-wider mb-1 block px-2">社群與資源</span>
+            <div class="flex flex-col gap-1">
+                <a href="https://www.youtube.com/@6mind-blade" target="_blank" class="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-red-400 hover:bg-gray-800 transition-colors">
+                    <span class="text-sm">▶️</span> YouTube 頻道
+                </a>
+                <a href="https://www.facebook.com/6mindblade" target="_blank" class="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-blue-400 hover:bg-gray-800 transition-colors">
+                    <span class="text-sm">📘</span> Facebook 粉專
+                </a>
+                <a href="https://line.me/S/sticker/31826454" target="_blank" class="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-green-400 hover:bg-gray-800 transition-colors">
+                    <span class="text-sm">💬</span> 交易員必備SOP
+                </a>
+                <a href="https://line.me/S/sticker/31892478" target="_blank" class="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-green-400 hover:bg-gray-800 transition-colors">
+                    <span class="text-sm">💬</span> 選擇權進階策略
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部登入按鈕 -->
+    <div class="p-3 bg-gray-900 border-t border-gray-800 shrink-0">
+        <button onclick="alert('尚未開放登入')" class="w-full flex items-center justify-center gap-1 text-xs bg-slate-100 text-slate-800 hover:bg-white hover:-translate-y-0.5 py-2 shadow-sm hover:shadow transition-all rounded-lg border border-slate-300">
+            <svg class="w-3 h-3" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            會員登入
+        </button>
+    </div>
+</aside>
+
+        <main id="mainContent" class="flex-1 flex flex-col p-6 z-10 w-full overflow-y-auto relative">
+        
+        <!-- 全域查詢工具列 -->
+        <div class="flex flex-col gap-4 mb-6 z-10 w-full">
+            <!-- 查詢區塊 (分左右/上下) -->
+            <div class="flex flex-wrap gap-4 w-full">
+                
+                <!-- 區間查詢面板 -->
+                <div class="flex-1 min-w-[320px] bg-slate-800 border border-slate-700 p-4 rounded-xl shadow-md flex flex-col gap-3 control-panel">
+                    <div>
+                        <span class="bg-blue-600 text-white px-3 py-1.5 rounded text-sm font-bold shadow">區間資料</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="date" id="startDate" class="bg-gray-900 border border-gray-600 text-sm p-2 rounded text-gray-200 flex-1 min-w-0">
+                        <span class="text-gray-500 font-bold">-</span>
+                        <input type="date" id="endDate" class="bg-gray-900 border border-gray-600 text-sm p-2 rounded text-gray-200 flex-1 min-w-0">
+                        <button onclick="queryRange()" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded text-sm font-bold shadow transition-colors whitespace-nowrap shrink-0 flex items-center gap-1">🔍 查詢</button>
+                    </div>
+                </div>
+                
+                <!-- 年度回測面板 -->
+                <div class="flex-1 min-w-[320px] bg-slate-800 border border-slate-700 p-4 rounded-xl shadow-md flex flex-col gap-3 control-panel">
+                    <div>
+                        <span class="bg-yellow-700 text-white px-3 py-1.5 rounded text-sm font-bold shadow">年度資料</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <select id="yearSelect" class="bg-gray-900 border border-gray-600 text-sm p-2 rounded text-gray-200 flex-1 min-w-0">
+                            <!-- JS 動態生成 -->
+                        </select>
+                        <button onclick="queryYearly()" class="bg-yellow-700 hover:bg-yellow-600 text-white px-3 py-2 rounded text-sm font-bold shadow transition-colors whitespace-nowrap shrink-0 flex items-center gap-1">🔍 查詢</button>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- 狀態列 (獨立於下方) -->
+            <div class="bg-slate-800 border border-slate-700 px-4 py-3 rounded-xl shadow-sm flex items-center justify-between control-panel">
+                <div id="globalStatus" class="text-sm font-medium text-gray-400">
+                    請選擇上方日期區間或年度，並點擊查詢
+                </div>
+                <!-- 真實進度條 UI -->
+                <div id="progressContainer" class="w-64 bg-gray-700 rounded-full h-3 relative hidden overflow-hidden shadow-inner border border-gray-600">
+                    <div id="progressBar" class="bg-gradient-to-r from-blue-600 to-indigo-500 h-full rounded-full transition-all duration-300 shadow-[0_0_10px_rgba(59,130,246,0.8)]" style="width: 0%"></div>
+                    <div id="progressText" class="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-white drop-shadow-md">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 內容滾動區 -->
+        <div class="w-full relative">
+
+            <!-- 嘆息之牆標題 + 四大選單 -->
+            <div class="max-w-7xl mx-auto flex items-center gap-4 mb-4">
+                <h3 class="text-lg font-bold text-blue-400 flex items-center gap-2 shrink-0">
+                    <span>👑 嘆息之牆</span>
+                </h3>
+                <div class="flex gap-2">
+                    <button onclick="switchTab('p3_w')" id="btn_p3_w" class="tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all bg-blue-600 border-blue-400 text-white shadow-[0_0_10px_rgba(59,130,246,0.5)]">週三選</button>
+                    <button onclick="switchTab('p3_f')" id="btn_p3_f" class="tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">週五選</button>
+                    <button onclick="switchTab('p3_m')" id="btn_p3_m" class="tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">月選</button>
+                    <button onclick="switchTab('wave')" id="btn_wave" class="tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">期貨</button>
+                </div>
+            </div>
+        
+            <!-- OP 週三選 -->
+            <div id="p3_w" class="tab-panel active max-w-7xl mx-auto space-y-6">
+                <div class="glass-panel p-6 rounded-xl shadow-lg overflow-x-auto">
+                    <table class="k3-table">
+                        <thead id="thead_p2">
+                            <tr>
+                                <th class="whitespace-nowrap px-2">日期起點</th><th class="whitespace-nowrap px-2">合約(結算月)</th>
+                                <th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th>
+                                <th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_p2">
+                            <tr><td colspan="12" class="text-gray-500 py-8 text-center">請點擊上方查詢按鈕</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- OP 週五選 -->
+            <div id="p3_f" class="tab-panel max-w-7xl mx-auto space-y-6">
+                <div class="glass-panel p-6 rounded-xl shadow-lg overflow-x-auto">
+                    <table class="k3-table">
+                        <thead id="thead_p3">
+                            <tr>
+                                <th class="whitespace-nowrap px-2">日期起點</th><th class="whitespace-nowrap px-2">合約(結算月)</th>
+                                <th>五日</th><th>五夜</th><th>一日</th><th>一夜</th><th>二日</th>
+                                <th>二夜</th><th>三日</th><th>三夜</th><th>四日</th><th>四夜</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_p3">
+                            <tr><td colspan="12" class="text-gray-500 py-8 text-center">請點擊上方查詢按鈕</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- OP 月選 -->
+            <div id="p3_m" class="tab-panel max-w-7xl mx-auto space-y-6">
+                <div class="glass-panel p-6 rounded-xl shadow-lg overflow-x-auto">
+                    <table class="k3-table">
+                        <thead id="thead_p4">
+                            <tr>
+                                <th class="whitespace-nowrap px-2">日期起點</th><th class="whitespace-nowrap px-2">合約(結算月)</th>
+                                <th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th>
+                                <th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_p4">
+                            <tr><td colspan="12" class="text-gray-500 py-8 text-center">請點擊上方查詢按鈕</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 期貨振幅 -->
+            <div id="wave" class="tab-panel max-w-6xl mx-auto space-y-6">
+                <div class="glass-panel p-6 rounded-xl shadow-lg overflow-x-auto">
+                    <table class="k3-table">
+                        <thead id="thead_wave">
+                            <tr>
+                                <th class="whitespace-nowrap px-2">日期起點</th>
+                                <th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th>
+                                <th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody_wave">
+                            <tr><td colspan="11" class="text-gray-500 py-8 text-center">請點擊上方查詢按鈕</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // 定義雙棲模式的動態表頭
+        const HEADERS_HISTORY_W = `<tr><th class="whitespace-nowrap px-2">日期起點</th><th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th><th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th></tr>`;
+        const HEADERS_HISTORY_F = `<tr><th class="whitespace-nowrap px-2">日期起點</th><th>五日</th><th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th><th>三日</th><th>三夜</th><th>四日</th><th>四夜</th></tr>`;
+        const HEADERS_HISTORY_WAVE = `<tr><th class="whitespace-nowrap px-2">日期起點</th><th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th><th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th></tr>`;
+
+        const HEADERS_RANGE_W = `<tr><th class="whitespace-nowrap px-2">週三選</th><th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th><th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th></tr>`;
+        const HEADERS_RANGE_F = `<tr><th class="whitespace-nowrap px-2">週五選</th><th>五日</th><th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th><th>三日</th><th>三夜</th><th>四日</th><th>四夜</th></tr>`;
+        const HEADERS_RANGE_WAVE = `<tr><th class="whitespace-nowrap px-2">週別</th><th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th><th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th></tr>`;
+
+        let currentTabId = 'p3_w';
+
+        function switchTab(tabId) {
+            // 隱藏所有 tab-panel
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            // 顯示目標 tab
+            document.getElementById(tabId).classList.add('active');
+            // 重置按鈕樣式
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.className = 'tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700';
+            });
+            // 高亮當前按鈕
+            var btn = document.getElementById('btn_' + tabId);
+            if (btn) btn.className = 'tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all bg-blue-600 border-blue-400 text-white shadow-[0_0_10px_rgba(59,130,246,0.5)]';
+            currentTabId = tabId;
+            
+            // 動態連動年度選單起點 (依據資料庫實際有資料的年份)
+            initYearSelect(tabId);
+        }
+        
+        // 預設日期為本月
+        const today = new Date();
+        const thirtyDaysAgo = new Date(today);
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        
+        document.getElementById('endDate').value = today.toISOString().split('T')[0];
+        document.getElementById('startDate').value = thirtyDaysAgo.toISOString().split('T')[0];
+
+        // 初始化年份選單 (靜態設定各產品的實際歷史區間，不依賴龐大的全量資料)
+        function initYearSelect(tabId) {
+            const select = document.getElementById('yearSelect');
+            const previousValue = select.value;
+            select.innerHTML = ''; 
+            
+            let minYear = 2025;
+            let maxYear = 2025;
+
+            // 根據不同產品，設定對應的歷史資料起始年份
+            if (tabId === 'wave') {
+                minYear = 1998; // 期貨最早到 1998
+            } else if (tabId === 'p3_m' || tabId === 'p3_w') {
+                minYear = 2017; // 一般選擇權最早到 2017
+            } else if (tabId === 'p3_f') {
+                minYear = 2024; // 週五選從 2024 (或2025) 開始
+            }
+
+            for (let y = maxYear; y >= minYear; y--) {
+                const opt = document.createElement('option');
+                opt.value = y;
+                opt.textContent = y;
+                if(y === maxYear) opt.selected = true;
+                select.appendChild(opt);
+            }
+            
+            if (previousValue) {
+                const exists = Array.from(select.options).some(opt => opt.value === previousValue);
+                if (exists) select.value = previousValue;
+            }
+        }
+        // 預設頁籤為「OP 週三選」
+        initYearSelect('p3_w');
+
+
+
+        function queryRange() {
+            const start = document.getElementById('startDate').value;
+            const end = document.getElementById('endDate').value;
+            if(!start || !end) { alert("請選擇日期區間"); return; }
+            if (end < start) { alert("結束日期不能早於開始日期！"); return; }
+            
+            // 加入 31 天防呆限制 (保護 GAS 不會送出兩次請求)
+            const startDateObj = new Date(start);
+            const endDateObj = new Date(end);
+            const diffTime = Math.abs(endDateObj - startDateObj);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+            
+            if (diffDays > 31) {
+                alert("期交所限制：區間查詢最多 31 天 (一個月)。\n若需查詢長天期，請使用右側的「年度回測」。");
+                return;
+            }
+            
+            executeQuery(start, end);
+        }
+
+        // 年度查詢 (一次匯入選擇權+期貨)
+        async function queryYearly() {
+            const year = document.getElementById('yearSelect').value;
+            const statusNode = document.getElementById("globalStatus");
+            const progressContainer = document.getElementById("progressContainer");
+
+            statusNode.innerHTML = `<span class="text-yellow-400 animate-pulse">👑 正在呼叫雲端 API 讀取 ${year} 年 選擇權＋期貨 歷史大數據...</span>`;
+            progressContainer.classList.add("hidden");
+            
+            try {
+                const baseUrl = "https://script.google.com/macros/s/AKfycbw2FMlLYCU1h3nRijUHfZKuKXyZeu4_DrYGR393_z3hB4HRwQctwapoPnPK2EKY4qXL_g/exec";
+                const url = `${baseUrl}?type=history&year=${year}`;
+                
+                const response = await fetch(url);
+                const json = await response.json();
+                
+                if (json.status === "success") {
+                    statusNode.innerHTML = `<span class="text-green-400 font-bold">✅ ${year} 年度歷史資料雲端載入完成！</span>`;
+                    
+                    // 選擇權 → 週三選、週五選、月選
+                    if (json.data.chakra) {
+                        document.getElementById("thead_p2").innerHTML = HEADERS_HISTORY_W;
+                        document.getElementById("thead_p3").innerHTML = HEADERS_HISTORY_F;
+                        document.getElementById("thead_p4").innerHTML = HEADERS_HISTORY_W;
+                        
+                        renderK3ChakraTable("tbody_p2", json.data.chakra.P2, "W");
+                        renderK3ChakraTable("tbody_p3", json.data.chakra.P3, "F");
+                        renderK3ChakraTable("tbody_p4", json.data.chakra.P4, "M");
+                    }
+                    // 期貨 → 期貨 tab
+                    if (json.data.wave) {
+                        document.getElementById("thead_wave").innerHTML = HEADERS_HISTORY_WAVE;
+                        renderHistoryWaveTable(json.data.wave);
+                    }
+                } else {
+                    statusNode.innerHTML = `<span class="text-red-400">❌ API 錯誤: ${json.message}</span>`;
+                }
+            } catch (err) {
+                statusNode.innerHTML = `<span class="text-red-400">❌ 網路連線錯誤或 API 尚未部署</span>`;
+                console.error(err);
+            }
+        }
+
+        // 區間查詢 (一次抓選擇權+期貨，四個 tab 同時填入)
+        async function executeQuery(startDate, endDate) {
+            const statusNode = document.getElementById("globalStatus");
+            const progressContainer = document.getElementById("progressContainer");
+            progressContainer.classList.add("hidden");
+            
+            statusNode.innerHTML = `<span class="text-yellow-400 animate-pulse">⏳ 啟動 GAS 雲端引擎抓取 選擇權＋期貨 資料 (${startDate} ~ ${endDate})...</span>`;
+            
+            try {
+                const baseUrl = "https://script.google.com/macros/s/AKfycbw2FMlLYCU1h3nRijUHfZKuKXyZeu4_DrYGR393_z3hB4HRwQctwapoPnPK2EKY4qXL_g/exec";
+                const url = `${baseUrl}?type=range&start_date=${startDate}&end_date=${endDate}`;
+                
+                const response = await fetch(url);
+                const json = await response.json();
+                
+                if (json.status === "success") {
+                    statusNode.innerHTML = `<span class="text-green-400">✅ 選擇權＋期貨 運算完成！ (${startDate} ~ ${endDate})</span>`;
+                    
+                    // 選擇權 → 週三選、週五選、月選
+                    if (json.data.chakra) {
+                        document.getElementById("thead_p2").innerHTML = HEADERS_RANGE_W;
+                        document.getElementById("thead_p3").innerHTML = HEADERS_RANGE_F;
+                        document.getElementById("thead_p4").innerHTML = HEADERS_RANGE_W;
+                        
+                        renderRangeChakraTable("tbody_p2", json.data.chakra, "W");
+                        renderRangeChakraTable("tbody_p3", json.data.chakra, "F");
+                        renderRangeChakraTable("tbody_p4", json.data.chakra, "M");
+                    }
+                    // 期貨 → 期貨 tab
+                    if (json.data.wave) {
+                        document.getElementById("thead_wave").innerHTML = HEADERS_RANGE_WAVE;
+                        renderRangeWaveTable("tbody_wave", json.data.wave);
+                    }
+                } else {
+                    statusNode.innerHTML = `<span class="text-red-400">❌ 發生錯誤: ${json.message}</span>`;
+                    console.error(json.traceback);
+                }
+            } catch (err) {
+                statusNode.innerHTML = `<span class="text-red-400">❌ 網路連線錯誤</span>`;
+                console.error(err);
+            }
+        }
+
+        // 計算資料集的平均波動
+        function calculateAverage(dataRows, startIdx, endIdx) {
+            let sum = 0;
+            let count = 0;
+            dataRows.forEach(row => {
+                for(let i = startIdx; i < endIdx; i++) {
+                    const val = parseInt(row[i]);
+                    if(!isNaN(val)) {
+                        sum += val;
+                        count++;
+                    }
+                }
+            });
+            // 避免除以零，若無有效數字則給個基礎值 200
+            return count > 0 ? (sum / count) : 200; 
+        }
+
+        // 動態相對著色邏輯已移至 theme.js (getRelativeColorClass)
+
+        function renderK3ChakraTable(tbodyId, dataRows, typeClass) {
+            const tbody = document.getElementById(tbodyId);
+            tbody.innerHTML = "";
+            
+            if (!dataRows || dataRows.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="12" class="text-gray-500 py-8 text-center">查無資料</td></tr>`;
+                return;
+            }
+
+            // 計算這批資料的平均波動
+            const avgVal = calculateAverage(dataRows, 3, 13);
+
+            dataRows.forEach(row => {
+                // K3 row 格式: [month_str, start_date_str, rel_label, col0..col9]
+                const monthStr = row[0];
+                const startDateStr = row[1];
+                const relLabel = row[2];
+
+                const tr = document.createElement("tr");
+                
+                const tdContract = document.createElement("td");
+                tdContract.className = "row-header";
+                
+                // 動態決定顏色 W(綠), F(亮綠), M(藍)
+                let colorClass = "color-w";
+                if(typeClass === "F") colorClass = "color-f";
+                if(typeClass === "M") colorClass = "color-m";
+
+                const badgeStr = monthStr.length >= 6 ? monthStr.substring(4) + "月" : monthStr;
+                
+                tdContract.innerHTML = `
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-900/50 text-blue-200 border border-blue-700/50">${badgeStr}</span>
+                        <span class="${colorClass} font-bold text-[14px]">${relLabel}</span>
+                    </div>
+                `;
+                tr.appendChild(tdContract);
+
+                // 統一與五小牆格式一致：只顯示到二夜 (不顯示最後的結算日)
+                const limit = 13;
+                for (let i = 3; i < limit; i++) {
+                    const val = row[i] || "";
+                    const td = document.createElement("td");
+                    td.textContent = val;
+                    if (val === "休市") td.classList.add("color-gray");
+                    else if (val !== "") td.classList.add(getRelativeColorClass(val, avgVal));
+                    tr.appendChild(td);
+                }
+                
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderHistoryWaveTable(dataList) {
+            const tbody = document.getElementById("tbody_wave");
+            tbody.innerHTML = "";
+            
+            if(!dataList || dataList.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="11" class="text-gray-500 py-8 text-center">查無資料</td></tr>`;
+                return;
+            }
+
+            // 計算這批資料的平均波動
+            const avgVal = calculateAverage(dataList, 3, 13);
+
+            // K3 的 P5 是依照時間順序排的，為了將最新的放上面，我們反轉陣列
+            const reversedData = [...dataList].reverse();
+
+            reversedData.forEach(row => {
+                const tr = document.createElement("tr");
+                
+                // row[1] = startDate, row[2] = contractStr
+                const startDate = row[1] || "";
+                const contractStr = row[2] || "";
+                
+                const tdHeader = document.createElement("td");
+                tdHeader.className = "row-header";
+                tdHeader.innerHTML = `
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-yellow-900/50 text-yellow-200 border border-yellow-700/50">${contractStr}月</span>
+                        <span class="color-w text-[14px] font-bold">${startDate}</span>
+                    </div>
+                `;
+                tr.appendChild(tdHeader);
+                
+                // index 3 ~ 12 是那 10 格 (三日~二夜)
+                for (let i = 3; i < 13; i++) {
+                    const val = row[i] || "";
+                    const td = document.createElement("td");
+                    td.textContent = val;
+                    if (val === "休市") td.classList.add("color-gray");
+                    else if (val !== "") td.classList.add(getRelativeColorClass(val, avgVal));
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
+
+        // ============================================
+        // 區間查詢五小將專用渲染邏輯 (動態表頭模式)
+        // ============================================
+        function renderRangeChakraTable(tbodyId, data, category) {
+            const tbody = document.getElementById(tbodyId);
+            tbody.innerHTML = "";
+            
+            if (!data || Object.keys(data).length === 0) {
+                tbody.innerHTML = `<tr><td colspan="12" class="text-gray-500 py-8 text-center">查無資料</td></tr>`;
+                return;
+            }
+
+            let rowsOrder = [];
+            if (category === "W") rowsOrder = ["平均", "W1", "W2", "W0", "W4", "W5"];
+            else if (category === "F") rowsOrder = ["平均", "F1", "F2", "F3", "F4", "F5"];
+            else if (category === "M") rowsOrder = ["平均", "W0"];
+
+            let sum = 0, count = 0;
+            for (let key of rowsOrder) {
+                if (key === "平均") continue;
+                if (data[key]) {
+                    for (let i = 0; i < 10; i++) {
+                        let v = parseInt(data[key][i]);
+                        if (!isNaN(v)) { sum += v; count++; }
+                    }
+                }
+            }
+            const globalAvg = count > 0 ? sum / count : 0;
+
+            const avgData = Array(10).fill("");
+            for (let i = 0; i < 10; i++) {
+                let colSum = 0, colCount = 0;
+                for (let key of rowsOrder) {
+                    if (key === "平均") continue;
+                    if (data[key] && data[key][i] && data[key][i] !== "休市") {
+                        let v = parseInt(data[key][i]);
+                        if (!isNaN(v)) { colSum += v; colCount++; }
+                    }
+                }
+                if (colCount > 0) avgData[i] = Math.round(colSum / colCount).toString();
+            }
+
+            rowsOrder.forEach(rowName => {
+                const tr = document.createElement("tr");
+                const th = document.createElement("td");
+                th.className = "row-header";
+                th.textContent = rowName;
+                
+                if (rowName === "平均") th.classList.add("color-avg");
+                else if (category === "W") th.classList.add("color-w");
+                else th.classList.add("color-f");
+                tr.appendChild(th);
+                
+                let rowData = (rowName === "平均") ? avgData : (data[rowName] || Array(10).fill(""));
+                
+                for (let i = 0; i < 10; i++) {
+                    const val = rowData[i];
+                    const td = document.createElement("td");
+                    td.textContent = val;
+                    if (val === "休市") td.classList.add("color-gray");
+                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderRangeWaveTable(tbodyId, data) {
+            const tbody = document.getElementById(tbodyId);
+            tbody.innerHTML = "";
+            
+            if (!data || Object.keys(data).length === 0) {
+                tbody.innerHTML = `<tr><td colspan="12" class="text-gray-500 py-8 text-center">查無資料</td></tr>`;
+                return;
+            }
+
+            const rowsOrder = ["平均"];
+            const dateKeys = Object.keys(data).filter(k => k !== "平均").sort().reverse();
+            rowsOrder.push(...dateKeys);
+
+            let sum = 0, count = 0;
+            for (let key of dateKeys) {
+                if (data[key]) {
+                    for (let i = 0; i < 10; i++) {
+                        let v = parseInt(data[key][i]);
+                        if (!isNaN(v)) { sum += v; count++; }
+                    }
+                }
+            }
+            const globalAvg = count > 0 ? sum / count : 0;
+
+            const avgData = Array(10).fill("");
+            for (let i = 0; i < 10; i++) {
+                let colSum = 0, colCount = 0;
+                for (let key of dateKeys) {
+                    if (data[key] && data[key][i] && data[key][i] !== "休市") {
+                        let v = parseInt(data[key][i]);
+                        if (!isNaN(v)) { colSum += v; colCount++; }
+                    }
+                }
+                if (colCount > 0) avgData[i] = Math.round(colSum / colCount).toString();
+            }
+
+            rowsOrder.forEach(rowName => {
+                const tr = document.createElement("tr");
+                const th = document.createElement("td");
+                th.className = "row-header";
+                th.textContent = rowName;
+                
+                if (rowName === "平均") th.classList.add("color-avg");
+                else th.classList.add("color-m");
+                tr.appendChild(th);
+                
+                let rowData = (rowName === "平均") ? avgData : (data[rowName] || Array(10).fill(""));
+                
+                for (let i = 0; i < 10; i++) {
+                    const val = rowData[i];
+                    const td = document.createElement("td");
+                    td.textContent = val;
+                    if (val === "休市") td.classList.add("color-gray");
+                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+    <script src="theme.js"></script>
+    </div>
+</body>
+</html>

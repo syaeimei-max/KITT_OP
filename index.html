@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KITT OP | 您的頂級交易軍師</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="theme.css">
+    <style>
+        body { background-color: #0F172A; color: #F8FAFC; font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif; }
+        .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(100, 116, 139, 0.3); }
+        .hero-gradient { background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%); }
+        .accent-gradient { background: linear-gradient(to right, #3B82F6, #8B5CF6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .login-btn { background: white; color: #333; transition: all 0.2s ease; border: 1px solid #E2E8F0; }
+        .login-btn:hover { background: #F8FAFC; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        /* 表格樣式 (套用 K2 完整五小強樣式) - 緊湊與大字體版 */
+        table { border-collapse: separate; border-spacing: 0; width: 100%; table-layout: fixed; }
+        th, td { padding: 4px 2px; text-align: center; border-bottom: 1px solid rgba(100, 116, 139, 0.3); border-right: 1px solid rgba(100, 116, 139, 0.3); overflow: hidden; white-space: nowrap; }
+        th { font-size: 0.8rem; background: rgba(15, 23, 42, 0.8); color: #94A3B8; font-weight: 600; letter-spacing: 0.02em; }
+        td { font-size: 0.85rem; font-weight: bold; font-family: 'Consolas', monospace; color: #E2E8F0; }
+        th:first-child, td:first-child { border-left: 1px solid rgba(100, 116, 139, 0.3); width: 95px; }
+        tr:first-child th:first-child { border-top-left-radius: 8px; }
+        tr:first-child th:last-child { border-top-right-radius: 8px; }
+        tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+        tr:last-child td:last-child { border-bottom-right-radius: 8px; }
+        
+        /* 顏色定義 */
+        .color-avg { color: #60A5FA; font-weight: bold; } /* 淺藍色 */
+        /* 讓表格第一欄固定不捲動 */
+        .sticky-col {
+            position: sticky;
+            left: 0;
+            background-color: #1F2937;
+            z-index: 10;
+            border-right: 2px solid #374151;
+        }
+        .row-header { background-color: #1F2937; font-weight: bold; }
+        .color-gray { color: #9CA3AF; } /* 休市灰色 */
+    </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden bg-slate-900 font-sans">
+    
+    <!-- 背景裝飾 -->
+    <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/20 blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-900/20 blur-[120px] pointer-events-none"></div>
+
+            <!-- 頂部導航列 (Sticky) -->
+    
+
+
+
+
+
+    
+    <!-- 內容區 -->
+    <div class="flex flex-1 overflow-hidden w-full">
+        <!-- 左側 Sidebar (系統選單) -->
+        <aside class="w-[220px] sidebar flex flex-col z-20 shrink-0 bg-gray-900 border-r border-gray-700 shadow-2xl relative h-full">
+    <!-- 頂部 Logo -->
+    <div class="h-[60px] flex items-center justify-center gap-2 border-b border-gray-800 bg-black/20 shrink-0">
+        <span class="logo-icon text-2xl text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]">⚡</span>
+        <span class="text-lg tracking-wider text-slate-100 drop-shadow-md">KITT OP</span>
+    </div>
+
+    <!-- 滾動區塊 (雙軸) -->
+    <div class="flex-1 overflow-y-auto" style="scrollbar-width: none;">
+        <style>.overflow-y-auto::-webkit-scrollbar { display: none; }</style>
+        
+        <!-- 核心導航 (極致緊湊) -->
+        <div class="p-3 space-y-1.5 border-b border-gray-800">
+            <span class="text-sm text-gray-400 uppercase tracking-wider mb-1 block px-2">核心系統</span>
+            
+            <a href="index.html" class="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-teal-500/30 bg-teal-700/80 border-teal-400 shadow-[0_0_15px_rgba(45,212,191,0.5)] hover:bg-teal-700/70 hover:scale-[1.02] hover:shadow-lg hover:shadow-teal-900/50 transition-all group">
+                <span class="text-sm">📊</span>
+                <span class="text-sm text-white group-hover:text-teal-200">首頁：五小牆</span>
+            </a>
+            
+            <a href="dashboard.html" class="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-rose-500/30 bg-rose-800/50 hover:bg-rose-700/70 hover:scale-[1.02] hover:shadow-lg hover:shadow-rose-900/50 transition-all group">
+                <span class="text-sm">📉</span>
+                <span class="text-sm text-white group-hover:text-rose-200">嘆息之牆</span>
+            </a>
+
+            <a href="oracle.html" class="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-lime-500/30 bg-lime-800/50 hover:bg-lime-700/70 hover:scale-[1.02] hover:shadow-lg hover:shadow-lime-900/50 transition-all group">
+                <span class="text-sm">🏛️</span>
+                <span class="text-sm text-white group-hover:text-lime-200">希臘神算殿</span>
+            </a>
+
+            <a href="calendar.html" class="flex items-center gap-2 w-full px-3 py-2 rounded-lg border border-amber-500/30 bg-amber-800/50 hover:bg-amber-700/70 hover:scale-[1.02] hover:shadow-lg hover:shadow-amber-900/50 transition-all group">
+                <span class="text-sm">📅</span>
+                <span class="text-sm text-white group-hover:text-amber-200">財經行事曆</span>
+            </a>
+        </div>
+
+        <!-- 全站設定區 -->
+        <div class="p-3 border-b border-gray-800">
+            <span class="text-sm text-gray-400 uppercase tracking-wider mb-1 block px-2">深淺底色變更</span>
+            <button onclick="toggleTheme()" class="w-full flex items-center justify-between py-2 px-3 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 transition-colors group">
+                <div class="flex items-center gap-2">
+                    <span id="themeIcon" class="text-sm">🌙</span>
+                    <span id="themeText" class="text-sm text-slate-200">科技深色</span>
+                </div>
+                <span class="text-sm text-gray-400 group-hover:text-blue-400">切換</span>
+            </button>
+        </div>
+        
+        <!-- 社群與外部連結 -->
+        <div class="p-3 border-b border-gray-800">
+            <span class="text-sm text-gray-400 uppercase tracking-wider mb-1 block px-2">社群與資源</span>
+            <div class="flex flex-col gap-1">
+                <a href="https://www.youtube.com/@6mind-blade" target="_blank" class="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-red-400 hover:bg-gray-800 transition-colors">
+                    <span class="text-sm">▶️</span> YouTube 頻道
+                </a>
+                <a href="https://www.facebook.com/6mindblade" target="_blank" class="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-blue-400 hover:bg-gray-800 transition-colors">
+                    <span class="text-sm">📘</span> Facebook 粉專
+                </a>
+                <a href="https://line.me/S/sticker/31826454" target="_blank" class="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-green-400 hover:bg-gray-800 transition-colors">
+                    <span class="text-sm">💬</span> 交易員必備SOP
+                </a>
+                <a href="https://line.me/S/sticker/31892478" target="_blank" class="flex items-center gap-2 px-2 py-1.5 rounded-md text-sm text-green-400 hover:bg-gray-800 transition-colors">
+                    <span class="text-sm">💬</span> 選擇權進階策略
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部登入按鈕 -->
+    <div class="p-3 bg-gray-900 border-t border-gray-800 shrink-0">
+        <button onclick="alert('尚未開放登入')" class="w-full flex items-center justify-center gap-1 text-xs bg-slate-100 text-slate-800 hover:bg-white hover:-translate-y-0.5 py-2 shadow-sm hover:shadow transition-all rounded-lg border border-slate-300">
+            <svg class="w-3 h-3" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            會員登入
+        </button>
+    </div>
+</aside>
+
+        <main id="mainContent" class="flex-1 flex flex-col p-6 z-10 w-full overflow-y-auto relative">
+
+        <!-- 最新一週精華數據展示區 -->
+        <div class="w-full grid grid-cols-1 gap-8 mb-16">
+            
+            <!-- OP 價平和 (完整五小強版) -->
+            <div class="glass-panel p-6 rounded-2xl relative group">
+                <div class="flex flex-wrap items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl text-blue-400">🛡️</span>
+                        <h2 class="text-xl font-bold text-slate-200">OP 價平和</h2>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="statusChakra" class="text-xs text-yellow-400">正在從伺服器拉取最新資料...</span>
+                    </div>
+                </div>
+                <div class="overflow-x-auto relative">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th>週三選</th><th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th>
+                                <th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th>
+                            </tr>
+                        </thead>
+                        <tbody id="chakraPreviewBody">
+                            <tr><td colspan="11" class="text-slate-500 py-8">正在從伺服器拉取最新數據...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 期貨振幅 (完整五週版) -->
+            <div class="glass-panel p-6 rounded-2xl relative group">
+                <div class="flex flex-wrap items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl text-yellow-400">📊</span>
+                        <h2 class="text-xl font-bold text-slate-200">期貨振幅</h2>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="statusWave" class="text-xs text-yellow-400">正在從伺服器拉取最新資料...</span>
+                    </div>
+                </div>
+                <div class="overflow-x-auto relative">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th>週別</th>
+                                <th>三日</th><th>三夜</th><th>四日</th><th>四夜</th><th>五日</th>
+                                <th>五夜</th><th>一日</th><th>一夜</th><th>二日</th><th>二夜</th>
+                            </tr>
+                        </thead>
+                        <tbody id="wavePreviewBody">
+                            <tr><td colspan="11" class="text-slate-500 py-8">正在從伺服器拉取最新數據...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 登入付費牆 (Modal) -->
+    <div id="loginModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-md" onclick="closeLoginModal()"></div>
+        <div class="relative glass-panel rounded-3xl p-10 max-w-sm w-full mx-4 flex flex-col items-center shadow-2xl border border-slate-600/50 transform scale-95 opacity-0 transition-all duration-300" id="loginBox">
+            <button onclick="closeLoginModal()" class="absolute top-4 right-5 text-slate-400 hover:text-white text-xl">&times;</button>
+            <div class="w-20 h-20 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                <span class="text-3xl">⚡</span>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">登入 KITT 系統</h2>
+            <p class="text-slate-400 text-sm text-center mb-8">解鎖「自訂歷史區間」與「年度大表回測」完整功能。</p>
+            <button onclick="simulateLogin()" class="login-btn w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl font-bold text-slate-700 mb-6">
+                進入主控台
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('loginModal');
+        const box = document.getElementById('loginBox');
+
+        function openLoginModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                box.classList.remove('scale-95', 'opacity-0');
+                box.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeLoginModal() {
+            box.classList.remove('scale-100', 'opacity-100');
+            box.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        function simulateLogin() {
+            const btn = document.querySelector('.login-btn');
+            btn.innerHTML = '🔄 載入中...';
+            setTimeout(() => { window.location.href = 'dashboard.html'; }, 500);
+        }
+
+        // --- 五小強渲染邏輯 ---
+        const ROWS_ORDER = ["平均", "W1", "W2", "W0", "W4", "W5", "F_HEADER", "F1", "F2", "F3", "F4", "F5"];
+
+        function calculateOverallAverage(dataObj, rowsKeys) {
+            let sum = 0;
+            let count = 0;
+            rowsKeys.forEach(key => {
+                if(key === "平均" || key === "F_HEADER") return;
+                const rowArray = dataObj[key];
+                if(rowArray && Array.isArray(rowArray)) {
+                    for(let i = 0; i < 10; i++) {
+                        const val = parseInt(rowArray[i]);
+                        if(!isNaN(val)) {
+                            sum += val;
+                            count++;
+                        }
+                    }
+                }
+            });
+            return count > 0 ? (sum / count) : 200;
+        }
+
+        // 動態相對著色邏輯已移至 theme.js (getRelativeColorClass)
+
+        window.onload = async () => {
+            fetchLatestData('chakra');
+            fetchLatestData('wave');
+        };
+
+        async function fetchLatestData(type) {
+            const status = document.getElementById(type === 'chakra' ? 'statusChakra' : 'statusWave');
+            try {
+                // [雲端獨立版] 綁定專屬的 Google Apps Script 雲端 API 網址
+                const baseUrl = "https://script.google.com/macros/s/AKfycbw2FMlLYCU1h3nRijUHfZKuKXyZeu4_DrYGR393_z3hB4HRwQctwapoPnPK2EKY4qXL_g/exec";
+                const apiUrl = `${baseUrl}?type=${type}`;
+
+                const response = await fetch(apiUrl);
+                const json = await response.json();
+                
+                if (json.status === "success") {
+                    status.textContent = `✅ 已同步雲端最新資料`;
+                    status.className = "text-xs text-green-400";
+                    if(type === 'chakra') {
+                        renderChakraTable(json.data, json.latest_info);
+                    } else {
+                        renderWaveTable(json.data, json.latest_info);
+                    }
+                } else {
+                    throw new Error(json.message);
+                }
+            } catch (error) {
+                console.error(error);
+                status.textContent = "⚠️ 本機伺服器連線失敗或無資料";
+                status.className = "text-xs text-red-400";
+                document.getElementById(type === 'chakra' ? 'chakraPreviewBody' : 'wavePreviewBody').innerHTML = `<tr><td colspan="11" class="text-red-400 py-4">資料載入失敗，請確認本機 K2 已產出資料。</td></tr>`;
+            }
+        }
+
+
+        function renderChakraTable(data, latestInfo) {
+            const tbody = document.getElementById("chakraPreviewBody");
+            tbody.innerHTML = "";
+            
+            const globalAvg = calculateOverallAverage(data, ROWS_ORDER);
+            
+            const latestW = latestInfo ? latestInfo.latest_W : null;
+            const latestF = latestInfo ? latestInfo.latest_F : null;
+            const latestSlotIdxW = latestInfo ? latestInfo.latest_slot_idx_W : -1;
+            const latestSlotIdxF = latestInfo ? latestInfo.latest_slot_idx_F : -1;
+            
+            ROWS_ORDER.forEach(rowName => {
+                const tr = document.createElement("tr");
+                
+                if (rowName === "F_HEADER") {
+                    const headers = ["週五選", "五日", "五夜", "一日", "一夜", "二日", "二夜", "三日", "三夜", "四日", "四夜"];
+                    headers.forEach(text => {
+                        const th = document.createElement("th");
+                        th.textContent = text;
+                        tr.appendChild(th);
+                    });
+                    tbody.appendChild(tr);
+                    return; 
+                }
+
+                const th = document.createElement("td");
+                th.className = "row-header";
+
+                th.textContent = rowName;
+                if (rowName === "平均") th.classList.add("color-avg");
+                else if (rowName.startsWith("W")) th.classList.add("color-w");
+                else th.classList.add("color-f");
+                tr.appendChild(th);
+                
+                let rowData;
+                if (rowName === "平均") {
+                    rowData = Array(10).fill("");
+                    for (let i = 0; i < 10; i++) {
+                        let sum = 0, count = 0;
+                        for (const key of ROWS_ORDER) {
+                            if (key === "平均" || key === "F_HEADER") continue;
+                            if (data[key] && data[key][i] && data[key][i] !== "休市") {
+                                let val = parseInt(data[key][i]);
+                                if (!isNaN(val)) { sum += val; count++; }
+                            }
+                        }
+                        if (count > 0) rowData[i] = Math.round(sum / count).toString();
+                    }
+                } else {
+                    rowData = data[rowName] || Array(10).fill("");
+                }
+                
+                for (let i = 0; i < 10; i++) {
+                    const td = document.createElement("td");
+                    const val = rowData[i];
+                    td.textContent = val;
+                    
+                    let isHighlight = false;
+                    if (rowName === latestW && i === latestSlotIdxW) isHighlight = true;
+                    if (rowName === latestF && i === latestSlotIdxF) isHighlight = true;
+                    
+                    if (isHighlight) {
+                        td.classList.add("cell-highlight");
+                    }
+
+                    if (val === "休市") td.classList.add("color-gray");
+                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
+
+        function renderWaveTable(data, latestInfo) {
+            const tbody = document.getElementById("wavePreviewBody");
+            tbody.innerHTML = "";
+            
+            let dates = Object.keys(data).filter(k => k !== "平均" && k !== "_highlight").sort((a,b) => b.localeCompare(a));
+            const recent5 = dates.slice(0, 5);
+            
+            const globalAvg = calculateOverallAverage(data, recent5);
+
+            // 取得期貨專屬高亮欄位
+            let waveHighCol = latestInfo && latestInfo.wave_high_col !== undefined ? latestInfo.wave_high_col : -1;
+
+            const rowsToRender = ["平均", ...recent5];
+            
+            rowsToRender.forEach(dt => {
+                const tr = document.createElement("tr");
+                
+                const th = document.createElement("td");
+                th.className = "row-header";
+                if (dt === "平均") {
+                    th.textContent = dt;
+                    th.classList.add("color-avg");
+                } else {
+                    const fullDate = dt.length === 6 ? "20" + dt : dt;
+                    th.textContent = fullDate;
+                    th.classList.add("color-w");
+                }
+                tr.appendChild(th);
+                
+                let rowData;
+                if (dt === "平均") {
+                    rowData = Array(10).fill("");
+                    for (let i = 0; i < 10; i++) {
+                        let sum = 0, count = 0;
+                        for (const dateKey of recent5) {
+                            if (data[dateKey] && data[dateKey][i] && data[dateKey][i] !== "休市") {
+                                let val = parseInt(data[dateKey][i]);
+                                if (!isNaN(val)) { sum += val; count++; }
+                            }
+                        }
+                        if (count > 0) rowData[i] = Math.round(sum / count).toString();
+                    }
+                } else {
+                    rowData = data[dt] || Array(10).fill("");
+                }
+
+                for (let i = 0; i < 10; i++) {
+                    const td = document.createElement("td");
+                    td.textContent = rowData[i];
+                    
+                    let isHighlight = false;
+                    // 期貨高亮永遠只亮最新一筆 (recent5[0])
+                    if (dt === recent5[0] && i === waveHighCol) {
+                        isHighlight = true;
+                    }
+                    
+                    if (isHighlight) {
+                        td.classList.add("cell-highlight");
+                    }
+                    
+                    if (rowData[i] !== "" && rowData[i] !== "休市") {
+                        td.classList.add(getRelativeColorClass(rowData[i], globalAvg)); 
+                    } else if (rowData[i] === "休市") {
+                        td.classList.add("color-gray");
+                    }
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
+
+    </script>
+    <script src="theme.js"></script>
+    </div>
+</body>
+
+</html>
