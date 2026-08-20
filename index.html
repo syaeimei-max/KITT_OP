@@ -42,7 +42,7 @@
         .color-gray { color: #9CA3AF; } /* 休市灰色 */
     </style>
 </head>
-<body class="h-screen flex flex-col overflow-hidden bg-slate-900 font-sans">
+<body class="fixed inset-0 flex flex-col overflow-hidden bg-slate-900 font-sans w-full">
     
     <!-- 背景裝飾 -->
     <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/20 blur-[120px] pointer-events-none"></div>
@@ -58,19 +58,30 @@
     
     <!-- 手機版頂部導覽列 (只在小螢幕顯示) -->
     <div class="md:hidden flex items-center justify-between bg-gray-900 border-b border-gray-700 p-3 shrink-0 z-30 shadow-md">
-        <div class="flex items-center gap-2">
+        <a href="index.html" class="flex items-center gap-2">
             <span class="logo-icon text-xl text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]">⚡</span>
             <span class="text-lg tracking-wider text-slate-100 font-bold drop-shadow-md">KITT OP</span>
-        </div>
-        <button onclick="toggleMobileMenu()" class="text-slate-300 hover:text-white p-1.5 rounded-md bg-slate-800 border border-slate-700">
+        </a>
+        <button onclick="mobileMenuToggleSafe()" class="text-slate-300 hover:text-white p-1.5 rounded-md bg-slate-800 border border-slate-700">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
     </div>
+    <script>
+        // 內嵌腳本避開手機版舊 JS 快取
+        window.mobileMenuToggleSafe = function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobileOverlay');
+            if (sidebar && overlay) {
+                sidebar.classList.toggle('-translate-x-full');
+                overlay.classList.toggle('hidden');
+            }
+        };
+    </script>
 
     <!-- 內容區 -->
     <div class="flex flex-1 overflow-hidden w-full relative">
         <!-- 手機版側邊欄遮罩 -->
-        <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+        <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm" onclick="mobileMenuToggleSafe()"></div>
         
         <!-- 左側 Sidebar (系統選單) -->
         <aside id="sidebar" class="w-[220px] sidebar flex flex-col z-50 shrink-0 bg-gray-900 border-r border-gray-700 shadow-2xl h-full fixed md:relative transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
