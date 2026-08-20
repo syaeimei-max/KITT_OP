@@ -115,6 +115,7 @@ window.checkAuth = function(featureName) {
                 html: `
                     <div class="text-sm text-slate-500 mb-4 mt-2 font-medium">記得登入會員，即可免費解鎖全部功能！</div>
                     <div id="swal-google-btn-container" class="flex justify-center mt-4 min-h-[44px]"></div>
+                    <div class="text-[11px] text-red-400 mt-2 font-bold bg-red-900/20 py-1.5 px-2 rounded">※ 手機若登入卡住空白，請點右上角切換為「電腦版網站」即可登入</div>
                 `,
                 showConfirmButton: false,
                 showCloseButton: true,

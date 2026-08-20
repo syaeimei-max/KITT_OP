@@ -23,10 +23,17 @@
         .glass-panel { background: rgba(31, 41, 55, 0.8); border: 1px solid rgba(75, 85, 99, 0.4); }
         
         /* 表格樣式 */
-        table.k3-table { border-collapse: separate; border-spacing: 0; width: 100%; }
-        table.k3-table th, table.k3-table td { font-size: 0.85rem; padding: 8px 12px; text-align: center; border-bottom: 1px solid #374151; border-right: 1px solid #374151; }
-        table.k3-table th:first-child, table.k3-table td:first-child { border-left: 1px solid #374151; }
-        table.k3-table th { background: #1F2937; color: #9CA3AF; font-weight: 600; font-size: 0.8rem; position: sticky; top: 0; z-index: 10; }
+        table.k3-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 700px; }
+        table.k3-table th, table.k3-table td { font-size: 0.85rem; padding: 8px 12px; text-align: center; border-bottom: 1px solid #374151; border-right: 1px solid #374151; white-space: nowrap; }
+        table.k3-table th { background: #1F2937; color: #9CA3AF; font-weight: 600; font-size: 0.8rem; position: sticky; top: 0; z-index: 20; }
+        table.k3-table th:first-child, table.k3-table td:first-child { 
+            border-left: 1px solid #374151; 
+            position: sticky; 
+            left: 0; 
+            background-color: #1F2937; 
+            z-index: 10; 
+        }
+        table.k3-table th:first-child { z-index: 30; } /* 左上角需要最高層級 */
         table.k3-table tr:hover td { background-color: rgba(55, 65, 81, 0.5); }
         
         .tab-panel { display: none; }
