@@ -1086,8 +1086,17 @@ function processFutures(csvText) {
     data[dateKey] = arr;
   }
 
-  // Step 5: (期貨不需要跨代縫合，保留空白即可)
-  
+  // Step 5: 六週縫合 (最新週的空位用第六週填補)
+  var sortedKeys = Object.keys(data).sort().reverse();
+  if (sortedKeys.length >= 2) {
+    var newest = sortedKeys[0];
+    var oldest = sortedKeys[sortedKeys.length - 1];
+    for (var i = 0; i < 10; i++) {
+      if (!data[newest][i] && data[oldest][i]) {
+        data[newest][i] = data[oldest][i];
+      }
+    }
+  }
 
   // Step 6: 高亮
   var li = {};
