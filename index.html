@@ -663,6 +663,7 @@
 
             const dateKeys = Object.keys(data).sort().reverse();
             const slotsOrder = ['三日', '四日', '五日', '一日', '二日'];
+            const isLoggedIn = !!localStorage.getItem("kitt_user");
 
             let sum = 0, count = 0;
             for (let key of dateKeys) {
@@ -705,7 +706,41 @@
             tbody.appendChild(trAvg);
 
             // Render date rows
-            dateKeys.forEach(rowName => {
+            dateKeys.forEach((rowName, index) => {
+                if (!isLoggedIn) {
+                    if (index === 1) {
+                        const tr = document.createElement("tr");
+                        const th = document.createElement("td");
+                        th.className = "row-header color-m";
+                        th.textContent = rowName;
+                        tr.appendChild(th);
+                        
+                        const td = document.createElement("td");
+                        td.colSpan = 5;
+                        td.rowSpan = dateKeys.length - 1;
+                        td.className = "freemium-overlay backdrop-blur-sm relative group cursor-pointer";
+                        td.setAttribute("onclick", "checkAuth()");
+                        td.innerHTML = `
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 py-6 px-2">
+                                <span class="text-2xl drop-shadow-md">🔒</span>
+                                <span class="text-white font-bold text-sm bg-teal-600 px-5 py-2.5 rounded-lg shadow-lg group-hover:bg-teal-500 group-hover:scale-[1.02] transition-all whitespace-normal text-center">免費登入會員，解鎖全部功能</span>
+                            </div>
+                        `;
+                        tr.appendChild(td);
+                        tbody.appendChild(tr);
+                        return;
+                    }
+                    if (index > 1) {
+                        const tr = document.createElement("tr");
+                        const th = document.createElement("td");
+                        th.className = "row-header color-m";
+                        th.textContent = rowName;
+                        tr.appendChild(th);
+                        tbody.appendChild(tr);
+                        return;
+                    }
+                }
+
                 const tr = document.createElement("tr");
                 const th = document.createElement("td");
                 th.className = "row-header color-m";
