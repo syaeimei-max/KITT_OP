@@ -251,7 +251,7 @@
             <div class="max-w-7xl mx-auto mb-4 overflow-x-auto hide-scroll pb-1">
                 <style>.hide-scroll::-webkit-scrollbar { display: none; } .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }</style>
                 <div class="flex gap-2 min-w-max">
-                    <button onclick="switchTab('p3_w')" id="btn_p3_w" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all bg-blue-600 border-blue-400 text-white shadow-[0_0_10px_rgba(59,130,246,0.5)]">週三選</button>
+                    <button onclick="switchTab('p3_w')" id="btn_p3_w" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all bg-teal-600 border-teal-400 text-white shadow-[0_0_10px_rgba(13,148,136,0.5)]">週三選</button>
                     <button onclick="switchTab('p3_f')" id="btn_p3_f" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">週五選</button>
                     <button onclick="switchTab('p3_m')" id="btn_p3_m" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">月選</button>
                     <button onclick="switchTab('wave')" id="btn_wave" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">期貨</button>
@@ -350,13 +350,13 @@
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
             // 顯示目標 tab
             document.getElementById(tabId).classList.add('active');
-            // 重置按鈕樣式
+            // 重置按鈕樣式 (維持 px-6 py-2 的寬度)
             document.querySelectorAll('.tab-btn').forEach(b => {
-                b.className = 'tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700';
+                b.className = 'tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700';
             });
-            // 高亮當前按鈕
+            // 高亮當前按鈕 (改用獨立的 Teal 顏色，避免與藍色區間查詢混淆)
             var btn = document.getElementById('btn_' + tabId);
-            if (btn) btn.className = 'tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all bg-blue-600 border-blue-400 text-white shadow-[0_0_10px_rgba(59,130,246,0.5)]';
+            if (btn) btn.className = 'tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all bg-teal-600 border-teal-400 text-white shadow-[0_0_10px_rgba(13,148,136,0.5)]';
             currentTabId = tabId;
             
             // 動態連動年度選單起點 (依據資料庫實際有資料的年份)
