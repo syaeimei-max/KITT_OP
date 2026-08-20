@@ -334,8 +334,8 @@
 
         async function fetchLatestData(type) {
             const status = document.getElementById(type === 'chakra' ? 'statusChakra' : 'statusWave');
-            const CACHE_KEY = `kitt_cache_data_${type}`;
-            const CACHE_TIME_KEY = `kitt_cache_time_${type}`;
+            const CACHE_KEY = `kitt_cache_data_${type}_v2`;
+            const CACHE_TIME_KEY = `kitt_cache_time_${type}_v2`;
             const CACHE_DURATION = 3 * 60 * 60 * 1000; // 3小時 (毫秒)
 
             // 1. 檢查有效暫存
