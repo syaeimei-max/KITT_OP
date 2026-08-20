@@ -142,6 +142,36 @@ body.theme-light .control-panel {
     border-color: #D2B48C !important;
 }
 
+/* ================= 側邊欄主題切換按鈕 (Segmented Control) ================= */
+.theme-btn {
+    color: #9CA3AF; /* gray-400 */
+}
+.theme-btn:hover {
+    color: #E5E7EB;
+}
+body:not(.theme-light) #btn-theme-dark {
+    background-color: #334155 !important; /* slate-700 */
+    color: white !important;
+    font-weight: bold;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+body.theme-light .bg-slate-900.theme-toggle-container {
+    background-color: rgba(210, 180, 140, 0.4) !important;
+    border-color: rgba(210, 180, 140, 0.6) !important;
+}
+body.theme-light #btn-theme-light {
+    background-color: #FFF8DC !important; /* 拿鐵白底 */
+    color: #3E2723 !important;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+body.theme-light .theme-btn {
+    color: #8D6E63;
+}
+body.theme-light .theme-btn:hover {
+    color: #3E2723;
+}
+
 /* ================= 儀表板 Dashboard 特定覆蓋 ================= */
 body.theme-light .nav-item { color: #795548 !important; }
 body.theme-light .nav-item:hover { background: #E5D3B3 !important; color: #4A3C31 !important; }

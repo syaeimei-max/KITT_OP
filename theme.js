@@ -14,11 +14,22 @@ function initTheme() {
     updateThemeUI();
 }
 
-// 點擊切換主題
+// 點擊切換主題 (舊版 Toggle)
 function toggleTheme() {
     document.body.classList.toggle('theme-light');
     const isLight = document.body.classList.contains('theme-light');
     localStorage.setItem('kitt_theme', isLight ? 'light' : 'dark');
+    updateThemeUI();
+}
+
+// 直接設定主題 (Segmented Control 使用)
+function setTheme(mode) {
+    if (mode === 'light') {
+        document.body.classList.add('theme-light');
+    } else {
+        document.body.classList.remove('theme-light');
+    }
+    localStorage.setItem('kitt_theme', mode);
     updateThemeUI();
 }
 

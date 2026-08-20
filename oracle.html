@@ -130,16 +130,16 @@
             </a>
         </div>
 
-        <!-- 全站設定區 -->
+        <!-- 全站主題切換 (Segmented Control) -->
         <div class="p-3 border-b border-gray-800">
-            <div class="flex items-center gap-2 mb-2 px-2 py-1.5 rounded sidebar-section-header"><div class="w-1.5 h-4 bg-blue-500 rounded-sm"></div><span class="text-sm font-bold text-gray-300 uppercase tracking-wider">深淺底色變更</span></div>
-            <button onclick="toggleTheme()" class="w-full flex items-center justify-between py-2 px-3 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 transition-colors group">
-                <div class="flex items-center gap-2">
-                    <span id="themeIcon" class="text-sm">🌙</span>
-                    <span id="themeText" class="text-sm text-slate-200">科技深色</span>
-                </div>
-                <span class="text-sm text-gray-400 group-hover:text-blue-400">切換</span>
-            </button>
+            <div class="flex p-1 bg-slate-900 rounded-lg border border-gray-700 theme-toggle-container">
+                <button onclick="setTheme('dark')" id="btn-theme-dark" class="flex-1 flex items-center justify-center gap-2 py-1.5 rounded-md text-sm transition-all theme-btn">
+                    🌙 深色
+                </button>
+                <button onclick="setTheme('light')" id="btn-theme-light" class="flex-1 flex items-center justify-center gap-2 py-1.5 rounded-md text-sm transition-all theme-btn">
+                    ☕ 拿鐵
+                </button>
+            </div>
         </div>
         
         <!-- 社群與外部連結 -->
