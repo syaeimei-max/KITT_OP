@@ -92,7 +92,13 @@ body.theme-light .color-lv3 { color: #D32F2F !important; } /* 極高：較暗的
 body.theme-light .color-lv2 { color: #E65100 !important; } /* 高：深橘色 */
 body.theme-light .color-lv1 { color: #B8860B !important; } /* 中高：焦糖色/深棕黃色，避免白底隱形 */
 body.theme-light .color-lv0 { color: #1C1917 !important; } /* 日常：白字轉黑字 */
+body.theme-light .color-avg-data { color: #1E3A8A !important; font-weight: 800 !important; } /* 淺色平均數據色：與標題同為深藍 */
 body.theme-light .cell-highlight { background-color: #FFE082 !important; color: #D84315 !important; font-weight: 900 !important; } /* 淺色高亮：亮黃底+深橘字 */
+
+/* 資料淡化 (反灰) 用於標示即將被覆蓋的舊資料 */
+.cell-dimmed {
+    color: #4B5563 !important;
+}
 
 /* ================= 佈局組件 (Navbar, Sidebar) 淺色覆蓋 ================= */
 body.theme-light nav,

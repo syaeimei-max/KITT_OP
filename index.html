@@ -16,7 +16,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <link rel="stylesheet" href="theme.css?v=1.1">
+    <link rel="stylesheet" href="theme.css?v=1.2">
     <script src="auth.js"></script>
     <style>
         body { background-color: #0F172A; color: #F8FAFC; font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif; }
@@ -421,7 +421,7 @@
                     } else {
                         renderWaveTable(json.data, json.latest_info);
                         if (json.vix) {
-                            renderVixTable(json.vix);
+                            renderVixTable(json.vix, json.latest_info);
                             const statusVix = document.getElementById('statusVix');
                             if(statusVix) {
                                 statusVix.textContent = `✅ 已同步雲端最新資料`;
@@ -445,7 +445,7 @@
                         } else {
                             renderWaveTable(json.data, json.latest_info);
                             if (json.vix) {
-                                renderVixTable(json.vix);
+                                renderVixTable(json.vix, json.latest_info);
                                 const statusVix = document.getElementById('statusVix');
                                 if(statusVix) {
                                     statusVix.textContent = "⚠️ 網路斷線，目前顯示歷史暫存資料";
@@ -563,11 +563,21 @@
                     td.textContent = val;
                     
                     let isHighlight = false;
-                    if (rowName === latestW && i === latestSlotIdxW) isHighlight = true;
-                    if (rowName === latestF && i === latestSlotIdxF) isHighlight = true;
+                    let isDimmed = false;
+                    if (rowName === latestW) {
+                        if (i === latestSlotIdxW) isHighlight = true;
+                        else if (i > latestSlotIdxW && latestSlotIdxW !== -1) isDimmed = true;
+                    }
+                    if (rowName === latestF) {
+                        if (i === latestSlotIdxF) isHighlight = true;
+                        else if (i > latestSlotIdxF && latestSlotIdxF !== -1) isDimmed = true;
+                    }
                     
                     if (isHighlight) {
                         td.classList.add("cell-highlight");
+                    }
+                    if (isDimmed && val !== "" && val !== "休市") {
+                        td.classList.add("cell-dimmed");
                     }
 
                     if (val === "休市") td.classList.add("color-gray");
@@ -669,13 +679,18 @@
                     td.textContent = rowData[i];
                     
                     let isHighlight = false;
+                    let isDimmed = false;
                     // 期貨高亮永遠只亮最新一筆 (recent5[0])
-                    if (dt === recent5[0] && i === waveHighCol) {
-                        isHighlight = true;
+                    if (dt === recent5[0]) {
+                        if (i === waveHighCol) isHighlight = true;
+                        else if (i > waveHighCol && waveHighCol !== -1) isDimmed = true;
                     }
                     
                     if (isHighlight) {
                         td.classList.add("cell-highlight");
+                    }
+                    if (isDimmed && rowData[i] !== "" && rowData[i] !== "休市") {
+                        td.classList.add("cell-dimmed");
                     }
                     
                     if (rowData[i] !== "" && rowData[i] !== "休市") {
@@ -796,11 +811,16 @@
                     td.textContent = val;
                     
                     let isHighlight = false;
-                    if (vixHighCol !== -1 && index === 0 && i === vixHighCol) {
-                        isHighlight = true;
+                    let isDimmed = false;
+                    if (vixHighCol !== -1 && index === 0) {
+                        if (i === vixHighCol) isHighlight = true;
+                        else if (i > vixHighCol) isDimmed = true;
                     }
                     if (isHighlight) {
                         td.classList.add("cell-highlight");
+                    }
+                    if (isDimmed && val !== "" && val !== "休市") {
+                        td.classList.add("cell-dimmed");
                     }
                     
                     if (val === "休市") td.classList.add("color-gray");
