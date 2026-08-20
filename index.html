@@ -299,6 +299,31 @@
 
         async function fetchLatestData(type) {
             const status = document.getElementById(type === 'chakra' ? 'statusChakra' : 'statusWave');
+            const CACHE_KEY = `kitt_cache_data_${type}`;
+            const CACHE_TIME_KEY = `kitt_cache_time_${type}`;
+            const CACHE_DURATION = 3 * 60 * 60 * 1000; // 3小時 (毫秒)
+
+            // 1. 檢查有效暫存
+            const cachedDataStr = localStorage.getItem(CACHE_KEY);
+            const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+            const now = Date.now();
+
+            if (cachedDataStr && cachedTime && (now - parseInt(cachedTime) < CACHE_DURATION)) {
+                try {
+                    const json = JSON.parse(cachedDataStr);
+                    status.textContent = `✅ 已載入本地暫存資料`;
+                    status.className = "text-xs text-green-400";
+                    if (type === 'chakra') {
+                        renderChakraTable(json.data, json.latest_info);
+                    } else {
+                        renderWaveTable(json.data, json.latest_info);
+                    }
+                    return; // 使用暫存，結束函數
+                } catch (e) {
+                    console.error("Cache parsing error", e);
+                }
+            }
+
             try {
                 // [雲端獨立版] 綁定專屬的 Google Apps Script 雲端 API 網址
                 const baseUrl = "https://script.google.com/macros/s/AKfycbw2FMlLYCU1h3nRijUHfZKuKXyZeu4_DrYGR393_z3hB4HRwQctwapoPnPK2EKY4qXL_g/exec";
@@ -308,6 +333,10 @@
                 const json = await response.json();
                 
                 if (json.status === "success") {
+                    // 寫入暫存
+                    localStorage.setItem(CACHE_KEY, JSON.stringify(json));
+                    localStorage.setItem(CACHE_TIME_KEY, now.toString());
+
                     status.textContent = `✅ 已同步雲端最新資料`;
                     status.className = "text-xs text-green-400";
                     if(type === 'chakra') {
@@ -320,9 +349,21 @@
                 }
             } catch (error) {
                 console.error(error);
+                // 若網路失敗，檢查是否有過期暫存可作備用
+                if (cachedDataStr) {
+                    try {
+                        const json = JSON.parse(cachedDataStr);
+                        status.textContent = "⚠️ 網路斷線，目前顯示歷史暫存資料";
+                        status.className = "text-xs text-yellow-400 animate-pulse";
+                        if (type === 'chakra') renderChakraTable(json.data, json.latest_info);
+                        else renderWaveTable(json.data, json.latest_info);
+                        return;
+                    } catch(e) {}
+                }
+                
                 status.textContent = "⚠️ 本機伺服器連線失敗或無資料";
                 status.className = "text-xs text-red-400";
-                document.getElementById(type === 'chakra' ? 'chakraPreviewBody' : 'wavePreviewBody').innerHTML = `<tr><td colspan="11" class="text-red-400 py-4">資料載入失敗，請確認本機 K2 已產出資料。</td></tr>`;
+                document.getElementById(type === 'chakra' ? 'chakraPreviewBody' : 'wavePreviewBody').innerHTML = `<tr><td colspan="11" class="text-red-400 py-4 text-center">資料載入失敗，請確認本機 K2 已產出資料。</td></tr>`;
             }
         }
 
