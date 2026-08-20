@@ -423,17 +423,21 @@
             select.innerHTML = ''; 
             
             let minYear = 2025;
-            let maxYear = 2026;
+            let maxYear = 2025;
 
-            // 根據不同產品，設定對應的歷史資料起始年份
+            // 根據不同產品，設定對應的歷史資料起始年份與最大年份
             if (tabId === 'wave') {
-                minYear = 1998; // 期貨最早到 1998
+                minYear = 1998; 
+                maxYear = 2025;
             } else if (tabId === 'p3_m' || tabId === 'p3_w') {
-                minYear = 2017; // 一般選擇權最早到 2017
+                minYear = 2017; 
+                maxYear = 2025;
             } else if (tabId === 'p3_f') {
-                minYear = 2024; // 週五選從 2024 (或2025) 開始
+                minYear = 2024;
+                maxYear = 2025;
             } else if (tabId === 'vix') {
-                minYear = 2026; // VIX 從 2026 雲端資料庫開始
+                minYear = 2026; 
+                maxYear = 2026; // VIX 雲端資料庫有今年的資料
             }
 
             for (let y = maxYear; y >= minYear; y--) {
