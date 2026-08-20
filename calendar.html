@@ -23,7 +23,7 @@
         .star-med { color: #F97316; }
     </style>
 </head>
-<body class="fixed inset-0 flex flex-col overflow-hidden bg-slate-900 font-sans w-full">
+<body class="bg-slate-900 font-sans min-h-screen flex flex-col w-full">
     
     <!-- 背景裝飾 -->
     <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-900/20 blur-[120px] pointer-events-none"></div>
@@ -36,7 +36,7 @@
 
     
     <!-- 手機版頂部導覽列 (只在小螢幕顯示) -->
-    <div class="md:hidden flex items-center justify-between bg-gray-900 border-b border-gray-700 p-3 shrink-0 z-30 shadow-md">
+    <div class="md:hidden flex items-center justify-between bg-gray-900 border-b border-gray-700 p-3 shrink-0 z-40 shadow-md sticky top-0">
         <a href="index.html" class="flex items-center gap-2">
             <span class="logo-icon text-xl text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]">⚡</span>
             <span class="text-lg tracking-wider text-slate-100 font-bold drop-shadow-md">KITT OP</span>
@@ -58,12 +58,12 @@
     </script>
 
     <!-- 內容區 -->
-    <div class="flex flex-1 overflow-hidden w-full relative">
+    <div class="flex flex-1 w-full relative">
         <!-- 手機版側邊欄遮罩 -->
         <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-40 hidden md:hidden backdrop-blur-sm" onclick="mobileMenuToggleSafe()"></div>
         
         <!-- 左側 Sidebar (系統選單) -->
-        <aside id="sidebar" class="w-[220px] sidebar flex flex-col z-50 shrink-0 bg-gray-900 border-r border-gray-700 shadow-2xl h-full fixed md:relative transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+        <aside id="sidebar" class="w-[220px] sidebar flex flex-col z-50 shrink-0 bg-gray-900 border-r border-gray-700 shadow-2xl h-[100dvh] fixed top-0 left-0 md:sticky md:top-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
     <!-- 頂部 Logo -->
     <a href="index.html" class="h-[60px] flex items-center justify-center gap-2 border-b border-gray-800 bg-black/20 shrink-0 hover:bg-black/40 transition-colors">
         <span class="logo-icon text-2xl text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]">⚡</span>
@@ -169,7 +169,7 @@
     </div>
 </aside>
 
-        <main id="mainContent" class="flex-1 flex flex-col p-3 md:p-6 z-10 w-full overflow-y-auto relative">
+        <main id="mainContent" class="flex-1 flex flex-col p-3 md:p-6 z-10 w-full relative">
         
         
         <!-- 統一主標題 -->
