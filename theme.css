@@ -19,7 +19,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* 預設深色模式的表頭與首欄 (X與Y軸) 背景色區分 */
 table th, .row-header, .sticky-col {
-    background-color: #1E293B !important; /* Tailwind slate-800 */
+    background-color: #334155 !important; /* Tailwind slate-700 (比 slate-800 亮，做出版塊區分) */
 }
 
 /* ================= 淺色主題 (可愛咖啡風) 覆蓋 ================= */

@@ -741,7 +741,7 @@
                 const val = avgData[s];
                 const td = document.createElement("td");
                 td.textContent = val;
-                if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                if (val !== "") td.classList.add("color-avg-data");
                 trAvg.appendChild(td);
             }
             tbody.appendChild(trAvg);
