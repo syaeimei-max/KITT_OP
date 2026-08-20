@@ -858,6 +858,16 @@
                 else avgData[s] = "";
             }
 
+            // VIX 專屬著色邏輯 (波動指數的標準差範圍較窄)
+            function getVixColorClass(valStr, avg) {
+                const val = parseFloat(valStr);
+                if (isNaN(val) || avg === 0) return "color-lv0";
+                if (val > avg * 1.15) return "color-lv3"; // 超出均值 15% (粉紅/極端)
+                if (val > avg * 1.05) return "color-lv2"; // 超出均值 5% (紅色/高波)
+                if (val > avg * 0.95) return "color-lv1"; // 均值附近 (黃色/中波)
+                return "color-lv0"; // 低於均值 (白色/平靜)
+            }
+
             // Render '平均' row
             const trAvg = document.createElement("tr");
             const thAvg = document.createElement("td");
@@ -869,7 +879,7 @@
                 const val = avgData[s];
                 const td = document.createElement("td");
                 td.textContent = val;
-                if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                if (val !== "") td.classList.add(getVixColorClass(val, globalAvg));
                 trAvg.appendChild(td);
             }
             tbody.appendChild(trAvg);
@@ -921,7 +931,7 @@
                     const td = document.createElement("td");
                     td.textContent = val;
                     if (val === "休市") td.classList.add("color-gray");
-                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    else if (val !== "") td.classList.add(getVixColorClass(val, globalAvg));
                     tr.appendChild(td);
                 }
                 tbody.appendChild(tr);
