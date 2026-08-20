@@ -269,6 +269,32 @@
                 </div>
             </div>
 
+            <!-- 波動率 (VIX) -->
+            <div class="glass-panel p-6 rounded-2xl relative group">
+                <div class="flex flex-wrap items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl text-teal-400">📈</span>
+                        <h2 class="text-xl font-bold text-slate-200">波動率 (VIX)</h2>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="statusVix" class="text-xs text-yellow-400">正在從伺服器拉取最新資料...</span>
+                    </div>
+                </div>
+                <div class="overflow-x-auto relative">
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th>週別</th>
+                                <th>三日</th><th>四日</th><th>五日</th><th>一日</th><th>二日</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vixPreviewBody">
+                            <tr><td colspan="6" class="loading-cell py-8 text-center text-slate-500">正在從伺服器拉取最新數據...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
 
     </main>
@@ -326,6 +352,14 @@
                         renderChakraTable(json.data, json.latest_info);
                     } else {
                         renderWaveTable(json.data, json.latest_info);
+                        if (json.vix) {
+                            renderVixTable(json.vix);
+                            const statusVix = document.getElementById('statusVix');
+                            if(statusVix) {
+                                statusVix.textContent = `✅ 已載入本地暫存資料`;
+                                statusVix.className = "text-xs text-green-400";
+                            }
+                        }
                     }
                     return; // 使用暫存，結束函數
                 } catch (e) {
@@ -352,6 +386,14 @@
                         renderChakraTable(json.data, json.latest_info);
                     } else {
                         renderWaveTable(json.data, json.latest_info);
+                        if (json.vix) {
+                            renderVixTable(json.vix);
+                            const statusVix = document.getElementById('statusVix');
+                            if(statusVix) {
+                                statusVix.textContent = `✅ 已同步雲端最新資料`;
+                                statusVix.className = "text-xs text-green-400";
+                            }
+                        }
                     }
                 } else {
                     throw new Error(json.message);
@@ -364,8 +406,19 @@
                         const json = JSON.parse(cachedDataStr);
                         status.textContent = "⚠️ 網路斷線，目前顯示歷史暫存資料";
                         status.className = "text-xs text-yellow-400 animate-pulse";
-                        if (type === 'chakra') renderChakraTable(json.data, json.latest_info);
-                        else renderWaveTable(json.data, json.latest_info);
+                        if (type === 'chakra') {
+                            renderChakraTable(json.data, json.latest_info);
+                        } else {
+                            renderWaveTable(json.data, json.latest_info);
+                            if (json.vix) {
+                                renderVixTable(json.vix);
+                                const statusVix = document.getElementById('statusVix');
+                                if(statusVix) {
+                                    statusVix.textContent = "⚠️ 網路斷線，目前顯示歷史暫存資料";
+                                    statusVix.className = "text-xs text-yellow-400 animate-pulse";
+                                }
+                            }
+                        }
                         return;
                     } catch(e) {}
                 }
@@ -373,6 +426,9 @@
                 status.textContent = "⚠️ 本機伺服器連線失敗或無資料";
                 status.className = "text-xs text-red-400";
                 document.getElementById(type === 'chakra' ? 'chakraPreviewBody' : 'wavePreviewBody').innerHTML = `<tr><td colspan="11" class="text-red-400 py-4 text-center">資料載入失敗，請確認本機 K2 已產出資料。</td></tr>`;
+                if (type === 'wave') {
+                    document.getElementById('vixPreviewBody').innerHTML = `<tr><td colspan="6" class="text-red-400 py-4 text-center">資料載入失敗，請確認本機 K2 已產出資料。</td></tr>`;
+                }
             }
         }
 
@@ -596,6 +652,77 @@
             });
         }
 
+        function renderVixTable(data) {
+            const tbody = document.getElementById("vixPreviewBody");
+            tbody.innerHTML = "";
+            
+            if (!data || Object.keys(data).length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-gray-500 py-8 text-center">查無資料</td></tr>`;
+                return;
+            }
+
+            const dateKeys = Object.keys(data).sort().reverse();
+            const slotsOrder = ['三日', '四日', '五日', '一日', '二日'];
+
+            let sum = 0, count = 0;
+            for (let key of dateKeys) {
+                if (data[key]) {
+                    for (let s of slotsOrder) {
+                        let v = parseFloat(data[key][s]);
+                        if (!isNaN(v)) { sum += v; count++; }
+                    }
+                }
+            }
+            const globalAvg = count > 0 ? sum / count : 0;
+
+            const avgData = {};
+            for (let s of slotsOrder) {
+                let colSum = 0, colCount = 0;
+                for (let key of dateKeys) {
+                    if (data[key] && data[key][s] && data[key][s] !== "休市") {
+                        let v = parseFloat(data[key][s]);
+                        if (!isNaN(v)) { colSum += v; colCount++; }
+                    }
+                }
+                if (colCount > 0) avgData[s] = (colSum / colCount).toFixed(2);
+                else avgData[s] = "";
+            }
+
+            // Render '平均' row
+            const trAvg = document.createElement("tr");
+            const thAvg = document.createElement("td");
+            thAvg.className = "row-header color-avg";
+            thAvg.textContent = "平均";
+            trAvg.appendChild(thAvg);
+            
+            for (let s of slotsOrder) {
+                const val = avgData[s];
+                const td = document.createElement("td");
+                td.textContent = val;
+                if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                trAvg.appendChild(td);
+            }
+            tbody.appendChild(trAvg);
+
+            // Render date rows
+            dateKeys.forEach(rowName => {
+                const tr = document.createElement("tr");
+                const th = document.createElement("td");
+                th.className = "row-header color-m";
+                th.textContent = rowName;
+                tr.appendChild(th);
+                
+                for (let s of slotsOrder) {
+                    const val = data[rowName][s] !== undefined ? data[rowName][s] : "";
+                    const td = document.createElement("td");
+                    td.textContent = val;
+                    if (val === "休市") td.classList.add("color-gray");
+                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
     </script>
     <script src="theme.js"></script>
     </div>
