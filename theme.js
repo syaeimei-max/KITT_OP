@@ -64,3 +64,18 @@ function getRelativeColorClass(valStr, avg) {
     if (val > avg * 0.9) return "color-lv1"; // 中高波動
     return "color-lv0"; // 日常波動
 }
+
+// ================= 手機版側邊欄 =================
+function toggleMobileMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('mobileOverlay');
+    if (sidebar && overlay) {
+        if (sidebar.classList.contains('-translate-x-full')) {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+        } else {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        }
+    }
+}
