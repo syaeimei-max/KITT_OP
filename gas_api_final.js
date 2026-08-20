@@ -331,7 +331,26 @@ function processVixWeb(days) {
     }
   }
   
+  // 縫補前高亮計算
+  var maxDt = null;
+  for (var key in rawVix) {
+    if (!maxDt || rawVix[key].dt > maxDt) maxDt = rawVix[key].dt;
+  }
+
   var sortedKeys = Object.keys(weeksData).sort().reverse().slice(0, 6);
+  
+  // 六週縫合 (Patching)
+  if (sortedKeys.length >= 2) {
+    var newest = sortedKeys[0];
+    var oldest = sortedKeys[sortedKeys.length - 1];
+    for (var i = 0; i < slotsOrder.length; i++) {
+      var sn = slotsOrder[i];
+      if (weeksData[newest][sn] === undefined && weeksData[oldest][sn] !== undefined) {
+        weeksData[newest][sn] = weeksData[oldest][sn];
+      }
+    }
+  }
+
   var finalVix = {};
   
   for (var i = 0; i < sortedKeys.length; i++) {
@@ -349,7 +368,19 @@ function processVixWeb(days) {
     finalVix[weekKey] = weekRes;
   }
   
-  return finalVix;
+  var li = {};
+  if (maxDt) {
+    var wDay = maxDt.getDay();
+    var hSlot = null;
+    if (wDay === 3) hSlot = '三日';
+    else if (wDay === 4) hSlot = '四日';
+    else if (wDay === 5) hSlot = '五日';
+    else if (wDay === 1) hSlot = '一日';
+    else if (wDay === 2) hSlot = '二日';
+    li.vix_high_col = slotsOrder.indexOf(hSlot);
+  }
+  
+  return { data: finalVix, li: li };
 }
 
 // 用於區間查詢 (指定特定日期) 的 VIX 爬蟲
