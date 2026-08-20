@@ -110,14 +110,25 @@ window.checkAuth = function(featureName) {
     if (!user) {
         if (typeof Swal !== 'undefined') {
             Swal.fire({
-                icon: 'warning',
-                title: '會員專屬功能',
-                text: `請先點擊左上方「Google 登入」按鈕，即可解鎖「${featureName}」！`,
-                confirmButtonColor: '#3b82f6',
-                confirmButtonText: '好，我登入'
+                icon: 'info',
+                title: '免費加入會員看更多',
+                html: `
+                    <div class="text-sm text-slate-500 mb-4 mt-2 font-medium">記得登入會員，即可免費解鎖「${featureName}」等全部功能！</div>
+                    <div id="swal-google-btn-container" class="flex justify-center mt-4 min-h-[44px]"></div>
+                `,
+                showConfirmButton: false,
+                showCloseButton: true,
+                didOpen: () => {
+                    if (window.google && google.accounts && google.accounts.id) {
+                        google.accounts.id.renderButton(
+                            document.getElementById("swal-google-btn-container"),
+                            { theme: "outline", size: "large", type: "standard", text: "signin_with", shape: "rectangular" }
+                        );
+                    }
+                }
             });
         } else {
-            alert(`請先點擊左上方「Google 登入」按鈕，即可解鎖「${featureName}」！`);
+            alert(`免費加入會員看更多！\n請先點擊左上方「Google 登入」按鈕，即可免費解鎖「${featureName}」等全部功能！`);
         }
         return false;
     }
