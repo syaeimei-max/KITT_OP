@@ -39,6 +39,13 @@ body.theme-light table td {
 }
 
 /* 側邊欄固定列與行標題 */
+.sidebar-section-header {
+    background-color: rgba(30, 41, 59, 0.5); /* 淡淡的深灰藍底色 (深色模式) */
+}
+body.theme-light .sidebar-section-header {
+    background-color: rgba(210, 180, 140, 0.3) !important; /* 淡淡的咖啡底色 (淺色模式) */
+}
+
 body.theme-light .sticky-col,
 body.theme-light table th:first-child,
 body.theme-light table td:first-child {
