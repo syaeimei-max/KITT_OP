@@ -75,7 +75,8 @@ body.theme-light aside {
 /* 標題與內文顏色切換 */
 body.theme-light .text-slate-100,
 body.theme-light .text-slate-200, 
-body.theme-light .text-gray-200 {
+body.theme-light .text-gray-200,
+body.theme-light .text-gray-300 {
     color: #3E2723 !important; /* 轉深咖啡/黑色 */
 }
 body.theme-light .text-slate-400,
@@ -101,8 +102,10 @@ body.theme-light .text-slate-100\/30 { color: #8D6E63 !important; }
 
 /* 按鈕與區塊背景切換 */
 body.theme-light .bg-gray-900,
+body.theme-light .bg-gray-900\/50,
 body.theme-light .bg-slate-950,
 body.theme-light .bg-slate-900,
+body.theme-light .bg-slate-900\/50,
 body.theme-light .bg-gray-800,
 body.theme-light .bg-slate-800,
 body.theme-light .bg-gray-700,
