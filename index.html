@@ -388,6 +388,7 @@
                         
                         const td = document.createElement("td");
                         td.colSpan = 10;
+                        td.rowSpan = 4; // F2, F3, F4, F5 總共 4 週
                         td.className = "freemium-overlay backdrop-blur-sm relative group cursor-pointer";
                         td.setAttribute("onclick", "openLoginModal()");
                         td.innerHTML = `
@@ -401,6 +402,13 @@
                         return;
                     }
                     if (rowName === "F3" || rowName === "F4" || rowName === "F5") {
+                        const tr = document.createElement("tr");
+                        const th = document.createElement("td");
+                        th.className = "row-header color-f";
+                        th.textContent = rowName;
+                        tr.appendChild(th);
+                        // 後方的 10 欄已被 F2 的 rowspan 佔據，不需渲染
+                        tbody.appendChild(tr);
                         return;
                     }
                 }
@@ -493,6 +501,7 @@
                         
                         const td = document.createElement("td");
                         td.colSpan = 10;
+                        td.rowSpan = rowsToRender.length - 2; // 動態計算剩餘的列數
                         td.className = "freemium-overlay backdrop-blur-sm relative group cursor-pointer";
                         td.setAttribute("onclick", "openLoginModal()");
                         td.innerHTML = `
@@ -506,6 +515,13 @@
                         return;
                     }
                     if (index > 2) {
+                        const tr = document.createElement("tr");
+                        const th = document.createElement("td");
+                        th.className = "row-header color-w";
+                        th.textContent = dt.length === 6 ? "20" + dt : dt;
+                        tr.appendChild(th);
+                        // 後方的 10 欄已被 index 2 的 rowspan 佔據，不需渲染
+                        tbody.appendChild(tr);
                         return;
                     }
                 }
