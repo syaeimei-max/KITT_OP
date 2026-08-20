@@ -293,13 +293,27 @@
             const CACHE_KEY = 'kitt_cache_data_calendar';
             const CACHE_TIME_KEY = 'kitt_cache_time_calendar';
             const CACHE_DURATION = 3 * 60 * 60 * 1000; // 3 小時
+
+            // 智慧快取判定：跨越關鍵更新時間自動失效
+            function isCacheValid(cacheTimeStr, nowTs) {
+                if (!cacheTimeStr) return false;
+                const ct = parseInt(cacheTimeStr);
+                if (nowTs - ct > CACHE_DURATION) return false;
+                
+                const nd = new Date(nowTs);
+                const t1430 = new Date(nd.getFullYear(), nd.getMonth(), nd.getDate(), 14, 30, 0).getTime();
+                const t0830 = new Date(nd.getFullYear(), nd.getMonth(), nd.getDate(), 8, 30, 0).getTime();
+                
+                if (ct < t1430 && nowTs >= t1430) return false;
+                if (ct < t0830 && nowTs >= t0830) return false;
+                return true;
+            }
             
-            // 1. 檢查有效暫存
             const cachedDataStr = localStorage.getItem(CACHE_KEY);
             const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
             const now = Date.now();
 
-            if (cachedDataStr && cachedTime && (now - parseInt(cachedTime) < CACHE_DURATION)) {
+            if (cachedDataStr && isCacheValid(cachedTime, now)) {
                 try {
                     const data = JSON.parse(cachedDataStr);
                     renderCalendar(data);

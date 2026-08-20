@@ -1096,8 +1096,6 @@ function processFutures(csvText) {
         data[newest][i] = data[oldest][i];
       }
     }
-    // 縫合完成後，刪除第 6 週，只吐出 5 週給前端/手機端，徹底避免手機端重複縫合
-    delete data[oldest];
   }
 
   // Step 6: 高亮
