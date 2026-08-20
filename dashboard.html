@@ -212,8 +212,8 @@
                         <input type="date" id="startDate" class="bg-gray-900 border border-gray-600 text-sm p-2 rounded text-gray-200 flex-1 min-w-0">
                         <span class="text-gray-500 font-bold">-</span>
                         <input type="date" id="endDate" class="bg-gray-900 border border-gray-600 text-sm p-2 rounded text-gray-200 flex-1 min-w-0">
-                        <button onclick="queryRange()" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-2 rounded text-sm font-bold shadow transition-colors whitespace-nowrap shrink-0 flex items-center gap-1">🔍 查詢</button>
                     </div>
+                    <button onclick="queryRange()" class="bg-blue-600 hover:bg-blue-500 text-white w-full py-2 rounded text-sm font-bold shadow transition-colors flex justify-center items-center gap-1 mt-1">🔍 查詢區間資料</button>
                 </div>
                 
                 <!-- 年度回測面板 -->
@@ -225,8 +225,8 @@
                         <select id="yearSelect" class="bg-gray-900 border border-gray-600 text-sm p-2 rounded text-gray-200 flex-1 min-w-0">
                             <!-- JS 動態生成 -->
                         </select>
-                        <button onclick="queryYearly()" class="bg-yellow-700 hover:bg-yellow-600 text-white px-3 py-2 rounded text-sm font-bold shadow transition-colors whitespace-nowrap shrink-0 flex items-center gap-1">🔍 查詢</button>
                     </div>
+                    <button onclick="queryYearly()" class="bg-yellow-700 hover:bg-yellow-600 text-white w-full py-2 rounded text-sm font-bold shadow transition-colors flex justify-center items-center gap-1 mt-1">🔍 查詢年度資料</button>
                 </div>
                 
             </div>
@@ -247,16 +247,14 @@
         <!-- 內容滾動區 -->
         <div class="w-full relative">
 
-            <!-- 嘆息之牆標題 + 四大選單 -->
-            <div class="max-w-7xl mx-auto flex items-center gap-4 mb-4">
-                <h3 class="text-lg font-bold text-blue-400 flex items-center gap-2 shrink-0">
-                    <span>👑 嘆息之牆</span>
-                </h3>
-                <div class="flex gap-2">
-                    <button onclick="switchTab('p3_w')" id="btn_p3_w" class="tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all bg-blue-600 border-blue-400 text-white shadow-[0_0_10px_rgba(59,130,246,0.5)]">週三選</button>
-                    <button onclick="switchTab('p3_f')" id="btn_p3_f" class="tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">週五選</button>
-                    <button onclick="switchTab('p3_m')" id="btn_p3_m" class="tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">月選</button>
-                    <button onclick="switchTab('wave')" id="btn_wave" class="tab-btn px-4 py-1.5 rounded border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">期貨</button>
+            <!-- 四大選單 (移除贅字標題，手機版滿版且可滑動) -->
+            <div class="max-w-7xl mx-auto mb-4 overflow-x-auto hide-scroll pb-1">
+                <style>.hide-scroll::-webkit-scrollbar { display: none; } .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }</style>
+                <div class="flex gap-2 min-w-max">
+                    <button onclick="switchTab('p3_w')" id="btn_p3_w" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all bg-blue-600 border-blue-400 text-white shadow-[0_0_10px_rgba(59,130,246,0.5)]">週三選</button>
+                    <button onclick="switchTab('p3_f')" id="btn_p3_f" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">週五選</button>
+                    <button onclick="switchTab('p3_m')" id="btn_p3_m" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">月選</button>
+                    <button onclick="switchTab('wave')" id="btn_wave" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">期貨</button>
                 </div>
             </div>
         

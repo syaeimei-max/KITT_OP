@@ -49,7 +49,7 @@ body.theme-light .row-header {
 }
 
 /* 特殊文字顏色微調 (淺色模式下的辨識度) */
-body.theme-light .color-avg { color: #1E3A8A !important; font-weight: 900 !important; background-color: rgba(59, 130, 246, 0.15) !important; } /* 平均色改為深藍並加粗 */
+body.theme-light .color-avg { color: #1E3A8A !important; font-weight: 900 !important; background-color: #DDE5F4 !important; } /* 平均色改為深藍並加粗，改用實體色避免重疊 */
 body.theme-light .color-gray { color: #9CA3AF !important; } /* 休市維持灰 */
 body.theme-light .color-w { color: #6D28D9 !important; font-weight: 800 !important; } /* 週別標題加深 */
 
