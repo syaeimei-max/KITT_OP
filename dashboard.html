@@ -212,7 +212,7 @@
         <!-- 統一主標題 -->
         <div class="w-full flex items-center gap-4 mb-6 pb-4 border-b border-slate-700/50">
             <span class="text-3xl drop-shadow-md">📉</span>
-            <h1 class="text-2xl font-bold text-slate-100 tracking-wider flex items-end">嘆息之牆 <span class="text-base text-slate-500 font-normal ml-4 tracking-normal hidden sm:inline-block">| 年度歷史資料與回測</span></h1>
+            <h1 class="text-2xl font-bold text-slate-100 tracking-wider flex items-end">嘆息之牆 <span class="text-base text-slate-500 font-normal ml-4 tracking-normal hidden sm:inline-block">| 年度歷史資料查詢</span></h1>
         </div>
         
         <!-- 全域查詢工具列 -->
@@ -222,8 +222,9 @@
                 
                 <!-- 區間查詢面板 -->
                 <div class="flex-1 min-w-[320px] bg-slate-800 border border-slate-700 p-4 rounded-xl shadow-md flex flex-col gap-3 control-panel">
-                    <div>
-                        <span class="bg-blue-600 text-white px-3 py-1.5 rounded text-sm font-bold shadow">區間資料</span>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-blue-600 text-white px-3 py-1.5 rounded text-sm font-bold shadow whitespace-nowrap">歷史區間</span>
+                        <span class="text-xs text-slate-400 font-bold hidden md:inline-block">*期交所區間查詢以一個月為限/每次</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <input type="date" id="startDate" class="bg-gray-900 border border-gray-600 text-sm p-2 rounded text-gray-200 flex-1 min-w-0">
@@ -235,8 +236,9 @@
                 
                 <!-- 年度回測面板 -->
                 <div class="flex-1 min-w-[320px] bg-slate-800 border border-slate-700 p-4 rounded-xl shadow-md flex flex-col gap-3 control-panel">
-                    <div>
-                        <span class="bg-yellow-700 text-white px-3 py-1.5 rounded text-sm font-bold shadow">年度資料</span>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-yellow-700 text-white px-3 py-1.5 rounded text-sm font-bold shadow whitespace-nowrap">歷史年度</span>
+                        <span class="text-xs text-slate-400 font-bold hidden md:inline-block">*期交所每年初發布上一年度</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <select id="yearSelect" class="bg-gray-900 border border-gray-600 text-sm p-2 rounded text-gray-200 flex-1 min-w-0">
