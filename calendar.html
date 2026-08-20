@@ -281,6 +281,24 @@
         async function fetchCalendar() {
             const GAS_URL = "https://script.google.com/macros/s/AKfycbw2FMlLYCU1h3nRijUHfZKuKXyZeu4_DrYGR393_z3hB4HRwQctwapoPnPK2EKY4qXL_g/exec";
             const tbody = document.getElementById('calBody');
+            const CACHE_KEY = 'kitt_cache_data_calendar';
+            const CACHE_TIME_KEY = 'kitt_cache_time_calendar';
+            const CACHE_DURATION = 3 * 60 * 60 * 1000; // 3 小時
+            
+            // 1. 檢查有效暫存
+            const cachedDataStr = localStorage.getItem(CACHE_KEY);
+            const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+            const now = Date.now();
+
+            if (cachedDataStr && cachedTime && (now - parseInt(cachedTime) < CACHE_DURATION)) {
+                try {
+                    const data = JSON.parse(cachedDataStr);
+                    renderCalendar(data);
+                    return; // 使用暫存，結束函數
+                } catch (e) {
+                    console.error("Cache parsing error", e);
+                }
+            }
 
             try {
                 const response = await fetch(GAS_URL + "?type=calendar");
@@ -293,11 +311,35 @@
                 }
                 if (!Array.isArray(data)) throw new Error('回傳格式異常');
 
+                // 寫入暫存
+                localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+                localStorage.setItem(CACHE_TIME_KEY, now.toString());
+
+                renderCalendar(data);
+
+            } catch (error) {
+                console.error(error);
+                // 網路失敗時若有舊暫存則顯示
+                if (cachedDataStr) {
+                    try {
+                        const data = JSON.parse(cachedDataStr);
+                        renderCalendar(data);
+                        return;
+                    } catch(e) {}
+                }
+                tbody.innerHTML = `<tr><td colspan="5" class="py-12 text-center text-red-400">行事曆載入失敗，請確認本機 K2 已產出資料。</td></tr>`;
+            }
+        }
+
+        function renderCalendar(data) {
+            const tbody = document.getElementById('calBody');
+            
+            try {
                 // ===== 智慧過濾 (D2 邏輯) =====
                 const now = new Date();
-                // 台北時間的今天日期字串 (YYYY-MM-DD)
-                const todayTag = now.getFullYear() + '-' +
-                    String(now.getMonth() + 1).padStart(2, '0') + '-' +
+            // 台北時間的今天日期字串 (YYYY-MM-DD)
+            const todayTag = now.getFullYear() + '-' +
+                String(now.getMonth() + 1).padStart(2, '0') + '-' +
                     String(now.getDate()).padStart(2, '0');
 
                 const filtered = [];
