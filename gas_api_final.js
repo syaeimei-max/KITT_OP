@@ -131,7 +131,58 @@ function doGet(e) {
     }
   }
 
+  // 會員登入記錄 (Google Identity Services)
+  if (type === "login") {
+    var email = e.parameter.email;
+    var name = e.parameter.name;
+    var picture = e.parameter.picture;
+    
+    if (!email) return jr({ status: "error", message: "缺少 email 參數" });
+    
+    try {
+      var sheetId = "1ZBfpxVKxgU5_StYL9ZMSr3tcZ2UtGm7u-cqsCMljPPg";
+      var ss = SpreadsheetApp.openById(sheetId);
+      var sheet = ss.getSheetByName("Member_DB");
+      
+      if (!sheet) {
+        sheet = ss.insertSheet("Member_DB");
+        sheet.appendRow(["姓名", "Email", "照片", "首次註冊時間", "最後登入時間"]);
+      }
+      
+      var data = sheet.getDataRange().getValues();
+      var foundRow = -1;
+      
+      for (var i = 0; i < data.length; i++) {
+        if (data[i][1] === email) {
+          foundRow = i + 1;
+          break;
+        }
+      }
+      
+      var nowStr = Utilities.formatDate(new Date(), "Asia/Taipei", "yyyy-MM-dd HH:mm:ss");
+      
+      if (foundRow !== -1) {
+        sheet.getRange(foundRow, 1).setValue(name);
+        sheet.getRange(foundRow, 3).setValue(picture);
+        sheet.getRange(foundRow, 5).setValue(nowStr);
+        return jr({ status: "success", message: "登入成功" });
+      } else {
+        if (data.length === 1 && data[0][0] === "") {
+          sheet.getRange(1, 1, 1, 5).setValues([["姓名", "Email", "照片", "首次註冊時間", "最後登入時間"]]);
+        }
+        sheet.appendRow([name, email, picture, nowStr, nowStr]);
+        return jr({ status: "success", message: "註冊成功" });
+      }
+    } catch(err) {
+      return jr({ status: "error", message: "會員資料庫連線失敗: " + err.toString() });
+    }
+  }
+
   return jr({ status: "error", message: "無效的 type 參數" });
+}
+
+function doPost(e) {
+  return doGet(e);
 }
 
 function jr(obj) {
