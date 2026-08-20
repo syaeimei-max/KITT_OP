@@ -174,48 +174,48 @@
                 <h1 class="text-2xl font-bold text-slate-100 tracking-wider">希臘神算殿 <span class="text-2xl text-slate-500 font-normal ml-2">| 台指預估開盤</span></h1>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
                 <!-- 左側：輸入基準區 -->
-                <div class="space-y-6">
-                    <div class="bg-slate-800/50 p-5 rounded-2xl border border-slate-700">
-                        <label class="block text-sm font-medium text-slate-400 mb-2">台指夜盤基準</label>
-                        <input type="number" id="txBase" value="46290" class="w-full bg-slate-950 border border-slate-600 rounded-lg px-4 py-3 text-2xl font-bold text-white focus:outline-none focus:border-blue-500 transition-colors" oninput="calcOpen()">
+                <div class="space-y-4">
+                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                        <label class="block text-xs font-medium text-slate-400 mb-1.5">台指夜盤基準</label>
+                        <input type="number" id="txBase" value="46290" class="w-full bg-slate-950 border border-slate-600 rounded-md px-3 py-2 text-lg font-bold text-white focus:outline-none focus:border-blue-500 transition-colors" oninput="calcOpen()">
                     </div>
                     
-                    <div class="bg-slate-800/50 p-5 rounded-2xl border border-slate-700">
-                        <label class="block text-sm font-medium text-slate-400 mb-2">富台指 05:10</label>
-                        <input type="number" step="0.01" id="twnBase" value="3989.00" class="w-full bg-slate-950 border border-slate-600 rounded-lg px-4 py-3 text-2xl font-bold text-white focus:outline-none focus:border-blue-500 transition-colors" oninput="calcOpen()">
+                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                        <label class="block text-xs font-medium text-slate-400 mb-1.5">富台指 05:10</label>
+                        <input type="number" step="0.01" id="twnBase" value="3989.00" class="w-full bg-slate-950 border border-slate-600 rounded-md px-3 py-2 text-lg font-bold text-white focus:outline-none focus:border-blue-500 transition-colors" oninput="calcOpen()">
                     </div>
                     
-                    <div class="bg-slate-800/50 p-5 rounded-2xl border border-slate-700">
-                        <label class="block text-sm font-medium text-slate-400 mb-2">USD/TWD 基準</label>
-                        <input type="number" step="0.001" id="usdBase" value="33.115" class="w-full bg-slate-950 border border-slate-600 rounded-lg px-4 py-3 text-2xl font-bold text-white focus:outline-none focus:border-blue-500 transition-colors" oninput="calcOpen()">
+                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                        <label class="block text-xs font-medium text-slate-400 mb-1.5">USD/TWD 基準</label>
+                        <input type="number" step="0.001" id="usdBase" value="33.115" class="w-full bg-slate-950 border border-slate-600 rounded-md px-3 py-2 text-lg font-bold text-white focus:outline-none focus:border-blue-500 transition-colors" oninput="calcOpen()">
                     </div>
                 </div>
 
                 <!-- 右側：即時輸入與結果輸出區 -->
                 <div class="flex flex-col justify-start">
                     
-                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 space-y-6 mb-8">
+                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 space-y-4 mb-6">
                         <div>
-                            <label class="block text-sm font-bold text-[#C1E11D] mb-2 flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-[#C1E11D] animate-pulse"></span> 富台即時現價
+                            <label class="block text-xs font-bold text-[#C1E11D] mb-1.5 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#C1E11D] animate-pulse"></span> 富台即時現價
                             </label>
-                            <input type="number" step="0.01" id="twnReal" placeholder="輸入富台現價" class="w-full bg-slate-950 border-2 border-[#C1E11D]/50 rounded-lg px-3 py-2 text-lg font-black text-white focus:outline-none focus:border-[#C1E11D] transition-colors shadow-inner" oninput="calcOpen()">
+                            <input type="number" step="0.01" id="twnReal" placeholder="輸入富台現價" class="w-full bg-slate-950 border-2 border-[#C1E11D]/50 rounded-md px-3 py-2 text-lg font-black text-white focus:outline-none focus:border-[#C1E11D] transition-colors shadow-inner" oninput="calcOpen()">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-[#C1E11D] mb-2 flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-[#C1E11D] animate-pulse"></span> 即時匯率
+                            <label class="block text-xs font-bold text-[#C1E11D] mb-1.5 flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#C1E11D] animate-pulse"></span> 即時匯率
                             </label>
-                            <input type="number" step="0.001" id="usdReal" placeholder="輸入即時匯率" class="w-full bg-slate-950 border-2 border-[#C1E11D]/50 rounded-lg px-3 py-2 text-lg font-black text-white focus:outline-none focus:border-[#C1E11D] transition-colors shadow-inner" oninput="calcOpen()">
+                            <input type="number" step="0.001" id="usdReal" placeholder="輸入即時匯率" class="w-full bg-slate-950 border-2 border-[#C1E11D]/50 rounded-md px-3 py-2 text-lg font-black text-white focus:outline-none focus:border-[#C1E11D] transition-colors shadow-inner" oninput="calcOpen()">
                         </div>
                     </div>
 
                     <!-- 輸出結果 -->
-                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 flex flex-col items-center justify-center flex-1 shadow-lg relative overflow-hidden">
-                        <span class="text-sm font-bold tracking-widest text-slate-400 mb-2 relative z-10">預估開盤點數</span>
-                        <div id="estOpen" class="text-4xl font-black text-slate-600 mb-4 transition-colors relative z-10">---</div>
-                        <div id="estDiff" class="text-lg font-bold text-slate-500 px-3 py-1 rounded bg-slate-800 relative z-10 border border-slate-600 shadow">較基準: ---</div>
+                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700 flex flex-col items-center justify-center flex-1 shadow-lg relative overflow-hidden">
+                        <span class="text-xs font-bold tracking-widest text-slate-400 mb-2 relative z-10">預估開盤點數</span>
+                        <div id="estOpen" class="text-3xl font-black text-slate-600 mb-3 transition-colors relative z-10">---</div>
+                        <div id="estDiff" class="text-sm font-bold text-slate-500 px-3 py-1 rounded bg-slate-800 relative z-10 border border-slate-600 shadow">較基準: ---</div>
                     </div>
                 </div>
             </div>
