@@ -39,9 +39,14 @@ body.theme-light table td {
 }
 
 /* 側邊欄固定列與行標題 */
-body.theme-light .sticky-col {
+body.theme-light .sticky-col,
+body.theme-light table th:first-child,
+body.theme-light table td:first-child {
     background-color: #F0E6D2 !important; /* 加深固定列背景 */
     border-right: 2px solid #C4A47C !important;
+}
+body.theme-light table tr:hover td:first-child {
+    background-color: #F0E6D2 !important; /* 防止 hover 變回黑色或透明 */
 }
 body.theme-light .row-header {
     background-color: #F0E6D2 !important; /* 加深行標題背景 */
