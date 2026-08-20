@@ -8,7 +8,19 @@
 .color-lv2 { color: #FF9800; } /* 高波動：純橘色 */
 .color-lv1 { color: #FDE047; } /* 中高波動：鵝黃色 */
 .color-lv0 { color: #E5E7EB; } /* 日常波動：白色 */
+.color-avg-data { color: #38bdf8 !important; } /* 平均值專屬色：亮藍色 */
 .cell-highlight { background-color: #5D4A1F !important; } /* 高亮標記 (深色) */
+
+/* 深色模式下的原生日期選擇器小圖示反轉為白色 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* 預設深色模式的表頭與首欄 (X與Y軸) 背景色區分 */
+table th, .row-header, .sticky-col {
+    background-color: #1E293B !important; /* Tailwind slate-800 */
+}
 
 /* ================= 淺色主題 (可愛咖啡風) 覆蓋 ================= */
 
@@ -29,7 +41,9 @@ body.theme-light .glass-panel {
 }
 
 /* 表格表頭與邊框 */
-body.theme-light table th {
+body.theme-light table th,
+body.theme-light .row-header,
+body.theme-light .sticky-col {
     background: #E6D5B8 !important; /* 加深表頭背景 */
     color: #3E2723 !important; /* 加深表頭文字 */
 }
@@ -48,8 +62,16 @@ body.theme-light .sidebar-section-header {
 
 body.theme-light .sticky-col,
 body.theme-light table th:first-child,
+body.theme-light .row-header {
+    background: rgba(230, 213, 184, 0.95) !important; /* 確保淺色模式第一欄不透明 */
+}
+
+body.theme-light input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: none;
+}    
+body.theme-light .sticky-col,
+body.theme-light table th:first-child,
 body.theme-light table td:first-child {
-    background-color: #F0E6D2 !important; /* 加深固定列背景 */
     border-right: 2px solid #C4A47C !important;
 }
 body.theme-light table tr:hover td:first-child {

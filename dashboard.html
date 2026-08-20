@@ -754,7 +754,10 @@
                     const td = document.createElement("td");
                     td.textContent = val;
                     if (val === "休市") td.classList.add("color-gray");
-                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    else if (val !== "") {
+                        if (rowName === "平均") td.classList.add("color-avg-data");
+                        else td.classList.add(getRelativeColorClass(val, globalAvg));
+                    }
                     tr.appendChild(td);
                 }
                 tbody.appendChild(tr);
@@ -814,7 +817,10 @@
                     const td = document.createElement("td");
                     td.textContent = val;
                     if (val === "休市") td.classList.add("color-gray");
-                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    else if (val !== "") {
+                        if (rowName === "平均") td.classList.add("color-avg-data");
+                        else td.classList.add(getRelativeColorClass(val, globalAvg));
+                    }
                     tr.appendChild(td);
                 }
                 tbody.appendChild(tr);
@@ -879,7 +885,7 @@
                 const val = avgData[s];
                 const td = document.createElement("td");
                 td.textContent = val;
-                if (val !== "") td.classList.add(getVixColorClass(val, globalAvg));
+                if (val !== "") td.classList.add("color-avg-data");
                 trAvg.appendChild(td);
             }
             tbody.appendChild(trAvg);

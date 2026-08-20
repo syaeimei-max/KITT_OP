@@ -571,7 +571,10 @@
                     }
 
                     if (val === "休市") td.classList.add("color-gray");
-                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    else if (val !== "") {
+                        if (rowName === "平均") td.classList.add("color-avg-data");
+                        else td.classList.add(getRelativeColorClass(val, globalAvg));
+                    }
                     tr.appendChild(td);
                 }
                 tbody.appendChild(tr);
@@ -676,7 +679,11 @@
                     }
                     
                     if (rowData[i] !== "" && rowData[i] !== "休市") {
-                        td.classList.add(getRelativeColorClass(rowData[i], globalAvg)); 
+                        if (dt === "平均") {
+                            td.classList.add("color-avg-data");
+                        } else {
+                            td.classList.add(getRelativeColorClass(rowData[i], globalAvg)); 
+                        }
                     } else if (rowData[i] === "休市") {
                         td.classList.add("color-gray");
                     }
