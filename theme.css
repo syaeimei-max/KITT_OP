@@ -12,6 +12,9 @@
 
 /* ================= 淺色主題 (可愛咖啡風) 覆蓋 ================= */
 
+/* 登入提示文字自動切換 */
+body.theme-light .login-promo-text { color: #166534 !important; } /* 深森林綠 */
+
 /* 全局背景與文字 */
 body.theme-light {
     background: linear-gradient(135deg, #FFF8DC 0%, #FDF5E6 100%) !important;
