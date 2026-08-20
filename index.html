@@ -381,7 +381,7 @@
             if (cachedDataStr && isCacheValid(cachedTime, now, cachedDataStr)) {
                 try {
                     const json = JSON.parse(cachedDataStr);
-                    status.textContent = `✅ 已載入本地暫存資料`;
+                    status.textContent = `✅ 已更新最新資料`;
                     status.className = "text-xs text-green-400";
                     if (type === 'chakra') {
                         renderChakraTable(json.data, json.latest_info);
@@ -391,7 +391,7 @@
                             renderVixTable(json.vix, json.latest_info);
                             const statusVix = document.getElementById('statusVix');
                             if(statusVix) {
-                                statusVix.textContent = `✅ 已載入本地暫存資料`;
+                                statusVix.textContent = `✅ 已更新最新資料`;
                                 statusVix.className = "text-xs text-green-400";
                             }
                         }
