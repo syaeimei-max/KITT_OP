@@ -1023,6 +1023,12 @@ function processOptions(csvText) {
   // === Step 6: 計算高亮資訊 ===
   var li = {};
   if (mdr) {
+    // 寫入資料真實時間戳 (供前端判定新舊資料)
+    var yy = mdr.getFullYear();
+    var mm = String(mdr.getMonth() + 1).padStart(2, '0');
+    var dd = String(mdr.getDate()).padStart(2, '0');
+    li.data_date = yy + '/' + mm + '/' + dd;
+
     var wd = pyWeekday(mdr);
     if (nearest_W && cinfo[nearest_W]) {
       var sn_W = getSlot(wd, mdrIsN);
@@ -1162,6 +1168,12 @@ function processFutures(csvText) {
   // Step 6: 高亮
   var li = {};
   if (maxDt) {
+    // 寫入資料真實時間戳 (供前端判定新舊資料)
+    var yy = maxDt.getFullYear();
+    var mm = String(maxDt.getMonth() + 1).padStart(2, '0');
+    var dd = String(maxDt.getDate()).padStart(2, '0');
+    li.data_date = yy + '/' + mm + '/' + dd;
+
     var pw = pyWeekday(maxDt);
     var sn = getSlot(pw, maxIsN);
     li.wave_high_col = SLOTS.indexOf(sn);

@@ -336,20 +336,41 @@
             const status = document.getElementById(type === 'chakra' ? 'statusChakra' : 'statusWave');
             const CACHE_KEY = `kitt_cache_data_${type}_v2`;
             const CACHE_TIME_KEY = `kitt_cache_time_${type}_v2`;
-            const CACHE_DURATION = 3 * 60 * 60 * 1000; // 3小時 (毫秒)
             const CACHE_DURATION = 3 * 60 * 60 * 1000;
 
-            function isCacheValid(cacheTimeStr, nowTs) {
-                if (!cacheTimeStr) return false;
+            function isCacheValid(cacheTimeStr, nowTs, cachedDataStr) {
+                if (!cacheTimeStr || !cachedDataStr) return false;
                 const ct = parseInt(cacheTimeStr);
-                if (nowTs - ct > CACHE_DURATION) return false;
                 
+                // 1. 短快取保護：如果距離上次抓取還不到 1 分鐘，無論如何都快取 (防禦重整攻擊，即使是舊資料也不要狂打 GAS)
+                if (nowTs - ct < 60 * 1000) return true;
+
+                // 2. 解析本地資料，提取最新資料的真實日期
+                let dataDateStr = null;
+                try {
+                    const json = JSON.parse(cachedDataStr);
+                    if (json && json.latest_info && json.latest_info.data_date) {
+                        dataDateStr = json.latest_info.data_date;
+                    }
+                } catch(e) {}
+
                 const nd = new Date(nowTs);
                 const t1430 = new Date(nd.getFullYear(), nd.getMonth(), nd.getDate(), 14, 30, 0).getTime();
                 const t0830 = new Date(nd.getFullYear(), nd.getMonth(), nd.getDate(), 8, 30, 0).getTime();
                 
-                if (ct < t1430 && nowTs >= t1430) return false;
-                if (ct < t0830 && nowTs >= t0830) return false;
+                // 產生今天的日期字串 (例如 "2026/08/20")
+                const yy = nd.getFullYear();
+                const mm = String(nd.getMonth() + 1).padStart(2, '0');
+                const dd = String(nd.getDate()).padStart(2, '0');
+                const todayStr = yy + '/' + mm + '/' + dd;
+                
+                // 3. 資料新舊判定：如果過了 14:30 (日盤) 或 08:30 (夜盤)，但資料的真實日期還不是今天，代表是舊資料
+                // 這時候快取立刻失效 (讓它去抓新資料)
+                if (nowTs >= t1430 && dataDateStr !== todayStr) return false;
+                if (nowTs >= t0830 && dataDateStr !== todayStr) return false;
+                
+                // 4. 無敵防護罩：如果資料已經是最新的，或者是平常沒有跨越邊界的時間，就套用完整的 3 小時快取
+                if (nowTs - ct > CACHE_DURATION) return false;
                 return true;
             }
 
@@ -357,7 +378,7 @@
             const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
             const now = Date.now();
 
-            if (cachedDataStr && isCacheValid(cachedTime, now)) {
+            if (cachedDataStr && isCacheValid(cachedTime, now, cachedDataStr)) {
                 try {
                     const json = JSON.parse(cachedDataStr);
                     status.textContent = `✅ 已載入本地暫存資料`;
