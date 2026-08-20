@@ -463,27 +463,9 @@ function fetchVixByDates(startDateStr, endDateStr) {
     }
   }
   
-  // 縫補前高亮計算
-  var maxDt = null;
-  for (var key in rawVix) {
-    if (!maxDt || rawVix[key].dt > maxDt) maxDt = rawVix[key].dt;
-  }
-
   var sortedKeys = Object.keys(weeksData).sort().reverse();
-  
-  // 六週縫合 (Patching)
-  if (sortedKeys.length >= 2) {
-    var newest = sortedKeys[0];
-    var oldest = sortedKeys[sortedKeys.length - 1];
-    for (var i = 0; i < slotsOrder.length; i++) {
-      var sn = slotsOrder[i];
-      if (weeksData[newest][sn] === undefined && weeksData[oldest][sn] !== undefined) {
-        weeksData[newest][sn] = weeksData[oldest][sn];
-      }
-    }
-  }
-
   var finalVix = {};
+  
   for (var i = 0; i < sortedKeys.length; i++) {
     var weekKey = sortedKeys[i];
     var slotData = weeksData[weekKey];
@@ -499,19 +481,7 @@ function fetchVixByDates(startDateStr, endDateStr) {
     finalVix[weekKey] = weekRes;
   }
   
-  var li = {};
-  if (maxDt) {
-    var wDay = maxDt.getDay();
-    var hSlot = null;
-    if (wDay === 3) hSlot = '三日';
-    else if (wDay === 4) hSlot = '四日';
-    else if (wDay === 5) hSlot = '五日';
-    else if (wDay === 1) hSlot = '一日';
-    else if (wDay === 2) hSlot = '二日';
-    li.vix_high_col = slotsOrder.indexOf(hSlot);
-  }
-  
-  return { data: finalVix, li: li };
+  return finalVix;
 }
 
 // 新增從試算表讀取 VIX 歷史資料的函數
@@ -595,27 +565,9 @@ function fetchVixFromSheet(yearStr, startDateStr, endDateStr) {
       }
     }
     
-  // 縫補前高亮計算
-  var maxDt = null;
-  for (var key in rawVix) {
-    if (!maxDt || rawVix[key].dt > maxDt) maxDt = rawVix[key].dt;
-  }
-
   var sortedKeys = Object.keys(weeksData).sort().reverse();
-  
-  // 六週縫合 (Patching)
-  if (sortedKeys.length >= 2) {
-    var newest = sortedKeys[0];
-    var oldest = sortedKeys[sortedKeys.length - 1];
-    for (var i = 0; i < slotsOrder.length; i++) {
-      var sn = slotsOrder[i];
-      if (weeksData[newest][sn] === undefined && weeksData[oldest][sn] !== undefined) {
-        weeksData[newest][sn] = weeksData[oldest][sn];
-      }
-    }
-  }
-
   var finalVix = {};
+  
   for (var j = 0; j < sortedKeys.length; j++) {
     var weekKey = sortedKeys[j];
     var slotData = weeksData[weekKey];
@@ -631,19 +583,7 @@ function fetchVixFromSheet(yearStr, startDateStr, endDateStr) {
     finalVix[weekKey] = weekRes;
   }
   
-  var li = {};
-  if (maxDt) {
-    var wDay = maxDt.getDay();
-    var hSlot = null;
-    if (wDay === 3) hSlot = '三日';
-    else if (wDay === 4) hSlot = '四日';
-    else if (wDay === 5) hSlot = '五日';
-    else if (wDay === 1) hSlot = '一日';
-    else if (wDay === 2) hSlot = '二日';
-    li.vix_high_col = slotsOrder.indexOf(hSlot);
-  }
-  
-  return { data: finalVix, li: li };
+  return finalVix;
   } catch (e) {
     return {};
   }
