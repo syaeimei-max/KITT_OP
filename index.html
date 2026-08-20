@@ -459,9 +459,9 @@
                 
                 status.textContent = "⚠️ 本機伺服器連線失敗或無資料";
                 status.className = "text-xs text-red-400";
-                document.getElementById(type === 'chakra' ? 'chakraPreviewBody' : 'wavePreviewBody').innerHTML = `<tr><td colspan="11" class="text-red-400 py-4 text-center">資料載入失敗，請確認本機 K2 已產出資料。</td></tr>`;
+                document.getElementById(type === 'chakra' ? 'chakraPreviewBody' : 'wavePreviewBody').innerHTML = `<tr><td colspan="11" class="text-red-400 py-4 text-center">資料載入失敗，資料更新頻繁，請稍後再重整。</td></tr>`;
                 if (type === 'wave') {
-                    document.getElementById('vixPreviewBody').innerHTML = `<tr><td colspan="6" class="text-red-400 py-4 text-center">資料載入失敗，請確認本機 K2 已產出資料。</td></tr>`;
+                    document.getElementById('vixPreviewBody').innerHTML = `<tr><td colspan="6" class="text-red-400 py-4 text-center">資料載入失敗，資料更新頻繁，請稍後再重整。</td></tr>`;
                 }
             }
         }
