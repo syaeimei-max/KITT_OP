@@ -449,8 +449,6 @@ function fetchVixByDates(startDateStr, endDateStr) {
     finalVix[weekKey] = weekRes;
   }
   
-  }
-  
   return finalVix;
 }
 
