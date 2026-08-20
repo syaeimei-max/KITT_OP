@@ -96,10 +96,10 @@ body.theme-light .color-avg-data { color: #1E3A8A !important; font-weight: 800 !
 body.theme-light .cell-highlight { background-color: #FFE082 !important; color: #D84315 !important; font-weight: 900 !important; } /* 淺色高亮：亮黃底+深橘字 */
 
 /* 資料淡化 (反灰) 用於標示即將被覆蓋的舊資料 */
-.cell-dimmed {
+td.cell-dimmed {
     color: #4B5563 !important;
 }
-body.theme-light .cell-dimmed {
+body.theme-light td.cell-dimmed {
     color: #C4B5A0 !important;
 }
 
