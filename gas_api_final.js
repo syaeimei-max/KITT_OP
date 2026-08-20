@@ -111,7 +111,7 @@ function doGet(e) {
     }
   }
 
-  // 區間查詢 (雲端直連期交所，一次抓選擇權+期貨)
+  // 區間查詢 (雲端直連期交所，一次抓選擇權+期貨+VIX)
   if (type === "range") {
     var start_date = e.parameter.start_date; // YYYY-MM-DD
     var end_date = e.parameter.end_date;     // YYYY-MM-DD
@@ -125,7 +125,8 @@ function doGet(e) {
       var optResult = processOptions(optCsv);
       var futCsv = fetchCSVByDates("TX", "futDataDown", start_date, end_date);
       var futResult = processFutures(futCsv);
-      return jr({ status: "success", data: { chakra: optResult.data, wave: futResult.data } });
+      var vixResult = fetchVixByDates(start_date, end_date);
+      return jr({ status: "success", data: { chakra: optResult.data, wave: futResult.data, vix: vixResult } });
     } catch(err) {
       return jr({ status: "error", message: "期交所雲端直連失敗: " + err.toString() });
     }
@@ -217,9 +218,10 @@ function testFetch() {
 function scheduledFetch() {
   var SLOTS = ['三日', '三夜', '四日', '四夜', '五日', '五夜', '一日', '一夜', '二日', '二夜'];
 
-  // 1. 從期交所抓取原始 CSV
+  // 1. 從期交所抓取原始 CSV 與 VIX
   var optCsv = fetchCSV("TXO", "optDataDown", 45);
   var futCsv = fetchCSV("TX", "futDataDown", 45);
+  var vixResult = processVixWeb(45);
 
   // 2. 處理選擇權 (週三選 W + 週五選 F，一次完成)
   var optResult = processOptions(optCsv);
@@ -229,12 +231,223 @@ function scheduledFetch() {
 
   // 4. 組合 chakra JSON
   var chakraResp = { status: "success", data: optResult.data, latest_info: optResult.li };
-  var waveResp = { status: "success", data: futResult.data, latest_info: futResult.li };
+  
+  // 5. 將 VIX 加入 waveResp
+  var waveResp = { 
+    status: "success", 
+    data: futResult.data, 
+    vix: vixResult,
+    latest_info: futResult.li 
+  };
 
-  // 5. 存入 ScriptProperties (免費微型雲端資料庫)
+  // 6. 存入 ScriptProperties (免費微型雲端資料庫)
   var props = PropertiesService.getScriptProperties();
   props.setProperty("KITT_CHAKRA", JSON.stringify(chakraResp));
   props.setProperty("KITT_WAVE", JSON.stringify(waveResp));
+}
+
+// ===== VIX 波動率指數爬蟲 =====
+function processVixWeb(days) {
+  var endDate = new Date();
+  var startDate = new Date();
+  startDate.setDate(endDate.getDate() - days);
+  
+  var requests = [];
+  var current = new Date(endDate);
+  
+  while (current >= startDate) {
+    var wd = current.getDay();
+    if (wd > 0 && wd < 6) { // 只要週一到週五
+      var yyyy = current.getFullYear();
+      var mm = String(current.getMonth() + 1).padStart(2, '0');
+      var dd = String(current.getDate()).padStart(2, '0');
+      var dateStr = yyyy + mm + dd;
+      var dateKey = yyyy + '/' + mm + '/' + dd;
+      
+      requests.push({
+        url: "https://www.taifex.com.tw/cht/7/getVixData?filesname=" + dateStr,
+        method: "get",
+        muteHttpExceptions: true,
+        dateKey: dateKey,
+        dtReal: new Date(current)
+      });
+    }
+    current.setDate(current.getDate() - 1);
+  }
+  
+  // 平行非同步抓取 45 天資料，約 1~2 秒完成
+  var responses = UrlFetchApp.fetchAll(requests);
+  var rawVix = {};
+  
+  for (var i = 0; i < responses.length; i++) {
+    var res = responses[i];
+    if (res.getResponseCode() === 200) {
+      var text = res.getContentText();
+      if (text.indexOf('Last 1 min AVG') !== -1) {
+        var lines = text.trim().split('\n');
+        for (var j = lines.length - 1; j >= 0; j--) {
+          if (lines[j].indexOf('Last 1 min AVG') !== -1) {
+            var parts = lines[j].trim().split('\t');
+            var val = parseFloat(parts[parts.length - 1]);
+            if (!isNaN(val)) {
+              rawVix[requests[i].dateKey] = { val: val, dt: requests[i].dtReal };
+            }
+            break;
+          }
+        }
+      }
+    }
+  }
+  
+  var weeksData = {};
+  var slotsOrder = ['三日', '四日', '五日', '一日', '二日'];
+  
+  for (var key in rawVix) {
+    var dtReal = rawVix[key].dt;
+    var dayMap = {1: 5, 2: 6, 3: 0, 4: 1, 5: 2}; 
+    var daysToSubtract = dayMap[dtReal.getDay()];
+    var weekStart = new Date(dtReal);
+    weekStart.setDate(dtReal.getDate() - daysToSubtract);
+    
+    var yyyy = weekStart.getFullYear();
+    var mm = String(weekStart.getMonth() + 1).padStart(2, '0');
+    var dd = String(weekStart.getDate()).padStart(2, '0');
+    var weekKey = yyyy + '/' + mm + '/' + dd;
+    
+    var slot = null;
+    var wDay = dtReal.getDay();
+    if (wDay === 3) slot = '三日';
+    else if (wDay === 4) slot = '四日';
+    else if (wDay === 5) slot = '五日';
+    else if (wDay === 1) slot = '一日';
+    else if (wDay === 2) slot = '二日';
+    
+    if (slot) {
+      if (!weeksData[weekKey]) weeksData[weekKey] = {};
+      weeksData[weekKey][slot] = rawVix[key].val;
+    }
+  }
+  
+  var sortedKeys = Object.keys(weeksData).sort().reverse().slice(0, 6);
+  var finalVix = {};
+  
+  for (var i = 0; i < sortedKeys.length; i++) {
+    var weekKey = sortedKeys[i];
+    var slotData = weeksData[weekKey];
+    var rel = weekKey.substring(2).replace(/\//g, '');
+    var weekRes = { rel: rel };
+    
+    for (var s = 0; s < slotsOrder.length; s++) {
+      var slotName = slotsOrder[s];
+      if (slotData[slotName] !== undefined) {
+        weekRes[slotName] = slotData[slotName];
+      }
+    }
+    finalVix[weekKey] = weekRes;
+  }
+  
+  return finalVix;
+}
+
+// 用於區間查詢 (指定特定日期) 的 VIX 爬蟲
+function fetchVixByDates(startDateStr, endDateStr) {
+  var startDate = new Date(startDateStr);
+  var endDate = new Date(endDateStr);
+  
+  var requests = [];
+  var current = new Date(endDate);
+  
+  while (current >= startDate) {
+    var wd = current.getDay();
+    if (wd > 0 && wd < 6) { 
+      var yyyy = current.getFullYear();
+      var mm = String(current.getMonth() + 1).padStart(2, '0');
+      var dd = String(current.getDate()).padStart(2, '0');
+      var dateStr = yyyy + mm + dd;
+      var dateKey = yyyy + '/' + mm + '/' + dd;
+      
+      requests.push({
+        url: "https://www.taifex.com.tw/cht/7/getVixData?filesname=" + dateStr,
+        method: "get",
+        muteHttpExceptions: true,
+        dateKey: dateKey,
+        dtReal: new Date(current)
+      });
+    }
+    current.setDate(current.getDate() - 1);
+  }
+  
+  var responses = UrlFetchApp.fetchAll(requests);
+  var rawVix = {};
+  
+  for (var i = 0; i < responses.length; i++) {
+    var res = responses[i];
+    if (res.getResponseCode() === 200) {
+      var text = res.getContentText();
+      if (text.indexOf('Last 1 min AVG') !== -1) {
+        var lines = text.trim().split('\n');
+        for (var j = lines.length - 1; j >= 0; j--) {
+          if (lines[j].indexOf('Last 1 min AVG') !== -1) {
+            var parts = lines[j].trim().split('\t');
+            var val = parseFloat(parts[parts.length - 1]);
+            if (!isNaN(val)) {
+              rawVix[requests[i].dateKey] = { val: val, dt: requests[i].dtReal };
+            }
+            break;
+          }
+        }
+      }
+    }
+  }
+  
+  var weeksData = {};
+  var slotsOrder = ['三日', '四日', '五日', '一日', '二日'];
+  
+  for (var key in rawVix) {
+    var dtReal = rawVix[key].dt;
+    var dayMap = {1: 5, 2: 6, 3: 0, 4: 1, 5: 2}; 
+    var daysToSubtract = dayMap[dtReal.getDay()];
+    var weekStart = new Date(dtReal);
+    weekStart.setDate(dtReal.getDate() - daysToSubtract);
+    
+    var yyyy = weekStart.getFullYear();
+    var mm = String(weekStart.getMonth() + 1).padStart(2, '0');
+    var dd = String(weekStart.getDate()).padStart(2, '0');
+    var weekKey = yyyy + '/' + mm + '/' + dd;
+    
+    var slot = null;
+    var wDay = dtReal.getDay();
+    if (wDay === 3) slot = '三日';
+    else if (wDay === 4) slot = '四日';
+    else if (wDay === 5) slot = '五日';
+    else if (wDay === 1) slot = '一日';
+    else if (wDay === 2) slot = '二日';
+    
+    if (slot) {
+      if (!weeksData[weekKey]) weeksData[weekKey] = {};
+      weeksData[weekKey][slot] = rawVix[key].val;
+    }
+  }
+  
+  var sortedKeys = Object.keys(weeksData).sort().reverse();
+  var finalVix = {};
+  
+  for (var i = 0; i < sortedKeys.length; i++) {
+    var weekKey = sortedKeys[i];
+    var slotData = weeksData[weekKey];
+    var rel = weekKey.substring(2).replace(/\//g, '');
+    var weekRes = { rel: rel };
+    
+    for (var s = 0; s < slotsOrder.length; s++) {
+      var slotName = slotsOrder[s];
+      if (slotData[slotName] !== undefined) {
+        weekRes[slotName] = slotData[slotName];
+      }
+    }
+    finalVix[weekKey] = weekRes;
+  }
+  
+  return finalVix;
 }
 
 // ===== 爬蟲模組 (忠實移植自 fetch_taifex_data_range) =====
