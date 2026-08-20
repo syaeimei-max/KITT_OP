@@ -264,45 +264,9 @@
 
     </main>
 
-    <!-- 登入付費牆 (Modal) -->
-    <div id="loginModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden">
-        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-md" onclick="closeLoginModal()"></div>
-        <div class="relative glass-panel rounded-3xl p-10 max-w-sm w-full mx-4 flex flex-col items-center shadow-2xl border border-slate-600/50 transform scale-95 opacity-0 transition-all duration-300" id="loginBox">
-            <button onclick="closeLoginModal()" class="absolute top-4 right-5 text-slate-400 hover:text-white text-xl">&times;</button>
-            <div class="w-20 h-20 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <span class="text-3xl">⚡</span>
-            </div>
-            <h2 class="text-2xl font-bold mb-2">登入 KITT 系統</h2>
-            <p class="text-slate-400 text-sm text-center mb-8">記得登入會員，即可免費解鎖全部功能！</p>
-            <button onclick="simulateLogin()" class="login-btn w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl font-bold text-slate-700 mb-6">
-                進入主控台
-            </button>
-        </div>
-    </div>
+    <!-- 登入付費牆 (Modal) 已經移除，統一使用 auth.js 的 checkAuth() SweetAlert 彈窗 -->
 
     <script>
-        const modal = document.getElementById('loginModal');
-        const box = document.getElementById('loginBox');
-
-        function openLoginModal() {
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                box.classList.remove('scale-95', 'opacity-0');
-                box.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-
-        function closeLoginModal() {
-            box.classList.remove('scale-100', 'opacity-100');
-            box.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
-        }
-
-        function simulateLogin() {
-            const btn = document.querySelector('.login-btn');
-            btn.innerHTML = '🔄 載入中...';
-            setTimeout(() => { window.location.href = 'dashboard.html'; }, 500);
-        }
 
         // --- 五小強渲染邏輯 ---
         const ROWS_ORDER = ["平均", "W1", "W2", "W0", "W4", "W5", "F_HEADER", "F1", "F2", "F3", "F4", "F5"];
@@ -390,7 +354,7 @@
                         td.colSpan = 10;
                         td.rowSpan = 4; // F2, F3, F4, F5 總共 4 週
                         td.className = "freemium-overlay backdrop-blur-sm relative group cursor-pointer";
-                        td.setAttribute("onclick", "openLoginModal()");
+                        td.setAttribute("onclick", "checkAuth()");
                         td.innerHTML = `
                             <div class="flex flex-col sm:flex-row items-center justify-center gap-2 py-6 px-2">
                                 <span class="text-2xl drop-shadow-md">🔒</span>
@@ -503,7 +467,7 @@
                         td.colSpan = 10;
                         td.rowSpan = rowsToRender.length - 2; // 動態計算剩餘的列數
                         td.className = "freemium-overlay backdrop-blur-sm relative group cursor-pointer";
-                        td.setAttribute("onclick", "openLoginModal()");
+                        td.setAttribute("onclick", "checkAuth()");
                         td.innerHTML = `
                             <div class="flex flex-col sm:flex-row items-center justify-center gap-2 py-6 px-2">
                                 <span class="text-2xl drop-shadow-md">🔒</span>
