@@ -368,7 +368,37 @@
             const latestSlotIdxW = latestInfo ? latestInfo.latest_slot_idx_W : -1;
             const latestSlotIdxF = latestInfo ? latestInfo.latest_slot_idx_F : -1;
             
+            const isLoggedIn = !!localStorage.getItem("kitt_user");
+            
             ROWS_ORDER.forEach(rowName => {
+                // 若未登入，只免費顯示週五選最新一週(F1)，其餘以橫幅遮蔽引導登入
+                if (!isLoggedIn) {
+                    if (rowName === "F2") {
+                        const tr = document.createElement("tr");
+                        const th = document.createElement("td");
+                        th.className = "row-header color-f";
+                        th.textContent = "F2";
+                        tr.appendChild(th);
+                        
+                        const td = document.createElement("td");
+                        td.colSpan = 10;
+                        td.className = "bg-slate-800/90 backdrop-blur-sm relative group cursor-pointer border-t border-slate-700";
+                        td.setAttribute("onclick", "openLoginModal()");
+                        td.innerHTML = `
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 py-6 px-2">
+                                <span class="text-2xl drop-shadow-md">🔒</span>
+                                <span class="text-white font-bold text-sm bg-blue-600 px-5 py-2.5 rounded-lg shadow-lg group-hover:bg-blue-500 group-hover:scale-[1.02] transition-all whitespace-normal text-center">免費登入會員，解鎖完整週五選歷史數據</span>
+                            </div>
+                        `;
+                        tr.appendChild(td);
+                        tbody.appendChild(tr);
+                        return;
+                    }
+                    if (rowName === "F3" || rowName === "F4" || rowName === "F5") {
+                        return;
+                    }
+                }
+
                 const tr = document.createElement("tr");
                 
                 if (rowName === "F_HEADER") {
@@ -443,8 +473,37 @@
             let waveHighCol = latestInfo && latestInfo.wave_high_col !== undefined ? latestInfo.wave_high_col : -1;
 
             const rowsToRender = ["平均", ...recent5];
+            const isLoggedIn = !!localStorage.getItem("kitt_user");
             
-            rowsToRender.forEach(dt => {
+            rowsToRender.forEach((dt, index) => {
+                // 若未登入，期貨只免費顯示最新一週(index 1)，其餘遮蔽引導登入
+                if (!isLoggedIn) {
+                    if (index === 2) {
+                        const tr = document.createElement("tr");
+                        const th = document.createElement("td");
+                        th.className = "row-header color-w";
+                        th.textContent = dt.length === 6 ? "20" + dt : dt;
+                        tr.appendChild(th);
+                        
+                        const td = document.createElement("td");
+                        td.colSpan = 10;
+                        td.className = "bg-slate-800/90 backdrop-blur-sm relative group cursor-pointer border-t border-slate-700";
+                        td.setAttribute("onclick", "openLoginModal()");
+                        td.innerHTML = `
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 py-6 px-2">
+                                <span class="text-2xl drop-shadow-md">🔒</span>
+                                <span class="text-white font-bold text-sm bg-yellow-700 px-5 py-2.5 rounded-lg shadow-lg group-hover:bg-yellow-600 group-hover:scale-[1.02] transition-all whitespace-normal text-center">免費登入會員，解鎖完整期貨振幅數據</span>
+                            </div>
+                        `;
+                        tr.appendChild(td);
+                        tbody.appendChild(tr);
+                        return;
+                    }
+                    if (index > 2) {
+                        return;
+                    }
+                }
+
                 const tr = document.createElement("tr");
                 
                 const th = document.createElement("td");
