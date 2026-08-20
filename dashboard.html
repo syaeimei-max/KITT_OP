@@ -272,6 +272,7 @@
                     <button onclick="switchTab('p3_f')" id="btn_p3_f" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">週五選</button>
                     <button onclick="switchTab('p3_m')" id="btn_p3_m" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">月選</button>
                     <button onclick="switchTab('wave')" id="btn_wave" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">期貨</button>
+                    <button onclick="switchTab('vix')" id="btn_vix" class="tab-btn px-6 py-2 rounded-lg border text-sm font-bold transition-all border-gray-600 text-gray-300 hover:bg-gray-700">波動率(VIX)</button>
                 </div>
             </div>
         
@@ -355,6 +356,25 @@
                 </div>
             </div>
 
+            <!-- 波動率 (VIX) -->
+            <div id="vix" class="tab-panel max-w-5xl mx-auto space-y-6">
+                <div class="glass-panel p-3 md:p-6 rounded-xl shadow-lg">
+                    <div class="overflow-auto max-h-[70vh] rounded-lg border border-slate-700 hide-scroll relative">
+                        <table class="k3-table w-full">
+                            <thead id="thead_vix">
+                                <tr>
+                                    <th class="whitespace-nowrap px-2">週別</th>
+                                    <th>三日</th><th>四日</th><th>五日</th><th>一日</th><th>二日</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_vix">
+                                <tr><td colspan="6" class="text-gray-500 py-8 text-center">請點擊上方查詢按鈕</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -412,6 +432,8 @@
                 minYear = 2017; // 一般選擇權最早到 2017
             } else if (tabId === 'p3_f') {
                 minYear = 2024; // 週五選從 2024 (或2025) 開始
+            } else if (tabId === 'vix') {
+                minYear = 2026; // VIX 從 2026 雲端資料庫開始
             }
 
             for (let y = maxYear; y >= minYear; y--) {
@@ -489,6 +511,10 @@
                         document.getElementById("thead_wave").innerHTML = HEADERS_HISTORY_WAVE;
                         renderHistoryWaveTable(json.data.wave);
                     }
+                    // VIX
+                    if (json.data.vix) {
+                        renderHistoryVixTable(json.data.vix);
+                    }
                 } else {
                     statusNode.innerHTML = `<span class="text-red-400">❌ API 錯誤: ${json.message}</span>`;
                 }
@@ -530,6 +556,10 @@
                     if (json.data.wave) {
                         document.getElementById("thead_wave").innerHTML = HEADERS_RANGE_WAVE;
                         renderRangeWaveTable("tbody_wave", json.data.wave);
+                    }
+                    // VIX
+                    if (json.data.vix) {
+                        renderHistoryVixTable(json.data.vix);
                     }
                 } else {
                     statusNode.innerHTML = `<span class="text-red-400">❌ 發生錯誤: ${json.message}</span>`;
@@ -775,6 +805,113 @@
                 
                 for (let i = 0; i < 10; i++) {
                     const val = rowData[i];
+                    const td = document.createElement("td");
+                    td.textContent = val;
+                    if (val === "休市") td.classList.add("color-gray");
+                    else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
+        
+        function renderHistoryVixTable(data) {
+            const tbody = document.getElementById("tbody_vix");
+            tbody.innerHTML = "";
+            
+            if (!data || Object.keys(data).length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-gray-500 py-8 text-center">期交所資料尚未建置</td></tr>`;
+                return;
+            }
+
+            const dateKeys = Object.keys(data).sort().reverse();
+            const slotsOrder = ['三日', '四日', '五日', '一日', '二日'];
+            const isLoggedIn = !!localStorage.getItem("kitt_user");
+
+            let sum = 0, count = 0;
+            for (let key of dateKeys) {
+                if (data[key]) {
+                    for (let s of slotsOrder) {
+                        let v = parseFloat(data[key][s]);
+                        if (!isNaN(v)) { sum += v; count++; }
+                    }
+                }
+            }
+            const globalAvg = count > 0 ? sum / count : 0;
+
+            const avgData = {};
+            for (let s of slotsOrder) {
+                let colSum = 0, colCount = 0;
+                for (let key of dateKeys) {
+                    if (data[key] && data[key][s] && data[key][s] !== "休市") {
+                        let v = parseFloat(data[key][s]);
+                        if (!isNaN(v)) { colSum += v; colCount++; }
+                    }
+                }
+                if (colCount > 0) avgData[s] = (colSum / colCount).toFixed(2);
+                else avgData[s] = "";
+            }
+
+            // Render '平均' row
+            const trAvg = document.createElement("tr");
+            const thAvg = document.createElement("td");
+            thAvg.className = "row-header color-avg";
+            thAvg.textContent = "平均";
+            trAvg.appendChild(thAvg);
+            
+            for (let s of slotsOrder) {
+                const val = avgData[s];
+                const td = document.createElement("td");
+                td.textContent = val;
+                if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
+                trAvg.appendChild(td);
+            }
+            tbody.appendChild(trAvg);
+
+            // Render date rows
+            dateKeys.forEach((rowName, index) => {
+                if (!isLoggedIn) {
+                    if (index === 1) {
+                        const tr = document.createElement("tr");
+                        const th = document.createElement("td");
+                        th.className = "row-header color-m";
+                        th.textContent = rowName;
+                        tr.appendChild(th);
+                        
+                        const td = document.createElement("td");
+                        td.colSpan = 5;
+                        td.rowSpan = dateKeys.length - 1;
+                        td.className = "freemium-overlay backdrop-blur-sm relative group cursor-pointer";
+                        td.setAttribute("onclick", "checkAuth()");
+                        td.innerHTML = `
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 py-6 px-2">
+                                <span class="text-2xl drop-shadow-md">🔒</span>
+                                <span class="text-white font-bold text-sm bg-teal-600 px-5 py-2.5 rounded-lg shadow-lg group-hover:bg-teal-500 group-hover:scale-[1.02] transition-all whitespace-normal text-center">免費登入會員，解鎖全部功能</span>
+                            </div>
+                        `;
+                        tr.appendChild(td);
+                        tbody.appendChild(tr);
+                        return;
+                    }
+                    if (index > 1) {
+                        const tr = document.createElement("tr");
+                        const th = document.createElement("td");
+                        th.className = "row-header color-m";
+                        th.textContent = rowName;
+                        tr.appendChild(th);
+                        tbody.appendChild(tr);
+                        return;
+                    }
+                }
+
+                const tr = document.createElement("tr");
+                const th = document.createElement("td");
+                th.className = "row-header color-m";
+                th.textContent = rowName;
+                tr.appendChild(th);
+                
+                for (let s of slotsOrder) {
+                    const val = data[rowName][s] !== undefined ? data[rowName][s] : "";
                     const td = document.createElement("td");
                     td.textContent = val;
                     if (val === "休市") td.classList.add("color-gray");
