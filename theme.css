@@ -99,6 +99,9 @@ body.theme-light .cell-highlight { background-color: #FFE082 !important; color: 
 .cell-dimmed {
     color: #4B5563 !important;
 }
+body.theme-light .cell-dimmed {
+    color: #C4B5A0 !important;
+}
 
 /* ================= 佈局組件 (Navbar, Sidebar) 淺色覆蓋 ================= */
 body.theme-light nav,
