@@ -337,8 +337,8 @@
             const CACHE_KEY = `kitt_cache_data_${type}_v2`;
             const CACHE_TIME_KEY = `kitt_cache_time_${type}_v2`;
             const CACHE_DURATION = 3 * 60 * 60 * 1000; // 3小時 (毫秒)
+            const CACHE_DURATION = 3 * 60 * 60 * 1000;
 
-            // 智慧快取判定：如果在發布時間點前抓的舊資料，跨越發布時間後自動失效
             function isCacheValid(cacheTimeStr, nowTs) {
                 if (!cacheTimeStr) return false;
                 const ct = parseInt(cacheTimeStr);
@@ -348,12 +348,11 @@
                 const t1430 = new Date(nd.getFullYear(), nd.getMonth(), nd.getDate(), 14, 30, 0).getTime();
                 const t0830 = new Date(nd.getFullYear(), nd.getMonth(), nd.getDate(), 8, 30, 0).getTime();
                 
-                if (ct < t1430 && nowTs >= t1430) return false; // 跨越下午 14:30 (日盤出爐)
-                if (ct < t0830 && nowTs >= t0830) return false; // 跨越早上 08:30 (夜盤出爐)
+                if (ct < t1430 && nowTs >= t1430) return false;
+                if (ct < t0830 && nowTs >= t0830) return false;
                 return true;
             }
 
-            // 1. 檢查有效暫存
             const cachedDataStr = localStorage.getItem(CACHE_KEY);
             const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
             const now = Date.now();
@@ -368,7 +367,7 @@
                     } else {
                         renderWaveTable(json.data, json.latest_info);
                         if (json.vix) {
-                            renderVixTable(json.vix);
+                            renderVixTable(json.vix, json.latest_info);
                             const statusVix = document.getElementById('statusVix');
                             if(statusVix) {
                                 statusVix.textContent = `✅ 已載入本地暫存資料`;
@@ -376,14 +375,13 @@
                             }
                         }
                     }
-                    return; // 使用暫存，結束函數
+                    return;
                 } catch (e) {
                     console.error("Cache parsing error", e);
                 }
             }
 
             try {
-                // [雲端獨立版] 綁定專屬的 Google Apps Script 雲端 API 網址
                 const baseUrl = "https://script.google.com/macros/s/AKfycbw2FMlLYCU1h3nRijUHfZKuKXyZeu4_DrYGR393_z3hB4HRwQctwapoPnPK2EKY4qXL_g/exec";
                 const apiUrl = `${baseUrl}?type=${type}`;
 
@@ -667,7 +665,7 @@
             });
         }
 
-        function renderVixTable(data) {
+        function renderVixTable(data, latestInfo) {
             const tbody = document.getElementById("vixPreviewBody");
             tbody.innerHTML = "";
             
@@ -762,10 +760,21 @@
                 th.textContent = rowName;
                 tr.appendChild(th);
                 
-                for (let s of slotsOrder) {
+                let vixHighCol = latestInfo && latestInfo.vix_high_col !== undefined ? latestInfo.vix_high_col : -1;
+                for (let i = 0; i < slotsOrder.length; i++) {
+                    let s = slotsOrder[i];
                     const val = data[rowName][s] !== undefined ? data[rowName][s] : "";
                     const td = document.createElement("td");
                     td.textContent = val;
+                    
+                    let isHighlight = false;
+                    if (vixHighCol !== -1 && index === 0 && i === vixHighCol) {
+                        isHighlight = true;
+                    }
+                    if (isHighlight) {
+                        td.classList.add("cell-highlight");
+                    }
+                    
                     if (val === "休市") td.classList.add("color-gray");
                     else if (val !== "") td.classList.add(getRelativeColorClass(val, globalAvg));
                     tr.appendChild(td);
