@@ -16,7 +16,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <link rel="stylesheet" href="theme.css?v=1.2">
+    <link rel="stylesheet" href="theme.css?v=1.3">
     <script src="auth.js"></script>
     <style>
         body { background-color: #0F172A; color: #F8FAFC; font-family: 'Segoe UI', 'Microsoft JhengHei', Tahoma, Geneva, Verdana, sans-serif; }
@@ -509,7 +509,10 @@
                         const tr = document.createElement("tr");
                         const th = document.createElement("td");
                         th.className = "row-header color-f";
-                        th.textContent = rowName;
+                        th.innerHTML = rowName;
+                        if (latestInfo && latestInfo.exp_dates && latestInfo.exp_dates[rowName]) {
+                            th.innerHTML += `<br><span class="text-xs text-gray-400 font-normal" style="letter-spacing: -0.5px;">(${latestInfo.exp_dates[rowName]})</span>`;
+                        }
                         tr.appendChild(th);
                         // 後方的 10 欄已被 F2 的 rowspan 佔據，不需渲染
                         tbody.appendChild(tr);
@@ -533,7 +536,10 @@
                 const th = document.createElement("td");
                 th.className = "row-header";
 
-                th.textContent = rowName;
+                th.innerHTML = rowName;
+                if (latestInfo && latestInfo.exp_dates && latestInfo.exp_dates[rowName]) {
+                    th.innerHTML += `<br><span class="text-xs text-gray-400 font-normal" style="letter-spacing: -0.5px;">(${latestInfo.exp_dates[rowName]})</span>`;
+                }
                 if (rowName === "平均") th.classList.add("color-avg");
                 else if (rowName.startsWith("W")) th.classList.add("color-w");
                 else th.classList.add("color-f");
