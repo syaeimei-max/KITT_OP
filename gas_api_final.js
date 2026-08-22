@@ -128,7 +128,7 @@ function doGet(e) {
       var futCsv = fetchCSVByDates("TX", "futDataDown", start_date, end_date);
       var futResult = processFutures(futCsv);
       var vixResult = fetchVixFromSheet(null, start_date, end_date);
-      return jr({ status: "success", data: { chakra: optResult.data, wave: futResult.data, vix: vixResult } });
+      return jr({ status: "success", data: { chakra: optResult.data, wave: futResult.data, vix: vixResult }, latest_info: optResult.li });
     } catch(err) {
       return jr({ status: "error", message: "期交所雲端直連失敗: " + err.toString() });
     }

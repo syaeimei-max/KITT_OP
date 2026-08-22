@@ -554,9 +554,9 @@
                         document.getElementById("thead_p3").innerHTML = HEADERS_RANGE_F;
                         document.getElementById("thead_p4").innerHTML = HEADERS_RANGE_W;
                         
-                        renderRangeChakraTable("tbody_p2", json.data.chakra, "W");
-                        renderRangeChakraTable("tbody_p3", json.data.chakra, "F");
-                        renderRangeChakraTable("tbody_p4", json.data.chakra, "M");
+                        renderRangeChakraTable("tbody_p2", json.data.chakra, "W", json.latest_info);
+                        renderRangeChakraTable("tbody_p3", json.data.chakra, "F", json.latest_info);
+                        renderRangeChakraTable("tbody_p4", json.data.chakra, "M", json.latest_info);
                     }
                     // 期貨 → 期貨 tab
                     if (json.data.wave) {
@@ -700,7 +700,7 @@
         // ============================================
         // 區間查詢五小將專用渲染邏輯 (動態表頭模式)
         // ============================================
-        function renderRangeChakraTable(tbodyId, data, category) {
+        function renderRangeChakraTable(tbodyId, data, category, latestInfo) {
             const tbody = document.getElementById(tbodyId);
             tbody.innerHTML = "";
             
@@ -743,7 +743,11 @@
                 const tr = document.createElement("tr");
                 const th = document.createElement("td");
                 th.className = "row-header";
-                th.textContent = rowName;
+                th.innerHTML = rowName;
+                
+                if (latestInfo && latestInfo.exp_dates && latestInfo.exp_dates[rowName]) {
+                    th.innerHTML += `<br><span class="text-xs text-gray-400 font-normal" style="letter-spacing: -0.5px;">(${latestInfo.exp_dates[rowName]})</span>`;
+                }
                 
                 if (rowName === "平均") th.classList.add("color-avg");
                 else if (category === "W") th.classList.add("color-w");
