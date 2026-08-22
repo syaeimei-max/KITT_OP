@@ -892,10 +892,9 @@ function processOptions(csvText) {
       var rel = cinfo[con].rel;
       var isF = rel.indexOf('F') !== -1;
 
-      // 若最新資料是夜盤，且該合約剛好在今天結算，則合約已死亡，排除之
-      if (mdrIsN && exp.getTime() === mdrDate.getTime()) continue;
-
-      if (exp.getTime() >= mdrDate.getTime()) {
+      // 核心修復：只要是結算日當天，該合約就無法再寫入新資料(因為 dd=0)
+      // 所以不能再當作 nearest，必須立刻交接給下一個合約
+      if (exp.getTime() > mdrDate.getTime()) {
         if (isF) {
           if (min_expire_F === null || exp.getTime() < min_expire_F.getTime()) {
             min_expire_F = exp;
@@ -945,6 +944,7 @@ function processOptions(csvText) {
   }
 
   var finalAtm = {};
+  var expDatesMap = {}; // 新增：用來記錄每個 rel 的實際結算日
   for (var k = 0; k < TARGET.length; k++) {
     var rl = TARGET[k];
     if (!relGroups[rl]) continue;
@@ -957,6 +957,13 @@ function processOptions(csvText) {
 
     // 3. 確立高亮基底：最新合約 (第1近)
     var newestCon = cons[0];
+    
+    // 記錄官方結算日
+    var eDate = cinfo[newestCon].expire;
+    var eM = String(eDate.getMonth() + 1);
+    var eD = String(eDate.getDate());
+    expDatesMap[rl] = eM + '/' + eD; // 格式化為: 8/26
+
     // 使用淺拷貝以避免修改原始物件，確保縫合安全
     var newestData = Object.assign({}, contractData[newestCon]);
 
@@ -1011,6 +1018,7 @@ function processOptions(csvText) {
       li.latest_F = cinfo[nearest_F].rel;
       li.latest_slot_idx_F = F_SLOTS.indexOf(sn_F);
     }
+    li.exp_dates = expDatesMap; // 注入結算日期字典
   }
 
   return { data: data, li: li };
