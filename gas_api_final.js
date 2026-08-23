@@ -125,8 +125,28 @@ function doGet(e) {
     try {
       var optCsv = fetchCSVByDates("TXO", "optDataDown", start_date, end_date);
       var optResult = processOptions(optCsv);
+      
+      // 步驟2校正：嘆息之牆(區間查詢)一律使用「起始日」。
+      // 2026 以後的新資料，CSV 計算出的結算日必須減 7 天變回起始日。
+      if (optResult && optResult.li && optResult.li.exp_dates) {
+        var yyStr = optResult.li.data_date ? optResult.li.data_date.split('/')[0] : "2026";
+        var year = parseInt(yyStr, 10);
+        if (year >= 2026) {
+          for (var k in optResult.li.exp_dates) {
+            var md = optResult.li.exp_dates[k].split('/');
+            if (md.length === 2) {
+              var d = new Date(year, parseInt(md[0], 10) - 1, parseInt(md[1], 10));
+              d.setDate(d.getDate() - 7);
+              optResult.li.exp_dates[k] = (d.getMonth() + 1) + '/' + d.getDate();
+            }
+          }
+        }
+      }
+
       var futCsv = fetchCSVByDates("TX", "futDataDown", start_date, end_date);
       var futResult = processFutures(futCsv);
+      // 期貨 (Wave) 原本以週三(起始日)為 key，故不需額外減 7 天
+      
       var vixResult = fetchVixFromSheet(null, start_date, end_date);
       return jr({ status: "success", data: { chakra: optResult.data, wave: futResult.data, vix: vixResult }, latest_info: optResult.li });
     } catch(err) {
@@ -716,7 +736,30 @@ function getSlot(pyWd, isNight) {
 // JS getDay() → Python weekday() 轉換
 function pyWeekday(jsDate) {
   return (jsDate.getDay() + 6) % 7;
-  // Sun(0)→6, Mon(1)→0, Tue(2)→1, Wed(3)→2, Thu(4)→3, Fri(5)→4, Sat(6)→5
+}
+
+// ===== 選擇權推算結算日 (救援 2025/12 以前的舊版 CSV) =====
+function fallbackExpDate(con) {
+  var s = con.trim();
+  if (s.length < 6) return '';
+  var y = parseInt(s.substring(0, 4));
+  var m = parseInt(s.substring(4, 6)) - 1;
+  var nth = 3; // 預設為一般月選 (W0/F)，即第三個星期三
+  if (s.indexOf('W1') !== -1) nth = 1;
+  else if (s.indexOf('W2') !== -1) nth = 2;
+  else if (s.indexOf('W4') !== -1) nth = 4;
+  else if (s.indexOf('W5') !== -1) nth = 5;
+  
+  var d = new Date(y, m, 1);
+  var wd = d.getDay();
+  var offset = (3 - wd + 7) % 7; // 找第一個月的第一個星期三
+  var firstWed = new Date(y, m, 1 + offset);
+  var expD = new Date(firstWed.getTime() + (nth - 1) * 7 * 86400000);
+  
+  var yyyy = expD.getFullYear();
+  var mm = String(expD.getMonth() + 1).padStart(2, '0');
+  var dd = String(expD.getDate()).padStart(2, '0');
+  return yyyy + mm + dd;
 }
 
 // ===== 選擇權處理 (忠實移植自 process_options) =====
@@ -749,13 +792,16 @@ function processOptions(csvText) {
 
     if (ses.indexOf('一般') !== -1) tradingDays[dt] = true;
 
+    var rawExp = cols.length > 20 ? cols[20].trim() : '';
+    if (!rawExp) rawExp = fallbackExpDate(cols[2].trim());
+
     recs.push({
       dt: dt, ses: ses,
       con: cols[2].trim(),
       str: parseFloat(cols[3]),
       cp: cols[4].trim(),
       cl: cv,
-      exp: cols.length > 20 ? cols[20].trim() : ''
+      exp: rawExp
     });
   }
 
