@@ -74,6 +74,10 @@ body.theme-light table th:first-child,
 body.theme-light table td:first-child {
     border-right: 2px solid #C4A47C !important;
 }
+body.theme-light table td.empty-message {
+    background-color: transparent !important;
+    border-right: none !important;
+}
 body.theme-light table tr:hover td:first-child {
     background-color: #F0E6D2 !important; /* 防止 hover 變回黑色或透明 */
 }
