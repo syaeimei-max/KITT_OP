@@ -511,7 +511,7 @@
                         th.className = "row-header color-f";
                         th.innerHTML = rowName;
                         if (latestInfo && latestInfo.exp_dates && latestInfo.exp_dates[rowName]) {
-                            th.innerHTML += `<br><span class="text-xs text-gray-400 font-normal" style="letter-spacing: -0.5px;">(${latestInfo.exp_dates[rowName]})</span>`;
+                            th.innerHTML += `<br><span class="text-xs text-gray-400 font-normal" style="letter-spacing: -0.5px;">(→${latestInfo.exp_dates[rowName]})</span>`;
                         }
                         tr.appendChild(th);
                         // 後方的 10 欄已被 F2 的 rowspan 佔據，不需渲染
@@ -538,7 +538,7 @@
 
                 th.innerHTML = rowName;
                 if (latestInfo && latestInfo.exp_dates && latestInfo.exp_dates[rowName]) {
-                    th.innerHTML += `<br><span class="text-xs text-gray-400 font-normal" style="letter-spacing: -0.5px;">(${latestInfo.exp_dates[rowName]})</span>`;
+                    th.innerHTML += `<br><span class="text-xs text-gray-400 font-normal" style="letter-spacing: -0.5px;">(→${latestInfo.exp_dates[rowName]})</span>`;
                 }
                 if (rowName === "平均") th.classList.add("color-avg");
                 else if (rowName.startsWith("W")) th.classList.add("color-w");
