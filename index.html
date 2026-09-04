@@ -723,7 +723,7 @@
                 return;
             }
 
-            const dateKeys = Object.keys(data).sort().reverse();
+            const dateKeys = Object.keys(data).sort().reverse().slice(0, 5);
             const slotsOrder = ['三日', '四日', '五日', '一日', '二日'];
             const isLoggedIn = !!localStorage.getItem("kitt_user");
 

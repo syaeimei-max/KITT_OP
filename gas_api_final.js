@@ -272,50 +272,52 @@ function scheduledFetch() {
 // ===== VIX 波動率指數爬蟲 =====
 function processVixWeb(days) {
   var endDate = new Date();
-  var startDate = new Date();
-  startDate.setDate(endDate.getDate() - days);
   
   var requests = [];
-  var current = new Date(endDate);
+  var currentMonth = new Date(endDate);
   
-  while (current >= startDate) {
-    var wd = current.getDay();
-    if (wd > 0 && wd < 6) { // 只要週一到週五
-      var yyyy = current.getFullYear();
-      var mm = String(current.getMonth() + 1).padStart(2, '0');
-      var dd = String(current.getDate()).padStart(2, '0');
-      var dateStr = yyyy + mm + dd;
-      var dateKey = yyyy + '/' + mm + '/' + dd;
-      
-      requests.push({
-        url: "https://www.taifex.com.tw/cht/7/getVixData?filesname=" + dateStr,
-        method: "get",
-        muteHttpExceptions: true,
-        dateKey: dateKey,
-        dtReal: new Date(current)
-      });
-    }
-    current.setDate(current.getDate() - 1);
+  for (var i = 0; i < 3; i++) {
+    var yyyy = currentMonth.getFullYear();
+    var mm = String(currentMonth.getMonth() + 1).padStart(2, '0');
+    var monthStr = yyyy + mm;
+    var url = "https://www.taifex.com.tw/file/taifex/Dailydownload/vix/log2data/" + monthStr + "new.txt";
+    
+    requests.push({
+      url: url,
+      method: "get",
+      muteHttpExceptions: true
+    });
+    
+    currentMonth.setMonth(currentMonth.getMonth() - 1);
   }
   
-  // 平行非同步抓取 45 天資料，約 1~2 秒完成
   var responses = UrlFetchApp.fetchAll(requests);
   var rawVix = {};
   
   for (var i = 0; i < responses.length; i++) {
     var res = responses[i];
     if (res.getResponseCode() === 200) {
-      var text = res.getContentText();
-      if (text.indexOf('Last 1 min AVG') !== -1) {
-        var lines = text.trim().split('\n');
-        for (var j = lines.length - 1; j >= 0; j--) {
-          if (lines[j].indexOf('Last 1 min AVG') !== -1) {
-            var parts = lines[j].trim().split('\t');
+      var text = res.getContentText("UTF-8");
+      var lines = text.trim().split('\n');
+      
+      for (var j = 2; j < lines.length; j++) {
+        var line = lines[j].trim();
+        if (!line) continue;
+        
+        var parts = line.split(/\s+/);
+        if (parts.length >= 4) {
+          var dateRaw = parts[0];
+          if (dateRaw.length === 8) {
+            var yyyy = dateRaw.substring(0, 4);
+            var mm = dateRaw.substring(4, 6);
+            var dd = dateRaw.substring(6, 8);
+            var dateKey = yyyy + '/' + mm + '/' + dd;
+            var dtReal = new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd));
+            
             var val = parseFloat(parts[parts.length - 1]);
             if (!isNaN(val)) {
-              rawVix[requests[i].dateKey] = { val: val, dt: requests[i].dtReal };
+              rawVix[dateKey] = { val: val, dt: dtReal };
             }
-            break;
           }
         }
       }
