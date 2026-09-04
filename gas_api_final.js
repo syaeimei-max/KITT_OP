@@ -270,6 +270,21 @@ function scheduledFetch() {
 }
 
 // ===== VIX 波動率指數爬蟲 =====
+/*
+=====================================================================
+[經驗傳承：VIX 歷史與當天資料的完美融合] (紀錄於 2026/09/04)
+1. 踩雷歷史：曾有 AI 誤以為只需抓取 3 個月歷史檔即可，卻忽略了期交所的「歷史批次檔 (YYYYMMnew.txt)」
+   要在半夜才會更新，導致 APP 永遠抓不到當天 (例如 9/4) 的即時資料。
+2. 解決方案：採用「源頭空降合併法」。我們除了抓取 3 個月歷史檔，同時額外平行呼叫最近 5 天的 
+   `getVixData?filesname=YYYYMMDD` 當天專屬 API。
+3. 為什麼是最近 5 天？因為 GAS 的 UrlFetchApp.fetchAll 支援平行抓取，一次發送多個請求不會拖慢速度。
+   遇到假日 (回傳 HTML) 程式會自動過濾略過。
+4. 縫合魔法：將當天資料與歷史資料全部倒進 rawVix 一維陣列後，原本的 6 週縫合與高亮邏輯
+   完全不需要改動！陣列一排序，最大最新的一天自然會奪得高亮皇冠。
+5. UI 防呆：後端雖然給足 6 週，但在前端 (如 index.html) 已經統一加上了 .slice(0, 5) 截斷邏輯，
+   確保畫面上絕對只會出現 5 週，第 6 週永遠默默待在背後做反灰運算。
+=====================================================================
+*/
 function processVixWeb(days) {
   var endDate = new Date();
   
@@ -291,6 +306,24 @@ function processVixWeb(days) {
     currentMonth.setMonth(currentMonth.getMonth() - 1);
   }
   
+  // 額外加入：最近 5 天的當天資料空降請求
+  var todayIter = new Date(endDate);
+  for (var i = 0; i < 5; i++) {
+    var tyyyy = todayIter.getFullYear();
+    var tmm = String(todayIter.getMonth() + 1).padStart(2, '0');
+    var tdd = String(todayIter.getDate()).padStart(2, '0');
+    var todayStr = tyyyy + tmm + tdd;
+    var urlToday = "https://www.taifex.com.tw/cht/7/getVixData?filesname=" + todayStr;
+    
+    requests.push({
+      url: urlToday,
+      method: "get",
+      muteHttpExceptions: true
+    });
+    
+    todayIter.setDate(todayIter.getDate() - 1);
+  }
+  
   var responses = UrlFetchApp.fetchAll(requests);
   var rawVix = {};
   
@@ -298,6 +331,10 @@ function processVixWeb(days) {
     var res = responses[i];
     if (res.getResponseCode() === 200) {
       var text = res.getContentText("UTF-8");
+      // 假日會回傳網頁，直接略過
+      if (text.indexOf("<!DOCTYPE HTML") !== -1 || text.indexOf("<html") !== -1) {
+        continue;
+      }
       var lines = text.trim().split('\n');
       
       for (var j = 2; j < lines.length; j++) {
@@ -305,9 +342,11 @@ function processVixWeb(days) {
         if (!line) continue;
         
         var parts = line.split(/\s+/);
-        if (parts.length >= 4) {
+        // 歷史檔為 >= 4，當天檔為 >= 3
+        if (parts.length >= 3) {
           var dateRaw = parts[0];
-          if (dateRaw.length === 8) {
+          // 確認第一欄確實是 8 碼日期數字
+          if (dateRaw.length === 8 && !isNaN(parseInt(dateRaw))) {
             var yyyy = dateRaw.substring(0, 4);
             var mm = dateRaw.substring(4, 6);
             var dd = dateRaw.substring(6, 8);
