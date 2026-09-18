@@ -75198,69 +75198,6 @@
       "latency": 0.5484137535095215
     },
     {
-      "name": "Crónica TV Ⓨ",
-      "logo": "https://i.imgur.com/k2Ku8Ib.png",
-      "url": "https://www.youtube.com/c/cronicatv/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.10158395767211914
-    },
-    {
-      "name": "Televisión Pública Ⓨ",
-      "logo": "https://i.imgur.com/4hYYpiu.png",
-      "url": "https://www.youtube.com/user/TVPublicaArgentina/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.10526823997497559
-    },
-    {
-      "name": "Pakapaka Ⓨ Ⓖ",
-      "logo": "https://i.imgur.com/Q4zaCuM.png",
-      "url": "https://www.youtube.com/user/CanalPakapaka/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.11020159721374512
-    },
-    {
-      "name": "Argentina 12 Ⓨ",
-      "logo": "https://i.imgur.com/atGKPhi.png",
-      "url": "https://www.youtube.com/c/IPNoticiasEnVivo/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.10850811004638672
-    },
-    {
-      "name": "Euronews Albania Ⓨ",
-      "logo": "https://i.imgur.com/Skf6vdi.png",
-      "url": "https://www.youtube.com/@EuronewsAlbania/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.12555408477783203
-    },
-    {
-      "name": "TN Todo Noticias Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/TN_todo_noticias_logo.svg/250px-TN_todo_noticias_logo.svg.png",
-      "url": "https://www.youtube.com/c/todonoticias/live",
-      "group": "News",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.12248730659484863
-    },
-    {
-      "name": "LN+ Ⓨ",
-      "logo": "https://i.imgur.com/vJYzGt1.png",
-      "url": "https://www.youtube.com/c/LaNacionMas/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.1076352596282959
-    },
-    {
       "name": "Barricada TV",
       "logo": "https://www.barricadatv.org/?p=23082",
       "url": "https://www.youtube.com/channel/UC6YundoLrEuBJaPp_oEPWaA/live",
@@ -75268,15 +75205,6 @@
       "country": "AR",
       "tvg_id": "",
       "latency": 0.10622000694274902
-    },
-    {
-      "name": "El Destape Ⓨ",
-      "logo": "https://yt3.ggpht.com/a-/AAuE7mAuXDwiY8UPwtAHrGXTXkAxBjdRqws2MJIN2A=s900-mo-c-c0xffffffff-rj-k-no",
-      "url": "https://www.youtube.com/c/eldestapetv/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.1146247386932373
     },
     {
       "name": "Urbana Tevé",
@@ -75288,33 +75216,6 @@
       "latency": 0.09955477714538574
     },
     {
-      "name": "Encuentro Ⓨ Ⓖ",
-      "logo": "https://i.imgur.com/IyP2UIx.png",
-      "url": "https://www.youtube.com/user/encuentro/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.13605499267578125
-    },
-    {
-      "name": "C5N Ⓨ",
-      "logo": "https://i.imgur.com/E3pamA5.png",
-      "url": "https://www.youtube.com/c/c5n/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.1317758560180664
-    },
-    {
-      "name": "A24 Ⓨ",
-      "logo": "https://i.imgur.com/OdhF7ym.png",
-      "url": "https://www.youtube.com/c/A24com/live",
-      "group": "General",
-      "country": "AR",
-      "tvg_id": "",
-      "latency": 0.10056614875793457
-    },
-    {
       "name": "ABC News Albania Ⓣ",
       "logo": "https://i.imgur.com/aObcudw.png",
       "url": "https://www.twitch.tv/abcnewsal",
@@ -75324,15 +75225,6 @@
       "latency": 0.2556602954864502
     },
     {
-      "name": "Real TV Ⓨ",
-      "logo": "https://i.imgur.com/e2KFL0R.png",
-      "url": "https://www.youtube.com/channel/UCjpoTfA8TXO6QfAWiAB67eA/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.1070857048034668
-    },
-    {
       "name": "C31 Melbourne",
       "logo": "https://i.imgur.com/dXwkFei.png",
       "url": "https://d1k6kax80wecy5.cloudfront.net/RLnAKY/index.m3u8",
@@ -75340,15 +75232,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 0.4328587055206299
-    },
-    {
-      "name": "MTV Azerbaijan Ⓢ Ⓨ",
-      "logo": "https://i.imgur.com/lSBMeBU.png",
-      "url": "https://www.youtube.com/@MTVAzerbaijan/live",
-      "group": "Music",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08288168907165527
     },
     {
       "name": "Telefe",
@@ -75477,15 +75360,6 @@
       "latency": 1.328643560409546
     },
     {
-      "name": "RTV USK Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/en/f/ff/Logo_of_RTVUSK.png",
-      "url": "https://www.youtube.com/@rtvusk/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10086369514465332
-    },
-    {
       "name": "Tropoja",
       "logo": "https://i.imgur.com/D3hNOVS.png",
       "url": "https://live.prostream.al/al/smil:tropojatv.smil/playlist.m3u8",
@@ -75520,24 +75394,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 1.715681791305542
-    },
-    {
-      "name": "SBT Ⓨ",
-      "logo": "https://logodownload.org/wp-content/uploads/2013/12/sbt-logo.png",
-      "url": "https://www.youtube.com/watch?v=ABVQXgr2LW4",
-      "group": "General",
-      "country": "BR",
-      "tvg_id": "",
-      "latency": 0.12545084953308105
-    },
-    {
-      "name": "RBC Ⓨ",
-      "logo": "https://portal.rbc1.com.br/public/portal/img/layout/logorbc.png",
-      "url": "https://www.youtube.com/watch?v=oUdd3CsxYaE",
-      "group": "General",
-      "country": "BR",
-      "tvg_id": "",
-      "latency": 0.0846104621887207
     },
     {
       "name": "9Rush Ⓖ",
@@ -75610,15 +75466,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 1.8813505172729492
-    },
-    {
-      "name": "Euronews Bulgaria Ⓨ",
-      "logo": "https://i.imgur.com/RrQVoOg.png",
-      "url": "https://www.youtube.com/channel/UCU1i6qBMjY9El6q5L2OK8hA/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08827376365661621
     },
     {
       "name": "RTV BN",
@@ -75864,15 +75711,6 @@
       "latency": 0.35294079780578613
     },
     {
-      "name": "Z1 Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/hr/9/9e/Z1-tv_logo.png",
-      "url": "https://www.youtube.com/@z1televizija/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.09405779838562012
-    },
-    {
       "name": "FZTV-1 News 新闻综合频道",
       "logo": "https://i.imgur.com/QvBxGw3.png",
       "url": "http://live.zohi.tv/video/s10001-fztv-1/index.m3u8",
@@ -75918,15 +75756,6 @@
       "latency": 0.6944236755371094
     },
     {
-      "name": "TV Dalmacija Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/hr/b/ba/Televizija_dalmacija_logo.jpg",
-      "url": "https://www.youtube.com/channel/UCvNIJIY4CM-T28UQgbUE4rQ/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08118033409118652
-    },
-    {
       "name": "CCTV-13 新闻",
       "logo": "https://i.imgur.com/pPO8uJN.png",
       "url": "http://74.91.26.218:82/live/cctv13hd.m3u8",
@@ -75954,15 +75783,6 @@
       "latency": 0.7038557529449463
     },
     {
-      "name": "N1 Hrvatska Ⓨ",
-      "logo": "https://i.imgur.com/qcD1OOZ.png",
-      "url": "https://www.youtube.com/@N1_Hrvatska/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08954119682312012
-    },
-    {
       "name": "CCTV-15 音乐",
       "logo": "https://i.imgur.com/V9I1ZyB.png",
       "url": "http://74.91.26.218:82/live/cctv15hd.m3u8",
@@ -75979,15 +75799,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 0.40015196800231934
-    },
-    {
-      "name": "TV 2020 Ⓨ",
-      "logo": "https://i.imgur.com/rtfsNdd.png",
-      "url": "https://www.youtube.com/@TV2020KIBRIS/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10847163200378418
     },
     {
       "name": "Global News",
@@ -76224,24 +76035,6 @@
       "latency": 0.803769588470459
     },
     {
-      "name": "Wör TV Ⓨ",
-      "logo": "https://i.imgur.com/P9O1jo0.png",
-      "url": "https://www.youtube.com/@wor-tvr.f.4461/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10874152183532715
-    },
-    {
-      "name": "Sundom TV Ⓨ",
-      "logo": "https://i.imgur.com/WgwR7nJ.png",
-      "url": "https://www.youtube.com/@SundomTV/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.11050748825073242
-    },
-    {
       "name": "Retro Music TV Ⓢ",
       "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/retro-cz.png",
       "url": "https://stream.mediawork.cz/retrotv/smil:retrotv2.smil/playlist.m3u8",
@@ -76260,24 +76053,6 @@
       "latency": 0.8475437164306641
     },
     {
-      "name": "franceinfo: Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Franceinfo.svg/500px-Franceinfo.svg.png",
-      "url": "https://www.youtube.com/c/franceinfo/live",
-      "group": "General",
-      "country": "FR",
-      "tvg_id": "",
-      "latency": 0.1085810661315918
-    },
-    {
-      "name": "France 24 Ⓨ",
-      "logo": "https://i.imgur.com/61MSiq9.png",
-      "url": "https://www.youtube.com/c/FRANCE24/live",
-      "group": "General",
-      "country": "FR",
-      "tvg_id": "",
-      "latency": 0.08676719665527344
-    },
-    {
       "name": "Huda TV",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/5/58/Logo_huda_%D8%AD%D8%AC%D9%85_%D9%83%D8%A8%D9%8A%D8%B1.gif",
       "url": "https://cdn.bestream.io:19360/elfaro1/elfaro1.m3u8",
@@ -76294,24 +76069,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 1.2332789897918701
-    },
-    {
-      "name": "Euronews Français Ⓨ",
-      "logo": "https://i.imgur.com/3Lr5iAj.png",
-      "url": "https://www.youtube.com/euronewsfr/live",
-      "group": "News",
-      "country": "FR",
-      "tvg_id": "",
-      "latency": 0.10058045387268066
-    },
-    {
-      "name": "France Inter Ⓨ",
-      "logo": "https://i.imgur.com/d9Ncl8m.png",
-      "url": "https://www.youtube.com/c/FranceInter/live",
-      "group": "General",
-      "country": "FR",
-      "tvg_id": "",
-      "latency": 0.09209847450256348
     },
     {
       "name": "Kanal Hovedstaden",
@@ -76402,15 +76159,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 1.9770116806030273
-    },
-    {
-      "name": "Euronews Deutsch Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Euronews_2022.svg/500px-Euronews_2022.svg.png",
-      "url": "https://www.youtube.com/euronewsde/live",
-      "group": "News",
-      "country": "DE",
-      "tvg_id": "",
-      "latency": 0.08793449401855469
     },
     {
       "name": "Jim",
@@ -76528,15 +76276,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 1.0125393867492676
-    },
-    {
-      "name": "Mad Ⓨ",
-      "logo": "https://i.imgur.com/OTTxxGe.png",
-      "url": "https://www.youtube.com/c/madtvgreece/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10629987716674805
     },
     {
       "name": "First Channel (1TV)",
@@ -76665,15 +76404,6 @@
       "latency": 2.725048303604126
     },
     {
-      "name": "KNR2 Ⓨ",
-      "logo": "https://i.imgur.com/8Pf5SJb.png",
-      "url": "https://www.youtube.com/@nutaarsiassat/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.06905698776245117
-    },
-    {
       "name": "SR Ⓖ",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/SR_Fernsehen_Logo_2023.svg/500px-SR_Fernsehen_Logo_2023.svg.png",
       "url": "https://srfs.akamaized.net/hls/live/689649/srfsgeo/index.m3u8",
@@ -76681,33 +76411,6 @@
       "country": "DE",
       "tvg_id": "",
       "latency": 0.9603240489959717
-    },
-    {
-      "name": "KNR1 Ⓨ Ⓖ",
-      "logo": "https://i.imgur.com/8Pf5SJb.png",
-      "url": "https://www.youtube.com/@KNRgreenland/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10089778900146484
-    },
-    {
-      "name": "M1 Hiradó Ⓨ",
-      "logo": "https://i.imgur.com/neddXUd.png",
-      "url": "https://www.youtube.com/@M1-Hirado/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08170104026794434
-    },
-    {
-      "name": "ErdélyTV Ⓨ",
-      "logo": "http://kommunikacio.ro/wp-content/uploads/2017/10/erdelytv.png",
-      "url": "https://www.youtube.com/channel/UCS5t4xWMT6lIZ9tcPROUd5A/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.09058761596679688
     },
     {
       "name": "Hlektra",
@@ -76935,15 +76638,6 @@
       "latency": 3.9901669025421143
     },
     {
-      "name": "Aaj Tak Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/2/28/Aaj_tak_logo.png",
-      "url": "https://www.youtube.com/watch?v=Nq2wYlWFucg",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10454988479614258
-    },
-    {
       "name": "Thraki Net TV",
       "logo": "https://i.imgur.com/DV0I0ed.png",
       "url": "https://cdn.onestreaming.com/thrakinettv/thrakinettv/playlist.m3u8",
@@ -76953,15 +76647,6 @@
       "latency": 1.2109851837158203
     },
     {
-      "name": "Asianet Suvarna News Ⓨ",
-      "logo": "https://i.imgur.com/zRWl97N.jpeg",
-      "url": "https://www.youtube.com/@AsianetSuvarnaNews/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08484530448913574
-    },
-    {
       "name": "Lychnos",
       "logo": "hhttps://i.imgur.com/JYSlBfY.png",
       "url": "https://thor.mental-media.gr:19360/imp/imp.m3u8",
@@ -76969,15 +76654,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 1.3853466510772705
-    },
-    {
-      "name": "Asianet News Telugu Ⓨ",
-      "logo": "https://i.imgur.com/9wJvDMn.jpeg",
-      "url": "https://www.youtube.com/@AsianetNewsTelugu/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08087897300720215
     },
     {
       "name": "Epsilon",
@@ -77005,24 +76681,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 1.775285005569458
-    },
-    {
-      "name": "News18 UP Uttarakhand Ⓨ",
-      "logo": "https://i.imgur.com/nKwoe8n.png",
-      "url": "https://www.youtube.com/@News18UPUttarakhand/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.07974386215209961
-    },
-    {
-      "name": "News18 Telugu Ⓨ",
-      "logo": "https://i.imgur.com/NsieorM.jpeg",
-      "url": "https://www.youtube.com/@News18Telugu/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.0849161148071289
     },
     {
       "name": "Alert",
@@ -77356,15 +77014,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 0.9557337760925293
-    },
-    {
-      "name": "9 канал Ⓨ",
-      "logo": "https://i.imgur.com/pttM3KQ.png",
-      "url": "https://www.youtube.com/@israel9tv/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.1057424545288086
     },
     {
       "name": "Pannon RTV",
@@ -79482,24 +79131,6 @@
       "latency": 0.921842098236084
     },
     {
-      "name": "Radio Colonna Tv Ⓨ",
-      "logo": "https://i.imgur.com/EcQvDfq.png",
-      "url": "https://www.youtube.com/radiocolonna/live",
-      "group": "Music",
-      "country": "IT",
-      "tvg_id": "",
-      "latency": 0.11145305633544922
-    },
-    {
-      "name": "TRM h24 Ⓨ",
-      "logo": "https://i.imgur.com/d47CdYU.png",
-      "url": "https://www.youtube.com/user/trmh24/live",
-      "group": "General",
-      "country": "IT",
-      "tvg_id": "",
-      "latency": 0.13591909408569336
-    },
-    {
       "name": "Teleroma 56 Ⓣ",
       "logo": "https://i.imgur.com/wGfpUj8.png",
       "url": "https://www.twitch.tv/teleroma_56",
@@ -79671,15 +79302,6 @@
       "latency": 1.4889233112335205
     },
     {
-      "name": "NTV Kenya Ⓨ",
-      "logo": "https://i.imgur.com/OpoLjfv",
-      "url": "https://www.youtube.com/c/NTVKenyaOnline/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.13299155235290527
-    },
-    {
       "name": "G1 TV",
       "logo": "https://i.imgur.com/TYYffUe.png",
       "url": "http://61.82.49.4:1935/live/_definst_/tv.stream/playlist.m3u8",
@@ -79734,15 +79356,6 @@
       "latency": 0.1786501407623291
     },
     {
-      "name": "KBS Korea Ⓨ",
-      "logo": "https://kbsworldimage.kbs.co.kr/images/layout/logo/logo_korea_n.png",
-      "url": "https://www.youtube.com/c/kbsworldtv/live",
-      "group": "General",
-      "country": "KR",
-      "tvg_id": "",
-      "latency": 0.11229252815246582
-    },
-    {
       "name": "OBS TV",
       "logo": "https://i.imgur.com/oWB3ApR.png",
       "url": "https://allanf181.github.io/adaptive-streams/streams/kr/OBSGyeonginTV.m3u8",
@@ -79750,15 +79363,6 @@
       "country": "KR",
       "tvg_id": "",
       "latency": 0.20517897605895996
-    },
-    {
-      "name": "All the K-Pop Ⓨ",
-      "logo": "https://i.imgur.com/tBbTTAx.png",
-      "url": "https://www.youtube.com/c/ALLTHEKPOP/live",
-      "group": "Music",
-      "country": "KR",
-      "tvg_id": "",
-      "latency": 0.12228536605834961
     },
     {
       "name": "JTV TV",
@@ -79995,15 +79599,6 @@
       "latency": 0.8657267093658447
     },
     {
-      "name": "Mongol TV Ⓨ",
-      "logo": "",
-      "url": "https://www.youtube.com/c/MONGOLTVnow/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.09400081634521484
-    },
-    {
       "name": "Quiero TV",
       "logo": "https://graph.facebook.com/quierotvGDL/picture?width=200&height=200",
       "url": "https://stream.ontvmx.com/ontv/ghxTYEQmKkB2UJyVuW/playlist.m3u8",
@@ -80139,33 +79734,6 @@
       "latency": 0.3676738739013672
     },
     {
-      "name": "Channels TV Ⓨ",
-      "logo": "https://i.imgur.com/O237VLC.png",
-      "url": "https://www.youtube.com/@ChannelsTelevision/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.0943758487701416
-    },
-    {
-      "name": "TVC News Ⓨ",
-      "logo": "https://i.imgur.com/jaSq18B.png",
-      "url": "https://www.youtube.com/tvcnewsnigeria/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.09035110473632812
-    },
-    {
-      "name": "Soundcity TV Ⓨ",
-      "logo": "https://i.imgur.com/zfi4SXW.png",
-      "url": "https://www.youtube.com/channel/UCGuIbAVY4_O-KOQmLkU0IKQ/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.11435794830322266
-    },
-    {
       "name": "NourSAT",
       "logo": "",
       "url": "https://svs.itworkscdn.net/nour4satlive/livestream/playlist.m3u8",
@@ -80272,15 +79840,6 @@
       "country": "NL",
       "tvg_id": "",
       "latency": 0.7587289810180664
-    },
-    {
-      "name": "Kanal 10 Norge Ⓨ",
-      "logo": "https://i.imgur.com/2fOcZfK.png",
-      "url": "https://www.youtube.com/c/Kanal10Norge/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.09813117980957031
     },
     {
       "name": "Falestinona Channel",
@@ -80580,15 +80139,6 @@
       "latency": 4.096745491027832
     },
     {
-      "name": "Banaadir TV Ⓨ",
-      "logo": "https://www.lyngsat.com/logo/tv/bb/banaadir-tv-so.png",
-      "url": "https://www.youtube.com/channel/UC_IzgGt0bVMXBR_Eu6AcqRw/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08672595024108887
-    },
-    {
       "name": "Rotana Music",
       "logo": "https://i.imgur.com/2zFQbQi.png",
       "url": "https://rotana.hibridcdn.net/rotananet/music_net-7Y83PP5adWixDF93/playlist.m3u8",
@@ -80596,24 +80146,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 0.606499195098877
-    },
-    {
-      "name": "Galmudug TV Ⓨ",
-      "logo": "https://www.lyngsat.com/logo/tv/gg/galmudug-tv-so.png",
-      "url": "https://www.youtube.com/channel/UCaEZkCJVKUoQNK42y-bC2Uw/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08879852294921875
-    },
-    {
-      "name": "Bulsho TV Ⓨ",
-      "logo": "https://i.imgur.com/7qo4rb7.png",
-      "url": "https://www.youtube.com/@Bulshotv/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.12970662117004395
     },
     {
       "name": "Qatar Television The Holy Quran",
@@ -80625,15 +80157,6 @@
       "latency": 0.9549124240875244
     },
     {
-      "name": "Horn Cable TV Ⓨ",
-      "logo": "https://i.imgur.com/qUqQCjP.png",
-      "url": "https://www.youtube.com/@HornCableTV1/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10262465476989746
-    },
-    {
       "name": "SBC Saudi Arabia",
       "logo": "https://i.imgur.com/9JSQglj.png",
       "url": "https://shd-gcp-live.edgenextcdn.net/live/bitmovin-sbc/90e09c0c28db26435799b4a14892a167/index.m3u8",
@@ -80641,33 +80164,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 0.8153495788574219
-    },
-    {
-      "name": "MM Somali TV Ⓨ",
-      "logo": "https://www.lyngsat.com/logo/tv/mm/mm-somali-tv-so.png",
-      "url": "https://www.youtube.com/@mmsomalitv/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10182738304138184
-    },
-    {
-      "name": "Jubbaland TV Ⓨ",
-      "logo": "https://i.imgur.com/SEgEYjV.png",
-      "url": "https://www.youtube.com/@JLTVOfficial1/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.11122250556945801
-    },
-    {
-      "name": "Rejo TV Ⓨ",
-      "logo": "https://www.lyngsat.com/logo/tv/rr/rejo-tv-so.png",
-      "url": "https://www.youtube.com/channel/UCf_ntY4qKz0jFV2dRTWselQ/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08986639976501465
     },
     {
       "name": "Silverbird News 24",
@@ -80704,33 +80200,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 2.5082714557647705
-    },
-    {
-      "name": "Sahan TV Ⓨ",
-      "logo": "https://i.imgur.com/fOvHhX2.png",
-      "url": "https://www.youtube.com/channel/UCGn3y_geehf1ZgAlwtbNt2w/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10230636596679688
-    },
-    {
-      "name": "Shabelle TV Ⓨ",
-      "logo": "https://www.lyngsat.com/logo/tv/ss/shabelle-tv-so.png",
-      "url": "https://www.youtube.com/channel/UCXSorfoPFZbMraJP4XCtDQw/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.09717130661010742
-    },
-    {
-      "name": "Somaliland National TV Ⓨ",
-      "logo": "https://i.imgur.com/FIuQNWN.png",
-      "url": "https://www.youtube.com/c/SLNTVLIVESTREAM/live",
-      "group": "General",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.10395026206970215
     },
     {
       "name": "Markíza",
@@ -80776,15 +80245,6 @@
       "country": "",
       "tvg_id": "",
       "latency": 1.282606840133667
-    },
-    {
-      "name": "IB3 Global Ⓨ",
-      "logo": "https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/spain/ib3-es.png",
-      "url": "https://www.youtube.com/c/ib3/live",
-      "group": "General",
-      "country": "ES",
-      "tvg_id": "",
-      "latency": 0.10045766830444336
     },
     {
       "name": "La 1",
@@ -80895,15 +80355,6 @@
       "latency": 1.8955564498901367
     },
     {
-      "name": "Lokal-TV Uddevalla / Fyrbodal-TV Ⓨ",
-      "logo": "https://i.imgur.com/cnLkbOT.png",
-      "url": "https://www.youtube.com/@LtvuSeTube/live",
-      "group": "General",
-      "country": "SE",
-      "tvg_id": "",
-      "latency": 0.09713315963745117
-    },
-    {
       "name": "ETB1",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/ETB1_2022_logo.svg/500px-ETB1_2022_logo.svg.png",
       "url": "https://multimedia.eitb.eus/live-content/etb1hd-hls/master.m3u8",
@@ -80931,69 +80382,6 @@
       "latency": 0.8888969421386719
     },
     {
-      "name": "CTV (中視) Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/zh/2/22/CTV_text.png",
-      "url": "https://www.youtube.com/c/twctvnews/live",
-      "group": "General",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.10617923736572266
-    },
-    {
-      "name": "CTV News Channel (中視新聞台) Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/zh/6/67/CTV_News_logo.png",
-      "url": "https://www.youtube.com/watch?v=TCnaIE_SAtM",
-      "group": "News",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.08370208740234375
-    },
-    {
-      "name": "PTS (公視主頻) Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/zh/thumb/f/fb/PTS_Taiwan.svg/500px-PTS_Taiwan.svg.png",
-      "url": "https://www.youtube.com/channel/UCXgIO9jJVsX5_2ideiSkfvA/live",
-      "group": "General",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.10800528526306152
-    },
-    {
-      "name": "PTS Taigi (公視台語台) Ⓨ Ⓖ",
-      "logo": "https://upload.wikimedia.org/wikipedia/zh/thumb/8/8a/PTS_Taigi.svg/500px-PTS_Taigi.svg.png",
-      "url": "https://www.youtube.com/watch?v=6KlRR_DGhmI",
-      "group": "General",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.08982586860656738
-    },
-    {
-      "name": "TaiwanPlus Ⓨ",
-      "logo": "https://i.imgur.com/SfcZyqm.png",
-      "url": "https://www.youtube.com/watch?v=dZp87qnWelE",
-      "group": "General",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.08806991577148438
-    },
-    {
-      "name": "FTV News (民視新聞台) Ⓨ",
-      "logo": "https://i.imgur.com/j9Gebr5.png",
-      "url": "https://www.youtube.com/watch?v=ylYJSBUgaMA",
-      "group": "News",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.08920598030090332
-    },
-    {
-      "name": "TTV Main Channel (臺灣電視台) Ⓨ Ⓖ",
-      "logo": "https://upload.wikimedia.org/wikipedia/zh/4/43/TTV_Home_Channel_with_HD_2016.png",
-      "url": "https://www.youtube.com/watch?v=uDqQo8a7Xmk",
-      "group": "General",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.08163714408874512
-    },
-    {
       "name": "RT Д Русский Ⓖ",
       "logo": "https://i.imgur.com/v5fpEBo.png",
       "url": "https://hls.rt.com/hls/rtdru.m3u8",
@@ -81001,24 +80389,6 @@
       "country": "RU",
       "tvg_id": "",
       "latency": 3.103355884552002
-    },
-    {
-      "name": "TTV News (台視新聞台) Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/zh/3/3f/TTV_News_Channel_with_HD_2016.png",
-      "url": "https://www.youtube.com/@TTV_NEWS/live",
-      "group": "News",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.09384489059448242
-    },
-    {
-      "name": "Congress Channel 1 Ⓨ",
-      "logo": "https://i.imgur.com/0dVlvsz.png",
-      "url": "https://www.youtube.com/watch?v=x6XVbD7Ln78",
-      "group": "General",
-      "country": "TW",
-      "tvg_id": "",
-      "latency": 0.10494041442871094
     },
     {
       "name": "3/24",
@@ -81390,15 +80760,6 @@
       "latency": 1.1483712196350098
     },
     {
-      "name": "ABC News (AU) Ⓨ",
-      "logo": "https://i.imgur.com/BrW7gk8.png",
-      "url": "https://www.youtube.com/@abcnewsaustralia/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.08994054794311523
-    },
-    {
       "name": "BBC Radio 5 Sports Extra",
       "logo": "https://experiencersinternational.github.io/tvsetup/tvg-ico/bbcrd5s-epg.png",
       "url": "https://lsn.lv/bbcradio.m3u8?station=bbc_radio_five_live_sports_extra&bitrate=320000",
@@ -81408,15 +80769,6 @@
       "latency": 1.5514554977416992
     },
     {
-      "name": "Channel News Asia Ⓨ",
-      "logo": "https://i.imgur.com/xWglicB.png",
-      "url": "https://www.youtube.com/channel/UC83jt4dlz1Gjl58fzQrrKZg/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.09851312637329102
-    },
-    {
       "name": "BBC Radio 6 Music",
       "logo": "https://experiencersinternational.github.io/tvsetup/tvg-ico/bbcrd6-epg.png",
       "url": "https://lsn.lv/bbcradio.m3u8?station=bbc_6music&bitrate=320000",
@@ -81424,15 +80776,6 @@
       "country": "GB",
       "tvg_id": "",
       "latency": 1.5781733989715576
-    },
-    {
-      "name": "Sky News (UK) Ⓨ",
-      "logo": "https://d2n0069hmnqmmx.cloudfront.net/epgdata/1.0/newchanlogos/512/512/skychb1404.png",
-      "url": "https://www.youtube.com/channel/UCoMdktPbSTixAyNGwb-UYkQ/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.12438106536865234
     },
     {
       "name": "BBC Radio 5 Live",
@@ -81469,24 +80812,6 @@
       "country": "GB",
       "tvg_id": "",
       "latency": 1.5816776752471924
-    },
-    {
-      "name": "Joy News Ⓨ",
-      "logo": "https://i.imgur.com/kGuMNmR.png",
-      "url": "https://www.youtube.com/channel/UChd1DEecCRlxaa0-hvPACCw/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.1154327392578125
-    },
-    {
-      "name": "Euronews Español Ⓨ",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Euronews_2022.svg/500px-Euronews_2022.svg.png",
-      "url": "https://www.youtube.com/euronewses/live",
-      "group": "News",
-      "country": "",
-      "tvg_id": "",
-      "latency": 0.0932168960571289
     },
     {
       "name": "CGTN Español",
