@@ -8215,7 +8215,7 @@
       "country": "US",
       "tvg_id": "BetterLifeNatureChannel.us@SD",
       "logo": "https://i.imgur.com/D8Vuw6I.png",
-      "group": "Relax",
+      "group": "Lifestyle",
       "url": "https://tgn.bozztv.com/betterlife/betternature/betternature/index.m3u8",
       "latency": 1.1067919731140137
     },
@@ -23020,7 +23020,7 @@
       "country": "NL",
       "tvg_id": "FunBoxUHD.nl@SD",
       "logo": "https://i.imgur.com/9FJct9o.png",
-      "group": "Relax",
+      "group": "Lifestyle",
       "url": "https://webtvstream.bhtelecom.ba/funbox.m3u8",
       "latency": 0.9581677913665771
     },
@@ -37276,7 +37276,7 @@
       "country": "FR",
       "tvg_id": "MyZenTV.fr@SD",
       "logo": "https://i.imgur.com/fIi8o0C.png",
-      "group": "Relax",
+      "group": "Lifestyle",
       "url": "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01255-secomcofites-my-myzen-en-plex/playlist.m3u8",
       "latency": 0.9252514839172363
     },
@@ -55042,7 +55042,7 @@
       "country": "US",
       "tvg_id": "ScreenDreams.us@SD",
       "logo": "https://i.imgur.com/AHIo9oz.png",
-      "group": "Relax",
+      "group": "Lifestyle",
       "url": "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2240",
       "latency": 0.6715505123138428
     },
@@ -58912,7 +58912,7 @@
       "country": "CA",
       "tvg_id": "ZenLIFEbyStingray.ca@HD",
       "logo": "https://www.stingray.com/wp-content/uploads/2023/12/stingray_zenlifebystingray_white.svg",
-      "group": "Relax",
+      "group": "Lifestyle",
       "url": "https://lotus.stingray.com/manifest/zenlife-zen001-montreal/samsungtvplus/master.m3u8",
       "latency": 0.5127713680267334
     },
@@ -77478,7 +77478,7 @@
       "name": "Food Network",
       "logo": "https://i.imgur.com/i60OYr9.png",
       "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/FOODNETWORK/CMAF/index.m3u8",
-      "group": "Food",
+      "group": "Cooking",
       "country": "IT",
       "tvg_id": "",
       "latency": 0.5553841590881348
@@ -82518,7 +82518,7 @@
       "name": "Fireplace – Pluto TV",
       "logo": "https://i.imgur.com/csk1e76.png",
       "url": "https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/612ce23f51cce000078eeed5/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel",
-      "group": "Relax",
+      "group": "Lifestyle",
       "country": "",
       "tvg_id": "",
       "latency": 0.2256462574005127
@@ -82662,7 +82662,7 @@
       "name": "Cucina – Pluto TV",
       "logo": "https://i.imgur.com/KsOhaOn.png",
       "url": "https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/608aa718a8ec810007d87fee/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel",
-      "group": "Food",
+      "group": "Cooking",
       "country": "",
       "tvg_id": "",
       "latency": 0.3530440330505371
@@ -82743,7 +82743,7 @@
       "name": "Deluxe Lounge HD – Pluto TV",
       "logo": "https://i.imgur.com/mTXgaKl.png",
       "url": "https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/6278ec6c33d85a00077ad814/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel",
-      "group": "Relax",
+      "group": "Lifestyle",
       "country": "",
       "tvg_id": "",
       "latency": 1.531775951385498
