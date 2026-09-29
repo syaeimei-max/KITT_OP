@@ -136,20 +136,20 @@
         "previous": "6.3B"
     },
     {
-        "title": "義 10年期公債拍賣",
-        "country": "EUR",
-        "date": "2026-09-29T05:33:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "4.10|1.6"
-    },
-    {
         "title": "10年期公債拍賣",
         "country": "GBP",
-        "date": "2026-09-29T05:33:00-04:00",
+        "date": "2026-09-29T05:02:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": "5.16|3.6"
+    },
+    {
+        "title": "義 10年期公債拍賣",
+        "country": "EUR",
+        "date": "2026-09-29T05:04:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "4.10|1.6"
     },
     {
         "title": "德 德央行長 Nagel 發言",
@@ -604,7 +604,7 @@
         "country": "USD",
         "date": "2026-09-30T10:30:00-04:00",
         "impact": "Low",
-        "forecast": "",
+        "forecast": "-1.9M",
         "previous": "3.0M"
     },
     {
