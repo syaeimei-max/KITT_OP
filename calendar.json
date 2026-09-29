@@ -1,6 +1,6 @@
 [
     {
-        "title": "Monetary Policy Meeting Minutes",
+        "title": "Monetary Policy Meeting 會議紀錄",
         "country": "JPY",
         "date": "2026-09-27T19:50:00-04:00",
         "impact": "Low",
@@ -16,7 +16,7 @@
         "previous": "3.6%"
     },
     {
-        "title": "MPC Member Ramsden Speaks",
+        "title": "MPC Member Ramsden 發言",
         "country": "GBP",
         "date": "2026-09-28T06:00:00-04:00",
         "impact": "Low",
@@ -24,7 +24,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Bowman Speaks",
+        "title": "FOMC Member Bowman 發言",
         "country": "USD",
         "date": "2026-09-28T08:15:00-04:00",
         "impact": "Low",
@@ -32,7 +32,7 @@
         "previous": ""
     },
     {
-        "title": "ECB President Lagarde Speaks",
+        "title": "ECB President Lagarde 發言",
         "country": "EUR",
         "date": "2026-09-28T09:30:00-04:00",
         "impact": "Medium",
@@ -40,7 +40,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Cook Speaks",
+        "title": "FOMC Member Cook 發言",
         "country": "USD",
         "date": "2026-09-28T13:25:00-04:00",
         "impact": "Low",
@@ -48,7 +48,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Barkin Speaks",
+        "title": "FOMC Member Barkin 發言",
         "country": "USD",
         "date": "2026-09-28T13:30:00-04:00",
         "impact": "Low",
@@ -56,7 +56,7 @@
         "previous": ""
     },
     {
-        "title": "BRC Shop Price Index y/y",
+        "title": "BRC Shop Price 指數 y/y",
         "country": "GBP",
         "date": "2026-09-28T19:01:00-04:00",
         "impact": "Low",
@@ -72,7 +72,7 @@
         "previous": "1.1%"
     },
     {
-        "title": "Cash Rate",
+        "title": "基準利率",
         "country": "AUD",
         "date": "2026-09-29T00:30:00-04:00",
         "impact": "High",
@@ -80,7 +80,7 @@
         "previous": "4.35%"
     },
     {
-        "title": "RBA Rate Statement",
+        "title": "澳洲央行聲明",
         "country": "AUD",
         "date": "2026-09-29T00:30:00-04:00",
         "impact": "High",
@@ -104,7 +104,7 @@
         "previous": "106.7"
     },
     {
-        "title": "Spanish Flash CPI y/y",
+        "title": "西 初值 CPI 年率",
         "country": "EUR",
         "date": "2026-09-29T03:00:00-04:00",
         "impact": "Low",
@@ -136,7 +136,7 @@
         "previous": "6.3B"
     },
     {
-        "title": "Italian 10-y Bond Auction",
+        "title": "義 10-y Bond Auction",
         "country": "EUR",
         "date": "2026-09-29T05:33:00-04:00",
         "impact": "Low",
@@ -152,7 +152,7 @@
         "previous": "5.16|3.6"
     },
     {
-        "title": "German Buba President Nagel Speaks",
+        "title": "德 Buba President Nagel 發言",
         "country": "EUR",
         "date": "2026-09-29T06:00:00-04:00",
         "impact": "Low",
@@ -160,7 +160,7 @@
         "previous": ""
     },
     {
-        "title": "ECB President Lagarde Speaks",
+        "title": "ECB President Lagarde 發言",
         "country": "EUR",
         "date": "2026-09-29T07:00:00-04:00",
         "impact": "Medium",
@@ -208,7 +208,7 @@
         "previous": "7.27M"
     },
     {
-        "title": "MPC Member Mann Speaks",
+        "title": "MPC Member Mann 發言",
         "country": "GBP",
         "date": "2026-09-29T11:00:00-04:00",
         "impact": "Low",
@@ -216,7 +216,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Bowman Speaks",
+        "title": "FOMC Member Bowman 發言",
         "country": "USD",
         "date": "2026-09-29T11:00:00-04:00",
         "impact": "Low",
@@ -224,7 +224,7 @@
         "previous": ""
     },
     {
-        "title": "MPC Member Taylor Speaks",
+        "title": "MPC Member Taylor 發言",
         "country": "GBP",
         "date": "2026-09-29T11:30:00-04:00",
         "impact": "Low",
@@ -232,7 +232,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Barr Speaks",
+        "title": "FOMC Member Barr 發言",
         "country": "USD",
         "date": "2026-09-29T12:40:00-04:00",
         "impact": "Low",
@@ -240,7 +240,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Goolsbee Speaks",
+        "title": "FOMC Member Goolsbee 發言",
         "country": "USD",
         "date": "2026-09-29T13:00:00-04:00",
         "impact": "Low",
@@ -248,7 +248,7 @@
         "previous": ""
     },
     {
-        "title": "Gov Council Member Gravelle Speaks",
+        "title": "央行總裁 Council Member Gravelle 發言",
         "country": "CAD",
         "date": "2026-09-29T13:20:00-04:00",
         "impact": "Low",
@@ -256,7 +256,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Musalem Speaks",
+        "title": "FOMC Member Musalem 發言",
         "country": "USD",
         "date": "2026-09-29T13:30:00-04:00",
         "impact": "Low",
@@ -264,7 +264,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Williams Speaks",
+        "title": "FOMC Member Williams 發言",
         "country": "USD",
         "date": "2026-09-29T14:00:00-04:00",
         "impact": "Low",
@@ -272,7 +272,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Waller Speaks",
+        "title": "FOMC Member Waller 發言",
         "country": "USD",
         "date": "2026-09-29T15:00:00-04:00",
         "impact": "Low",
@@ -288,7 +288,7 @@
         "previous": ""
     },
     {
-        "title": "Prelim Industrial Production m/m",
+        "title": "初值 Industrial Production m/m",
         "country": "JPY",
         "date": "2026-09-29T19:50:00-04:00",
         "impact": "Low",
@@ -312,7 +312,7 @@
         "previous": "53.7"
     },
     {
-        "title": "CPI m/m",
+        "title": "CPI 月率",
         "country": "AUD",
         "date": "2026-09-29T21:30:00-04:00",
         "impact": "High",
@@ -320,7 +320,7 @@
         "previous": "1.0%"
     },
     {
-        "title": "CPI y/y",
+        "title": "CPI 年率",
         "country": "AUD",
         "date": "2026-09-29T21:30:00-04:00",
         "impact": "High",
@@ -328,7 +328,7 @@
         "previous": "3.5%"
     },
     {
-        "title": "Trimmed Mean CPI m/m",
+        "title": "Trimmed Mean CPI 月率",
         "country": "AUD",
         "date": "2026-09-29T21:30:00-04:00",
         "impact": "High",
@@ -352,7 +352,7 @@
         "previous": "0.6%"
     },
     {
-        "title": "Manufacturing PMI",
+        "title": "製造 PMI",
         "country": "CNY",
         "date": "2026-09-29T21:30:00-04:00",
         "impact": "Low",
@@ -360,7 +360,7 @@
         "previous": "49.8"
     },
     {
-        "title": "Non-Manufacturing PMI",
+        "title": "Non-製造 PMI",
         "country": "CNY",
         "date": "2026-09-29T21:30:00-04:00",
         "impact": "Low",
@@ -368,7 +368,7 @@
         "previous": "49.0"
     },
     {
-        "title": "RatingDog Manufacturing PMI",
+        "title": "RatingDog 製造 PMI",
         "country": "CNY",
         "date": "2026-09-29T21:45:00-04:00",
         "impact": "Low",
@@ -376,7 +376,7 @@
         "previous": "51.5"
     },
     {
-        "title": "RatingDog Services PMI",
+        "title": "RatingDog 服務 PMI",
         "country": "CNY",
         "date": "2026-09-29T21:45:00-04:00",
         "impact": "Low",
@@ -392,7 +392,7 @@
         "previous": "8.2%"
     },
     {
-        "title": "German Import Prices m/m",
+        "title": "德 Import Prices m/m",
         "country": "EUR",
         "date": "2026-09-30T02:00:00-04:00",
         "impact": "Low",
@@ -400,7 +400,7 @@
         "previous": "0.2%"
     },
     {
-        "title": "German Retail Sales m/m",
+        "title": "德 零售銷售 月率",
         "country": "EUR",
         "date": "2026-09-30T02:00:00-04:00",
         "impact": "Low",
@@ -416,7 +416,7 @@
         "previous": "-22.1B"
     },
     {
-        "title": "Final GDP q/q",
+        "title": "終值 GDP 季率",
         "country": "GBP",
         "date": "2026-09-30T02:00:00-04:00",
         "impact": "Low",
@@ -432,7 +432,7 @@
         "previous": "1.7%"
     },
     {
-        "title": "German Prelim CPI m/m",
+        "title": "德 初值 CPI 月率",
         "country": "EUR",
         "date": "2026-09-30T02:29:00-04:00",
         "impact": "Medium",
@@ -440,7 +440,7 @@
         "previous": "0.2%"
     },
     {
-        "title": "French Consumer Spending m/m",
+        "title": "法 Consumer Spending m/m",
         "country": "EUR",
         "date": "2026-09-30T02:45:00-04:00",
         "impact": "Low",
@@ -448,7 +448,7 @@
         "previous": "0.5%"
     },
     {
-        "title": "French Prelim CPI m/m",
+        "title": "法 初值 CPI 月率",
         "country": "EUR",
         "date": "2026-09-30T02:45:00-04:00",
         "impact": "Low",
@@ -456,7 +456,7 @@
         "previous": "0.7%"
     },
     {
-        "title": "German Unemployment Change",
+        "title": "德 失業 變動",
         "country": "EUR",
         "date": "2026-09-30T03:55:00-04:00",
         "impact": "Low",
@@ -472,7 +472,7 @@
         "previous": "12.1"
     },
     {
-        "title": "Italian Prelim CPI m/m",
+        "title": "義 初值 CPI 月率",
         "country": "EUR",
         "date": "2026-09-30T05:00:00-04:00",
         "impact": "Low",
@@ -480,7 +480,7 @@
         "previous": "0.5%"
     },
     {
-        "title": "FPC Meeting Minutes",
+        "title": "FPC Meeting 會議紀錄",
         "country": "GBP",
         "date": "2026-09-30T05:30:00-04:00",
         "impact": "Low",
@@ -496,7 +496,7 @@
         "previous": ""
     },
     {
-        "title": "German 10-y Bond Auction",
+        "title": "德 10-y Bond Auction",
         "country": "EUR",
         "date": "2026-09-30T05:42:00-04:00",
         "impact": "Low",
@@ -504,7 +504,7 @@
         "previous": "3.39|1.5"
     },
     {
-        "title": "Bank Holiday",
+        "title": "銀行休假",
         "country": "CAD",
         "date": "2026-09-30T08:00:00-04:00",
         "impact": "Holiday",
@@ -512,7 +512,7 @@
         "previous": ""
     },
     {
-        "title": "ADP Non-Farm Employment Change",
+        "title": "ADP 非農就業人數",
         "country": "USD",
         "date": "2026-09-30T08:15:00-04:00",
         "impact": "Medium",
@@ -520,7 +520,7 @@
         "previous": "38K"
     },
     {
-        "title": "Core PCE Price Index m/m",
+        "title": "核心 PCE Price 指數 m/m",
         "country": "USD",
         "date": "2026-09-30T08:30:00-04:00",
         "impact": "High",
@@ -528,7 +528,7 @@
         "previous": "0.2%"
     },
     {
-        "title": "Final GDP q/q",
+        "title": "終值 GDP 季率",
         "country": "USD",
         "date": "2026-09-30T08:30:00-04:00",
         "impact": "High",
@@ -536,7 +536,7 @@
         "previous": "1.5%"
     },
     {
-        "title": "Final GDP Price Index q/q",
+        "title": "終值 GDP Price 指數 q/q",
         "country": "USD",
         "date": "2026-09-30T08:30:00-04:00",
         "impact": "Medium",
@@ -544,7 +544,7 @@
         "previous": "6.4%"
     },
     {
-        "title": "Goods Trade Balance",
+        "title": "Goods 貿易帳",
         "country": "USD",
         "date": "2026-09-30T08:30:00-04:00",
         "impact": "Low",
@@ -568,7 +568,7 @@
         "previous": "0.2%"
     },
     {
-        "title": "Prelim Wholesale Inventories m/m",
+        "title": "初值 Wholesale Inventories m/m",
         "country": "USD",
         "date": "2026-09-30T08:30:00-04:00",
         "impact": "Low",
@@ -592,7 +592,7 @@
         "previous": "47.1"
     },
     {
-        "title": "Gov Board Member Tschudin Speaks",
+        "title": "央行總裁 Board Member Tschudin 發言",
         "country": "CHF",
         "date": "2026-09-30T10:30:00-04:00",
         "impact": "Low",
@@ -600,7 +600,7 @@
         "previous": ""
     },
     {
-        "title": "Crude Oil Inventories",
+        "title": "原油庫存",
         "country": "USD",
         "date": "2026-09-30T10:30:00-04:00",
         "impact": "Low",
@@ -608,7 +608,7 @@
         "previous": "3.0M"
     },
     {
-        "title": "FOMC Member Barkin Speaks",
+        "title": "FOMC Member Barkin 發言",
         "country": "USD",
         "date": "2026-09-30T13:30:00-04:00",
         "impact": "Low",
@@ -616,7 +616,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Cook Speaks",
+        "title": "FOMC Member Cook 發言",
         "country": "USD",
         "date": "2026-09-30T15:25:00-04:00",
         "impact": "Low",
@@ -624,7 +624,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Goolsbee Speaks",
+        "title": "FOMC Member Goolsbee 發言",
         "country": "USD",
         "date": "2026-09-30T17:10:00-04:00",
         "impact": "Low",
@@ -640,7 +640,7 @@
         "previous": "-4.3%"
     },
     {
-        "title": "FOMC Member Kashkari Speaks",
+        "title": "FOMC Member Kashkari 發言",
         "country": "USD",
         "date": "2026-09-30T18:00:00-04:00",
         "impact": "Low",
@@ -648,7 +648,7 @@
         "previous": ""
     },
     {
-        "title": "Bank Holiday",
+        "title": "銀行休假",
         "country": "CNY",
         "date": "2026-09-30T19:01:00-04:00",
         "impact": "Holiday",
@@ -664,7 +664,7 @@
         "previous": ""
     },
     {
-        "title": "Tankan Manufacturing Index",
+        "title": "Tankan 製造 指數",
         "country": "JPY",
         "date": "2026-09-30T19:50:00-04:00",
         "impact": "Low",
@@ -672,7 +672,7 @@
         "previous": "22"
     },
     {
-        "title": "Tankan Non-Manufacturing Index",
+        "title": "Tankan Non-製造 指數",
         "country": "JPY",
         "date": "2026-09-30T19:50:00-04:00",
         "impact": "Low",
@@ -680,7 +680,7 @@
         "previous": "37"
     },
     {
-        "title": "Final Manufacturing PMI",
+        "title": "終值 製造 PMI",
         "country": "JPY",
         "date": "2026-09-30T20:30:00-04:00",
         "impact": "Low",
@@ -688,7 +688,7 @@
         "previous": "54.1"
     },
     {
-        "title": "Goods Trade Balance",
+        "title": "Goods 貿易帳",
         "country": "AUD",
         "date": "2026-09-30T21:30:00-04:00",
         "impact": "Low",
@@ -720,7 +720,7 @@
         "previous": "15.5%"
     },
     {
-        "title": "CPI m/m",
+        "title": "CPI 月率",
         "country": "CHF",
         "date": "2026-10-01T02:30:00-04:00",
         "impact": "Medium",
@@ -736,7 +736,7 @@
         "previous": "2.3%"
     },
     {
-        "title": "Spanish Manufacturing PMI",
+        "title": "西 製造 PMI",
         "country": "EUR",
         "date": "2026-10-01T03:15:00-04:00",
         "impact": "Low",
@@ -744,7 +744,7 @@
         "previous": "49.5"
     },
     {
-        "title": "Manufacturing PMI",
+        "title": "製造 PMI",
         "country": "CHF",
         "date": "2026-10-01T03:30:00-04:00",
         "impact": "Low",
@@ -752,7 +752,7 @@
         "previous": "57.1"
     },
     {
-        "title": "Italian Manufacturing PMI",
+        "title": "義 製造 PMI",
         "country": "EUR",
         "date": "2026-10-01T03:45:00-04:00",
         "impact": "Low",
@@ -760,7 +760,7 @@
         "previous": "49.6"
     },
     {
-        "title": "French Final Manufacturing PMI",
+        "title": "法 終值 製造 PMI",
         "country": "EUR",
         "date": "2026-10-01T03:50:00-04:00",
         "impact": "Low",
@@ -768,7 +768,7 @@
         "previous": "50.3"
     },
     {
-        "title": "German Final Manufacturing PMI",
+        "title": "德 終值 製造 PMI",
         "country": "EUR",
         "date": "2026-10-01T03:55:00-04:00",
         "impact": "Low",
@@ -776,7 +776,7 @@
         "previous": "53.8"
     },
     {
-        "title": "Final Manufacturing PMI",
+        "title": "終值 製造 PMI",
         "country": "EUR",
         "date": "2026-10-01T04:00:00-04:00",
         "impact": "Low",
@@ -784,7 +784,7 @@
         "previous": "52.7"
     },
     {
-        "title": "Italian Monthly Unemployment Rate",
+        "title": "義 Monthly 失業率",
         "country": "EUR",
         "date": "2026-10-01T04:00:00-04:00",
         "impact": "Low",
@@ -792,7 +792,7 @@
         "previous": "5.8%"
     },
     {
-        "title": "BOE Gov Bailey Speaks",
+        "title": "BOE 央行總裁 Bailey 發言",
         "country": "GBP",
         "date": "2026-10-01T04:00:00-04:00",
         "impact": "Medium",
@@ -800,7 +800,7 @@
         "previous": ""
     },
     {
-        "title": "Final Manufacturing PMI",
+        "title": "終值 製造 PMI",
         "country": "GBP",
         "date": "2026-10-01T04:30:00-04:00",
         "impact": "Low",
@@ -808,7 +808,7 @@
         "previous": "52.0"
     },
     {
-        "title": "Unemployment Rate",
+        "title": "失業率",
         "country": "EUR",
         "date": "2026-10-01T05:00:00-04:00",
         "impact": "Low",
@@ -816,7 +816,7 @@
         "previous": "6.4%"
     },
     {
-        "title": "Spanish 10-y Bond Auction",
+        "title": "西 10-y Bond Auction",
         "country": "EUR",
         "date": "2026-10-01T05:03:00-04:00",
         "impact": "Low",
@@ -824,7 +824,7 @@
         "previous": "3.96|1.7"
     },
     {
-        "title": "French 10-y Bond Auction",
+        "title": "法 10-y Bond Auction",
         "country": "EUR",
         "date": "2026-10-01T05:18:00-04:00",
         "impact": "Low",
@@ -840,7 +840,7 @@
         "previous": "-38.5%"
     },
     {
-        "title": "German Buba President Nagel Speaks",
+        "title": "德 Buba President Nagel 發言",
         "country": "EUR",
         "date": "2026-10-01T06:35:00-04:00",
         "impact": "Low",
@@ -848,7 +848,7 @@
         "previous": ""
     },
     {
-        "title": "MPC Member Mann Speaks",
+        "title": "MPC Member Mann 發言",
         "country": "GBP",
         "date": "2026-10-01T08:00:00-04:00",
         "impact": "Low",
@@ -856,7 +856,7 @@
         "previous": ""
     },
     {
-        "title": "Unemployment Claims",
+        "title": "初請失業金",
         "country": "USD",
         "date": "2026-10-01T08:30:00-04:00",
         "impact": "Medium",
@@ -864,7 +864,7 @@
         "previous": "197K"
     },
     {
-        "title": "FOMC Member Barkin Speaks",
+        "title": "FOMC Member Barkin 發言",
         "country": "USD",
         "date": "2026-10-01T09:05:00-04:00",
         "impact": "Low",
@@ -872,7 +872,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Collins Speaks",
+        "title": "FOMC Member Collins 發言",
         "country": "USD",
         "date": "2026-10-01T09:05:00-04:00",
         "impact": "Low",
@@ -880,7 +880,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Schmid Speaks",
+        "title": "FOMC Member Schmid 發言",
         "country": "USD",
         "date": "2026-10-01T09:05:00-04:00",
         "impact": "Low",
@@ -888,7 +888,7 @@
         "previous": ""
     },
     {
-        "title": "Manufacturing PMI",
+        "title": "製造 PMI",
         "country": "CAD",
         "date": "2026-10-01T09:30:00-04:00",
         "impact": "Low",
@@ -896,7 +896,7 @@
         "previous": "53.0"
     },
     {
-        "title": "ECB President Lagarde Speaks",
+        "title": "ECB President Lagarde 發言",
         "country": "EUR",
         "date": "2026-10-01T09:30:00-04:00",
         "impact": "Medium",
@@ -904,7 +904,7 @@
         "previous": ""
     },
     {
-        "title": "Final Manufacturing PMI",
+        "title": "終值 製造 PMI",
         "country": "USD",
         "date": "2026-10-01T09:45:00-04:00",
         "impact": "Low",
@@ -912,7 +912,7 @@
         "previous": "57.0"
     },
     {
-        "title": "FOMC Member Waller Speaks",
+        "title": "FOMC Member Waller 發言",
         "country": "USD",
         "date": "2026-10-01T10:00:00-04:00",
         "impact": "Medium",
@@ -920,7 +920,7 @@
         "previous": ""
     },
     {
-        "title": "ISM Manufacturing PMI",
+        "title": "ISM 製造業 PMI",
         "country": "USD",
         "date": "2026-10-01T10:00:00-04:00",
         "impact": "Medium",
@@ -936,7 +936,7 @@
         "previous": "-0.5%"
     },
     {
-        "title": "ISM Manufacturing Prices",
+        "title": "ISM 製造 Prices",
         "country": "USD",
         "date": "2026-10-01T10:00:00-04:00",
         "impact": "Low",
@@ -960,7 +960,7 @@
         "previous": "53B"
     },
     {
-        "title": "SNB Chairman Schlegel Speaks",
+        "title": "SNB 主席man Schlegel 發言",
         "country": "CHF",
         "date": "2026-10-01T11:30:00-04:00",
         "impact": "Medium",
@@ -968,7 +968,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Jefferson Speaks",
+        "title": "FOMC Member Jefferson 發言",
         "country": "USD",
         "date": "2026-10-01T13:30:00-04:00",
         "impact": "Low",
@@ -976,7 +976,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Bowman Speaks",
+        "title": "FOMC Member Bowman 發言",
         "country": "USD",
         "date": "2026-10-01T15:00:00-04:00",
         "impact": "Low",
@@ -984,7 +984,7 @@
         "previous": ""
     },
     {
-        "title": "Gov Council Member Rogers Speaks",
+        "title": "央行總裁 Council Member Rogers 發言",
         "country": "CAD",
         "date": "2026-10-01T15:05:00-04:00",
         "impact": "Low",
@@ -992,7 +992,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Cook Speaks",
+        "title": "FOMC Member Cook 發言",
         "country": "USD",
         "date": "2026-10-01T15:30:00-04:00",
         "impact": "Low",
@@ -1000,7 +1000,7 @@
         "previous": ""
     },
     {
-        "title": "FOMC Member Logan Speaks",
+        "title": "FOMC Member Logan 發言",
         "country": "USD",
         "date": "2026-10-01T18:45:00-04:00",
         "impact": "Low",
@@ -1008,7 +1008,7 @@
         "previous": ""
     },
     {
-        "title": "Bank Holiday",
+        "title": "銀行休假",
         "country": "CNY",
         "date": "2026-10-01T19:01:00-04:00",
         "impact": "Holiday",
@@ -1016,7 +1016,7 @@
         "previous": ""
     },
     {
-        "title": "Tokyo Core CPI y/y",
+        "title": "Tokyo 核心 CPI 年率",
         "country": "JPY",
         "date": "2026-10-01T19:30:00-04:00",
         "impact": "Medium",
@@ -1024,7 +1024,7 @@
         "previous": "1.8%"
     },
     {
-        "title": "Unemployment Rate",
+        "title": "失業率",
         "country": "JPY",
         "date": "2026-10-01T19:30:00-04:00",
         "impact": "Low",
@@ -1040,7 +1040,7 @@
         "previous": "-15.7%"
     },
     {
-        "title": "Spanish Unemployment Change",
+        "title": "西 失業 變動",
         "country": "EUR",
         "date": "2026-10-02T03:00:00-04:00",
         "impact": "Low",
@@ -1048,7 +1048,7 @@
         "previous": "44.4K"
     },
     {
-        "title": "Italian Retail Sales m/m",
+        "title": "義 零售銷售 月率",
         "country": "EUR",
         "date": "2026-10-02T04:00:00-04:00",
         "impact": "Low",
@@ -1056,7 +1056,7 @@
         "previous": "-0.4%"
     },
     {
-        "title": "Core CPI Flash Estimate y/y",
+        "title": "核心 CPI 初值 預估 y/y",
         "country": "EUR",
         "date": "2026-10-02T05:00:00-04:00",
         "impact": "Medium",
@@ -1064,7 +1064,7 @@
         "previous": "2.4%"
     },
     {
-        "title": "CPI Flash Estimate y/y",
+        "title": "CPI 初值 預估 y/y",
         "country": "EUR",
         "date": "2026-10-02T05:00:00-04:00",
         "impact": "Medium",
@@ -1072,7 +1072,7 @@
         "previous": "3.3%"
     },
     {
-        "title": "Average Hourly Earnings m/m",
+        "title": "平均時薪 月率",
         "country": "USD",
         "date": "2026-10-02T08:30:00-04:00",
         "impact": "High",
@@ -1080,7 +1080,7 @@
         "previous": "0.3%"
     },
     {
-        "title": "Non-Farm Employment Change",
+        "title": "非農就業人數",
         "country": "USD",
         "date": "2026-10-02T08:30:00-04:00",
         "impact": "High",
@@ -1088,7 +1088,7 @@
         "previous": "162K"
     },
     {
-        "title": "Unemployment Rate",
+        "title": "失業率",
         "country": "USD",
         "date": "2026-10-02T08:30:00-04:00",
         "impact": "High",
@@ -1104,7 +1104,7 @@
         "previous": "0.9%"
     },
     {
-        "title": "FOMC Member Logan Speaks",
+        "title": "FOMC Member Logan 發言",
         "country": "USD",
         "date": "2026-10-02T10:00:00-04:00",
         "impact": "Low",
@@ -1112,7 +1112,7 @@
         "previous": ""
     },
     {
-        "title": "German Buba President Nagel Speaks",
+        "title": "德 Buba President Nagel 發言",
         "country": "EUR",
         "date": "2026-10-02T15:35:00-04:00",
         "impact": "Low",
