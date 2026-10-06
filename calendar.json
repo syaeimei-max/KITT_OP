@@ -224,20 +224,20 @@
         "previous": "44.3"
     },
     {
-        "title": "央行委員 Mann 發言",
-        "country": "GBP",
-        "date": "2026-10-06T04:30:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
         "title": "Housing Equity Withdrawal 季率",
         "country": "GBP",
         "date": "2026-10-06T04:30:00-04:00",
         "impact": "Low",
         "forecast": "-11.9B",
         "previous": "-12.6B"
+    },
+    {
+        "title": "央行委員 Mann 發言",
+        "country": "GBP",
+        "date": "2026-10-06T04:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
     },
     {
         "title": "零售銷售 月率",
@@ -250,18 +250,18 @@
     {
         "title": "ADP Weekly 就業變動",
         "country": "USD",
-        "date": "2026-10-06T08:15:00-04:00",
+        "date": "2026-10-06T08:14:00-04:00",
         "impact": "Low",
         "forecast": "",
-        "previous": ""
+        "previous": "20.0K"
     },
     {
         "title": "ADP Weekly 就業變動",
         "country": "USD",
-        "date": "2026-10-06T08:16:00-04:00",
+        "date": "2026-10-06T08:15:00-04:00",
         "impact": "Low",
         "forecast": "",
-        "previous": "20.0K"
+        "previous": "22.5K"
     },
     {
         "title": "貿易帳",
@@ -290,7 +290,7 @@
     {
         "title": "RCM/TIPP Economic Optimism",
         "country": "USD",
-        "date": "2026-10-06T10:10:00-04:00",
+        "date": "2026-10-06T10:01:00-04:00",
         "impact": "Low",
         "forecast": "44.5",
         "previous": "45.6"
@@ -306,7 +306,7 @@
     {
         "title": "GDT Price 指數",
         "country": "NZD",
-        "date": "2026-10-06T10:50:00-04:00",
+        "date": "2026-10-06T11:46:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": "-1.1%"
@@ -348,7 +348,7 @@
         "country": "JPY",
         "date": "2026-10-07T01:00:00-04:00",
         "impact": "Low",
-        "forecast": "118.1%",
+        "forecast": "118.3%",
         "previous": "117.9%"
     },
     {
@@ -388,7 +388,7 @@
         "country": "USD",
         "date": "2026-10-07T10:30:00-04:00",
         "impact": "Low",
-        "forecast": "",
+        "forecast": "2.1M",
         "previous": "0.9M"
     },
     {
@@ -412,7 +412,7 @@
         "country": "USD",
         "date": "2026-10-07T15:00:00-04:00",
         "impact": "Low",
-        "forecast": "15.4B",
+        "forecast": "14.4B",
         "previous": "18.1B"
     },
     {
@@ -428,7 +428,7 @@
         "country": "JPY",
         "date": "2026-10-07T19:50:00-04:00",
         "impact": "Low",
-        "forecast": "2.10T",
+        "forecast": "2.13T",
         "previous": "2.52T"
     },
     {
@@ -452,7 +452,7 @@
         "country": "JPY",
         "date": "2026-10-08T01:00:00-04:00",
         "impact": "Low",
-        "forecast": "46.6",
+        "forecast": "46.7",
         "previous": "46.4"
     },
     {
@@ -620,7 +620,7 @@
         "country": "CAD",
         "date": "2026-10-09T08:30:00-04:00",
         "impact": "High",
-        "forecast": "9.0K",
+        "forecast": "6.2K",
         "previous": "-41.7K"
     },
     {
