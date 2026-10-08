@@ -496,6 +496,14 @@
         "previous": ""
     },
     {
+        "title": "央行委員 Pill 發言",
+        "country": "GBP",
+        "date": "2026-10-08T05:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
         "title": "央行委員 Greene 發言",
         "country": "GBP",
         "date": "2026-10-08T05:15:00-04:00",
@@ -507,14 +515,6 @@
         "title": "Eurogroup Meetings",
         "country": "EUR",
         "date": "2026-10-08T05:15:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "央行委員 Pill 發言",
-        "country": "GBP",
-        "date": "2026-10-08T06:30:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
@@ -628,7 +628,7 @@
         "country": "CAD",
         "date": "2026-10-09T08:30:00-04:00",
         "impact": "High",
-        "forecast": "6.3K",
+        "forecast": "6.1K",
         "previous": "-41.7K"
     },
     {
