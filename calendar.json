@@ -1,528 +1,272 @@
 [
     {
-        "title": "OPEC-JMMC Meetings",
+        "title": "銀行休假",
+        "country": "JPY",
+        "date": "2026-10-11T19:00:00-04:00",
+        "impact": "Holiday",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "央行委員 Breeden 發言",
+        "country": "GBP",
+        "date": "2026-10-12T05:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "銀行休假",
+        "country": "USD",
+        "date": "2026-10-12T07:00:00-04:00",
+        "impact": "Holiday",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "銀行休假",
+        "country": "CAD",
+        "date": "2026-10-12T08:00:00-04:00",
+        "impact": "Holiday",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "央行委員 Mann 發言",
+        "country": "GBP",
+        "date": "2026-10-12T08:50:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "IMF Meetings",
         "country": "All",
-        "date": "2026-10-04T05:15:00-04:00",
-        "impact": "Medium",
+        "date": "2026-10-12T10:15:00-04:00",
+        "impact": "Low",
         "forecast": "",
         "previous": ""
     },
     {
-        "title": "銀行休假",
+        "title": "FOMC 委員 Hammack 發言",
+        "country": "USD",
+        "date": "2026-10-12T12:10:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "BRC 零售銷售 Monitor 年率",
+        "country": "GBP",
+        "date": "2026-10-12T19:01:00-04:00",
+        "impact": "Low",
+        "forecast": "0.8%",
+        "previous": "0.5%"
+    },
+    {
+        "title": "Bank Lending 年率",
+        "country": "JPY",
+        "date": "2026-10-12T19:50:00-04:00",
+        "impact": "Low",
+        "forecast": "5.5%",
+        "previous": "5.4%"
+    },
+    {
+        "title": "PPI 年率",
+        "country": "JPY",
+        "date": "2026-10-12T19:50:00-04:00",
+        "impact": "Low",
+        "forecast": "7.6%",
+        "previous": "7.6%"
+    },
+    {
+        "title": "貨幣政策會議紀錄",
         "country": "AUD",
-        "date": "2026-10-04T16:00:00-04:00",
-        "impact": "Holiday",
+        "date": "2026-10-12T20:30:00-04:00",
+        "impact": "Low",
         "forecast": "",
         "previous": ""
     },
     {
-        "title": "銀行休假",
+        "title": "NAB Business Confidence",
+        "country": "AUD",
+        "date": "2026-10-12T20:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "-8"
+    },
+    {
+        "title": "央行委員 Greene 發言",
+        "country": "GBP",
+        "date": "2026-10-12T23:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "德 終值 CPI 月率",
+        "country": "EUR",
+        "date": "2026-10-13T02:00:00-04:00",
+        "impact": "Low",
+        "forecast": "0.6%",
+        "previous": "0.6%"
+    },
+    {
+        "title": "FOMC 委員 Waller 發言",
+        "country": "USD",
+        "date": "2026-10-13T03:45:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "M2 Money Supply 年率",
         "country": "CNY",
-        "date": "2026-10-04T19:01:00-04:00",
-        "impact": "Holiday",
+        "date": "2026-10-13T04:03:00-04:00",
+        "impact": "Low",
+        "forecast": "7.5%",
+        "previous": "7.5%"
+    },
+    {
+        "title": "New Loans",
+        "country": "CNY",
+        "date": "2026-10-13T04:03:00-04:00",
+        "impact": "Low",
+        "forecast": "300B",
+        "previous": "60B"
+    },
+    {
+        "title": "NFIB Small Business 指數",
+        "country": "USD",
+        "date": "2026-10-13T06:00:00-04:00",
+        "impact": "Low",
+        "forecast": "98.0",
+        "previous": "98.7"
+    },
+    {
+        "title": "ADP Weekly 就業變動",
+        "country": "USD",
+        "date": "2026-10-13T08:15:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "23.8K"
+    },
+    {
+        "title": "成屋銷售",
+        "country": "USD",
+        "date": "2026-10-13T10:00:00-04:00",
+        "impact": "Low",
+        "forecast": "3.96M",
+        "previous": "3.98M"
+    },
+    {
+        "title": "IMF Meetings",
+        "country": "All",
+        "date": "2026-10-13T10:15:00-04:00",
+        "impact": "Low",
         "forecast": "",
         "previous": ""
     },
     {
-        "title": "MI Inflation Gauge 月率",
+        "title": "CB Leading 指數 月率",
         "country": "AUD",
-        "date": "2026-10-04T20:00:00-04:00",
+        "date": "2026-10-13T10:30:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": "0.5%"
     },
     {
-        "title": "ANZ Commodity Prices 月率",
-        "country": "NZD",
-        "date": "2026-10-04T20:00:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "-0.4%"
-    },
-    {
-        "title": "Consumer Confidence",
-        "country": "JPY",
-        "date": "2026-10-05T01:00:00-04:00",
-        "impact": "Low",
-        "forecast": "35.3",
-        "previous": "35.5"
-    },
-    {
-        "title": "西 服務業 PMI",
-        "country": "EUR",
-        "date": "2026-10-05T03:15:00-04:00",
-        "impact": "Low",
-        "forecast": "57.1",
-        "previous": "57.8"
-    },
-    {
-        "title": "德 德央行長 Nagel 發言",
-        "country": "EUR",
-        "date": "2026-10-05T03:45:00-04:00",
+        "title": "央行委員 Dhingra 發言",
+        "country": "GBP",
+        "date": "2026-10-13T12:00:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
     },
     {
-        "title": "義 服務業 PMI",
-        "country": "EUR",
-        "date": "2026-10-05T03:45:00-04:00",
-        "impact": "Low",
-        "forecast": "54.6",
-        "previous": "55.2"
-    },
-    {
-        "title": "法 服務業 PMI 終值",
-        "country": "EUR",
-        "date": "2026-10-05T03:50:00-04:00",
-        "impact": "Low",
-        "forecast": "51.4",
-        "previous": "51.4"
-    },
-    {
-        "title": "德 服務業 PMI 終值",
-        "country": "EUR",
-        "date": "2026-10-05T03:55:00-04:00",
-        "impact": "Low",
-        "forecast": "52.9",
-        "previous": "52.9"
-    },
-    {
-        "title": "服務業 PMI 終值",
-        "country": "EUR",
-        "date": "2026-10-05T04:00:00-04:00",
-        "impact": "Low",
-        "forecast": "53.0",
-        "previous": "53.0"
-    },
-    {
-        "title": "Sentix Investor Confidence",
-        "country": "EUR",
-        "date": "2026-10-05T04:30:00-04:00",
-        "impact": "Low",
-        "forecast": "4.5",
-        "previous": "5.1"
-    },
-    {
-        "title": "服務業 PMI 終值",
-        "country": "GBP",
-        "date": "2026-10-05T04:30:00-04:00",
-        "impact": "Low",
-        "forecast": "51.7",
-        "previous": "51.7"
-    },
-    {
-        "title": "PPI 月率",
-        "country": "EUR",
-        "date": "2026-10-05T05:00:00-04:00",
-        "impact": "Low",
-        "forecast": "1.9%",
-        "previous": "1.6%"
-    },
-    {
-        "title": "服務業 PMI 終值",
+        "title": "FOMC 委員 Barkin 發言",
         "country": "USD",
-        "date": "2026-10-05T09:45:00-04:00",
-        "impact": "Low",
-        "forecast": "58.7",
-        "previous": "58.7"
-    },
-    {
-        "title": "ISM 服務業 PMI",
-        "country": "USD",
-        "date": "2026-10-05T10:00:00-04:00",
-        "impact": "Medium",
-        "forecast": "55.1",
-        "previous": "55.4"
-    },
-    {
-        "title": "NZIER Business Confidence",
-        "country": "NZD",
-        "date": "2026-10-05T17:00:00-04:00",
+        "date": "2026-10-13T13:00:00-04:00",
         "impact": "Low",
         "forecast": "",
-        "previous": "8"
+        "previous": ""
     },
     {
-        "title": "銀行休假",
+        "title": "FOMC 委員 Collins 發言",
+        "country": "USD",
+        "date": "2026-10-13T16:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "Visitor Arrivals 月率",
+        "country": "NZD",
+        "date": "2026-10-13T17:45:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "0.5%"
+    },
+    {
+        "title": "MI Leading 指數 月率",
+        "country": "AUD",
+        "date": "2026-10-13T19:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "0.0%"
+    },
+    {
+        "title": "M2 Money Stock 年率",
+        "country": "JPY",
+        "date": "2026-10-13T19:50:00-04:00",
+        "impact": "Low",
+        "forecast": "2.1%",
+        "previous": "2.0%"
+    },
+    {
+        "title": "CPI 年率",
         "country": "CNY",
-        "date": "2026-10-05T19:01:00-04:00",
-        "impact": "Holiday",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "Westpac 消心",
-        "country": "AUD",
-        "date": "2026-10-05T19:30:00-04:00",
+        "date": "2026-10-13T21:30:00-04:00",
         "impact": "Low",
-        "forecast": "",
-        "previous": "-5.2%"
+        "forecast": "1.0%",
+        "previous": "0.8%"
     },
     {
-        "title": "ANZ Job Advertisements 月率",
-        "country": "AUD",
-        "date": "2026-10-05T20:30:00-04:00",
+        "title": "PPI 年率",
+        "country": "CNY",
+        "date": "2026-10-13T21:30:00-04:00",
         "impact": "Low",
-        "forecast": "",
-        "previous": "2.5%"
-    },
-    {
-        "title": "10年期公債拍賣",
-        "country": "JPY",
-        "date": "2026-10-05T23:35:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "3.00|3.3"
-    },
-    {
-        "title": "德 Factory Orders 月率",
-        "country": "EUR",
-        "date": "2026-10-06T02:00:00-04:00",
-        "impact": "Low",
-        "forecast": "-0.9%",
-        "previous": "2.5%"
-    },
-    {
-        "title": "日本央行行長 Ueda 發言",
-        "country": "JPY",
-        "date": "2026-10-06T02:35:00-04:00",
-        "impact": "High",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "法 央行總裁 Budget Balance",
-        "country": "EUR",
-        "date": "2026-10-06T02:45:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "-145.9B"
-    },
-    {
-        "title": "法 Industrial Production 月率",
-        "country": "EUR",
-        "date": "2026-10-06T02:45:00-04:00",
-        "impact": "Low",
-        "forecast": "0.2%",
-        "previous": "-0.4%"
-    },
-    {
-        "title": "失業率",
-        "country": "CHF",
-        "date": "2026-10-06T03:00:00-04:00",
-        "impact": "Low",
-        "forecast": "3.1%",
-        "previous": "3.1%"
-    },
-    {
-        "title": "Construction PMI",
-        "country": "GBP",
-        "date": "2026-10-06T04:30:00-04:00",
-        "impact": "Low",
-        "forecast": "45.0",
-        "previous": "44.3"
-    },
-    {
-        "title": "Housing Equity Withdrawal 季率",
-        "country": "GBP",
-        "date": "2026-10-06T04:30:00-04:00",
-        "impact": "Low",
-        "forecast": "-11.9B",
-        "previous": "-12.6B"
-    },
-    {
-        "title": "央行委員 Mann 發言",
-        "country": "GBP",
-        "date": "2026-10-06T04:30:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "零售銷售 月率",
-        "country": "EUR",
-        "date": "2026-10-06T05:00:00-04:00",
-        "impact": "Low",
-        "forecast": "0.2%",
-        "previous": "-0.6%"
-    },
-    {
-        "title": "ADP Weekly 就業變動",
-        "country": "USD",
-        "date": "2026-10-06T08:14:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "20.0K"
-    },
-    {
-        "title": "ADP Weekly 就業變動",
-        "country": "USD",
-        "date": "2026-10-06T08:15:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "22.5K"
+        "forecast": "4.5%",
+        "previous": "3.8%"
     },
     {
         "title": "貿易帳",
-        "country": "CAD",
-        "date": "2026-10-06T08:30:00-04:00",
-        "impact": "Low",
-        "forecast": "1.5B",
-        "previous": "0.8B"
-    },
-    {
-        "title": "貿易帳",
-        "country": "USD",
-        "date": "2026-10-06T08:30:00-04:00",
-        "impact": "Low",
-        "forecast": "-100.8B",
-        "previous": "-88.6B"
-    },
-    {
-        "title": "Ivey PMI",
-        "country": "CAD",
-        "date": "2026-10-06T10:00:00-04:00",
-        "impact": "Medium",
-        "forecast": "65.2",
-        "previous": "64.3"
-    },
-    {
-        "title": "RCM/TIPP Economic Optimism",
-        "country": "USD",
-        "date": "2026-10-06T10:01:00-04:00",
-        "impact": "Low",
-        "forecast": "44.5",
-        "previous": "45.6"
-    },
-    {
-        "title": "FOMC 委員 Bowman 發言",
-        "country": "USD",
-        "date": "2026-10-06T10:45:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "GDT Price 指數",
-        "country": "NZD",
-        "date": "2026-10-06T11:46:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "-1.1%"
-    },
-    {
-        "title": "FOMC 委員 Schmid 發言",
-        "country": "USD",
-        "date": "2026-10-06T13:15:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "API Weekly Statistical Bulletin",
-        "country": "USD",
-        "date": "2026-10-06T16:30:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "銀行休假",
         "country": "CNY",
-        "date": "2026-10-06T19:01:00-04:00",
-        "impact": "Holiday",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "Average Cash Earnings 年率",
-        "country": "JPY",
-        "date": "2026-10-06T19:30:00-04:00",
+        "date": "2026-10-13T22:03:00-04:00",
         "impact": "Low",
-        "forecast": "3.7%",
-        "previous": "4.7%"
+        "forecast": "805B",
+        "previous": "809B"
     },
     {
-        "title": "Leading Indicators",
-        "country": "JPY",
-        "date": "2026-10-07T01:00:00-04:00",
+        "title": "USD-Denominated 貿易帳",
+        "country": "CNY",
+        "date": "2026-10-13T22:04:00-04:00",
         "impact": "Low",
-        "forecast": "118.1%",
-        "previous": "117.9%"
+        "forecast": "118.1B",
+        "previous": "119.1B"
     },
     {
-        "title": "德 Industrial Production 月率",
+        "title": "歐央總裁拉加德 發言",
         "country": "EUR",
-        "date": "2026-10-07T02:00:00-04:00",
-        "impact": "Low",
-        "forecast": "0.5%",
-        "previous": "-1.1%"
-    },
-    {
-        "title": "Lloyds HPI 月率",
-        "country": "GBP",
-        "date": "2026-10-07T02:00:00-04:00",
-        "impact": "Low",
-        "forecast": "0.0%",
-        "previous": "-0.2%"
-    },
-    {
-        "title": "法 貿易帳",
-        "country": "EUR",
-        "date": "2026-10-07T02:45:00-04:00",
-        "impact": "Low",
-        "forecast": "-6.5B",
-        "previous": "-6.7B"
-    },
-    {
-        "title": "Foreign Currency Reserves",
-        "country": "CHF",
-        "date": "2026-10-07T03:00:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "770B"
-    },
-    {
-        "title": "原油庫存",
-        "country": "USD",
-        "date": "2026-10-07T10:30:00-04:00",
-        "impact": "Low",
-        "forecast": "1.9M",
-        "previous": "0.9M"
-    },
-    {
-        "title": "President Trump 發言",
-        "country": "USD",
-        "date": "2026-10-07T13:00:00-04:00",
+        "date": "2026-10-13T22:10:00-04:00",
         "impact": "Medium",
         "forecast": "",
         "previous": ""
     },
     {
-        "title": "10年期公債拍賣",
-        "country": "USD",
-        "date": "2026-10-07T13:01:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "4.83|2.7"
-    },
-    {
-        "title": "FOMC 會議紀錄",
-        "country": "USD",
-        "date": "2026-10-07T14:00:00-04:00",
-        "impact": "High",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "Consumer Credit 月率",
-        "country": "USD",
-        "date": "2026-10-07T15:00:00-04:00",
-        "impact": "Low",
-        "forecast": "14.5B",
-        "previous": "18.1B"
-    },
-    {
-        "title": "RICS House Price Balance",
+        "title": "央行委員 Breeden 發言",
         "country": "GBP",
-        "date": "2026-10-07T19:01:00-04:00",
-        "impact": "Low",
-        "forecast": "-30%",
-        "previous": "-28%"
-    },
-    {
-        "title": "經常帳",
-        "country": "JPY",
-        "date": "2026-10-07T19:50:00-04:00",
-        "impact": "Low",
-        "forecast": "2.14T",
-        "previous": "2.52T"
-    },
-    {
-        "title": "MI Inflation Expectations",
-        "country": "AUD",
-        "date": "2026-10-07T20:00:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "4.9%"
-    },
-    {
-        "title": "30年期公債拍賣",
-        "country": "JPY",
-        "date": "2026-10-07T23:35:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "4.08|3.8"
-    },
-    {
-        "title": "Economy Watchers Sentiment",
-        "country": "JPY",
-        "date": "2026-10-08T01:00:00-04:00",
-        "impact": "Low",
-        "forecast": "46.7",
-        "previous": "46.4"
-    },
-    {
-        "title": "德 貿易帳",
-        "country": "EUR",
-        "date": "2026-10-08T02:00:00-04:00",
-        "impact": "Low",
-        "forecast": "19.0B",
-        "previous": "21.3B"
-    },
-    {
-        "title": "央行總裁 Board Member Martin 發言",
-        "country": "CHF",
-        "date": "2026-10-08T04:05:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "BOE Credit Conditions Survey",
-        "country": "GBP",
-        "date": "2026-10-08T04:30:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "FOMC 委員 Waller 發言",
-        "country": "USD",
-        "date": "2026-10-08T04:30:00-04:00",
-        "impact": "Medium",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "央行委員 Pill 發言",
-        "country": "GBP",
-        "date": "2026-10-08T05:00:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "央行委員 Greene 發言",
-        "country": "GBP",
-        "date": "2026-10-08T05:15:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "Eurogroup Meetings",
-        "country": "EUR",
-        "date": "2026-10-08T05:15:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "ECB Monetary Policy Meeting Accounts",
-        "country": "EUR",
-        "date": "2026-10-08T07:30:00-04:00",
+        "date": "2026-10-13T23:30:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
@@ -530,135 +274,599 @@
     {
         "title": "英國央行行長 Bailey 發言",
         "country": "GBP",
-        "date": "2026-10-08T08:15:00-04:00",
-        "impact": "High",
+        "date": "2026-10-14T01:30:00-04:00",
+        "impact": "Medium",
         "forecast": "",
         "previous": ""
+    },
+    {
+        "title": "德 WPI 月率",
+        "country": "EUR",
+        "date": "2026-10-14T02:00:00-04:00",
+        "impact": "Low",
+        "forecast": "0.7%",
+        "previous": "0.9%"
+    },
+    {
+        "title": "央行委員 Pill 發言",
+        "country": "GBP",
+        "date": "2026-10-14T02:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "加拿大央行行長 Macklem 發言",
+        "country": "CAD",
+        "date": "2026-10-14T02:05:00-04:00",
+        "impact": "Medium",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "歐央總裁拉加德 發言",
+        "country": "EUR",
+        "date": "2026-10-14T04:30:00-04:00",
+        "impact": "Medium",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "德 30年期公債拍賣",
+        "country": "EUR",
+        "date": "2026-10-14T05:34:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "3.80|1.6"
+    },
+    {
+        "title": "FOMC 委員 Bowman 發言",
+        "country": "USD",
+        "date": "2026-10-14T05:40:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "營建許可 月率",
+        "country": "CAD",
+        "date": "2026-10-14T08:30:00-04:00",
+        "impact": "Low",
+        "forecast": "3.1%",
+        "previous": "-17.3%"
+    },
+    {
+        "title": "核心CPI 月率",
+        "country": "USD",
+        "date": "2026-10-14T08:30:00-04:00",
+        "impact": "High",
+        "forecast": "0.2%",
+        "previous": "0.3%"
+    },
+    {
+        "title": "核心CPI 年率",
+        "country": "USD",
+        "date": "2026-10-14T08:30:00-04:00",
+        "impact": "High",
+        "forecast": "2.5%",
+        "previous": "2.4%"
+    },
+    {
+        "title": "CPI 月率",
+        "country": "USD",
+        "date": "2026-10-14T08:30:00-04:00",
+        "impact": "High",
+        "forecast": "0.6%",
+        "previous": "0.4%"
+    },
+    {
+        "title": "CPI 年率",
+        "country": "USD",
+        "date": "2026-10-14T08:30:00-04:00",
+        "impact": "High",
+        "forecast": "3.6%",
+        "previous": "3.4%"
+    },
+    {
+        "title": "CB Leading 指數 月率",
+        "country": "GBP",
+        "date": "2026-10-14T09:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "-0.1%"
+    },
+    {
+        "title": "IMF Meetings",
+        "country": "All",
+        "date": "2026-10-14T10:15:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "FOMC 委員 Barkin 發言",
+        "country": "USD",
+        "date": "2026-10-14T13:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "Beige Book",
+        "country": "USD",
+        "date": "2026-10-14T14:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "API Weekly Statistical Bulletin",
+        "country": "USD",
+        "date": "2026-10-14T16:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "核心 Machinery Orders 月率",
+        "country": "JPY",
+        "date": "2026-10-14T19:50:00-04:00",
+        "impact": "Low",
+        "forecast": "2.5%",
+        "previous": "-3.7%"
+    },
+    {
+        "title": "就業變動",
+        "country": "AUD",
+        "date": "2026-10-14T20:30:00-04:00",
+        "impact": "High",
+        "forecast": "20.0K",
+        "previous": "39.5K"
+    },
+    {
+        "title": "失業率",
+        "country": "AUD",
+        "date": "2026-10-14T20:30:00-04:00",
+        "impact": "High",
+        "forecast": "4.6%",
+        "previous": "4.6%"
+    },
+    {
+        "title": "FOMC 委員 Bowman 發言",
+        "country": "USD",
+        "date": "2026-10-14T22:55:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "央行委員 Pill 發言",
+        "country": "GBP",
+        "date": "2026-10-14T23:35:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "RBA Annual Report",
+        "country": "AUD",
+        "date": "2026-10-15T00:25:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "瑞士央行行長 Schlegel 發言",
+        "country": "CHF",
+        "date": "2026-10-15T00:30:00-04:00",
+        "impact": "Medium",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "Revised Industrial Production 月率",
+        "country": "JPY",
+        "date": "2026-10-15T00:30:00-04:00",
+        "impact": "Low",
+        "forecast": "-1.7%",
+        "previous": "-1.7%"
+    },
+    {
+        "title": "GDP 月率",
+        "country": "GBP",
+        "date": "2026-10-15T02:00:00-04:00",
+        "impact": "High",
+        "forecast": "-0.1%",
+        "previous": "0.4%"
+    },
+    {
+        "title": "Construction Output 月率",
+        "country": "GBP",
+        "date": "2026-10-15T02:00:00-04:00",
+        "impact": "Low",
+        "forecast": "0.0%",
+        "previous": "0.1%"
+    },
+    {
+        "title": "Goods 貿易帳",
+        "country": "GBP",
+        "date": "2026-10-15T02:00:00-04:00",
+        "impact": "Low",
+        "forecast": "-21.8B",
+        "previous": "-21.0B"
+    },
+    {
+        "title": "指數 of 服務業 3m/3m",
+        "country": "GBP",
+        "date": "2026-10-15T02:00:00-04:00",
+        "impact": "Low",
+        "forecast": "0.7%",
+        "previous": "0.6%"
+    },
+    {
+        "title": "Industrial Production 月率",
+        "country": "GBP",
+        "date": "2026-10-15T02:00:00-04:00",
+        "impact": "Low",
+        "forecast": "-0.1%",
+        "previous": "0.2%"
+    },
+    {
+        "title": "製造業 Production 月率",
+        "country": "GBP",
+        "date": "2026-10-15T02:00:00-04:00",
+        "impact": "Low",
+        "forecast": "0.1%",
+        "previous": "0.9%"
+    },
+    {
+        "title": "PPI 月率",
+        "country": "CHF",
+        "date": "2026-10-15T02:30:00-04:00",
+        "impact": "Low",
+        "forecast": "0.5%",
+        "previous": "0.7%"
+    },
+    {
+        "title": "法 終值 CPI 月率",
+        "country": "EUR",
+        "date": "2026-10-15T02:45:00-04:00",
+        "impact": "Low",
+        "forecast": "-0.3%",
+        "previous": "-0.3%"
+    },
+    {
+        "title": "央行委員 Greene 發言",
+        "country": "GBP",
+        "date": "2026-10-15T02:45:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "英國央行行長 Bailey 發言",
+        "country": "GBP",
+        "date": "2026-10-15T03:30:00-04:00",
+        "impact": "Medium",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "央行委員 Breeden 發言",
+        "country": "GBP",
+        "date": "2026-10-15T04:45:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "央行總裁 Council Member Rogers 發言",
+        "country": "CAD",
+        "date": "2026-10-15T05:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "Industrial Production 月率",
+        "country": "EUR",
+        "date": "2026-10-15T05:00:00-04:00",
+        "impact": "Low",
+        "forecast": "0.1%",
+        "previous": "-0.1%"
+    },
+    {
+        "title": "製造業 Sales 月率",
+        "country": "CAD",
+        "date": "2026-10-15T08:30:00-04:00",
+        "impact": "Low",
+        "forecast": "1.1%",
+        "previous": "-0.4%"
+    },
+    {
+        "title": "Wholesale Sales 月率",
+        "country": "CAD",
+        "date": "2026-10-15T08:30:00-04:00",
+        "impact": "Low",
+        "forecast": "-1.4%",
+        "previous": "0.3%"
+    },
+    {
+        "title": "核心PPI 月率",
+        "country": "USD",
+        "date": "2026-10-15T08:30:00-04:00",
+        "impact": "High",
+        "forecast": "0.3%",
+        "previous": "0.2%"
+    },
+    {
+        "title": "核心零售銷售 月率",
+        "country": "USD",
+        "date": "2026-10-15T08:30:00-04:00",
+        "impact": "High",
+        "forecast": "0.5%",
+        "previous": "1.4%"
+    },
+    {
+        "title": "PPI 月率",
+        "country": "USD",
+        "date": "2026-10-15T08:30:00-04:00",
+        "impact": "High",
+        "forecast": "0.5%",
+        "previous": "0.4%"
+    },
+    {
+        "title": "零售銷售 月率",
+        "country": "USD",
+        "date": "2026-10-15T08:30:00-04:00",
+        "impact": "High",
+        "forecast": "0.3%",
+        "previous": "1.2%"
+    },
+    {
+        "title": "費城聯儲製造業指數",
+        "country": "USD",
+        "date": "2026-10-15T08:30:00-04:00",
+        "impact": "Medium",
+        "forecast": "26.5",
+        "previous": "37.8"
     },
     {
         "title": "初請失業金",
         "country": "USD",
-        "date": "2026-10-08T08:30:00-04:00",
+        "date": "2026-10-15T08:30:00-04:00",
         "impact": "Medium",
-        "forecast": "200K",
+        "forecast": "195K",
         "previous": "197K"
     },
     {
-        "title": "央行委員 Lombardelli 發言",
-        "country": "GBP",
-        "date": "2026-10-08T09:00:00-04:00",
+        "title": "紐約州製造業指數",
+        "country": "USD",
+        "date": "2026-10-15T08:30:00-04:00",
+        "impact": "Low",
+        "forecast": "3.2",
+        "previous": "7.6"
+    },
+    {
+        "title": "Business Inventories 月率",
+        "country": "USD",
+        "date": "2026-10-15T10:00:00-04:00",
+        "impact": "Low",
+        "forecast": "0.4%",
+        "previous": "0.8%"
+    },
+    {
+        "title": "IMF Meetings",
+        "country": "All",
+        "date": "2026-10-15T10:15:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
-    },
-    {
-        "title": "終值 Wholesale Inventories 月率",
-        "country": "USD",
-        "date": "2026-10-08T10:00:00-04:00",
-        "impact": "Low",
-        "forecast": "0.7%",
-        "previous": "0.7%"
     },
     {
         "title": "Natural Gas Storage",
         "country": "USD",
-        "date": "2026-10-08T10:30:00-04:00",
-        "impact": "Low",
-        "forecast": "79B",
-        "previous": "64B"
-    },
-    {
-        "title": "30年期公債拍賣",
-        "country": "USD",
-        "date": "2026-10-08T13:01:00-04:00",
+        "date": "2026-10-15T10:30:00-04:00",
         "impact": "Low",
         "forecast": "",
-        "previous": "5.31|2.6"
+        "previous": "85B"
     },
     {
-        "title": "FOMC 委員 Musalem 發言",
+        "title": "原油庫存",
         "country": "USD",
-        "date": "2026-10-08T13:40:00-04:00",
+        "date": "2026-10-15T12:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "-3.2M"
+    },
+    {
+        "title": "FOMC 委員 Hammack 發言",
+        "country": "USD",
+        "date": "2026-10-15T16:30:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
     },
     {
-        "title": "Household Spending 年率",
-        "country": "JPY",
-        "date": "2026-10-08T19:30:00-04:00",
-        "impact": "Low",
-        "forecast": "-3.5%",
-        "previous": "-3.6%"
-    },
-    {
-        "title": "初值 Machine Tool Orders 年率",
-        "country": "JPY",
-        "date": "2026-10-09T02:00:00-04:00",
+        "title": "BusinessNZ 製造業 指數",
+        "country": "NZD",
+        "date": "2026-10-15T17:30:00-04:00",
         "impact": "Low",
         "forecast": "",
-        "previous": "64.7%"
+        "previous": "53.1"
     },
     {
-        "title": "SECO Consumer Climate",
-        "country": "CHF",
-        "date": "2026-10-09T03:00:00-04:00",
+        "title": "FPI 月率",
+        "country": "NZD",
+        "date": "2026-10-15T17:45:00-04:00",
         "impact": "Low",
-        "forecast": "-32",
-        "previous": "-33"
+        "forecast": "",
+        "previous": "0.3%"
     },
     {
-        "title": "義 Industrial Production 月率",
+        "title": "英國央行行長 Bailey 發言",
+        "country": "GBP",
+        "date": "2026-10-15T22:00:00-04:00",
+        "impact": "High",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "德 德央行長 Nagel 發言",
         "country": "EUR",
-        "date": "2026-10-09T04:00:00-04:00",
+        "date": "2026-10-15T22:30:00-04:00",
         "impact": "Low",
-        "forecast": "0.0%",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "Fed 主席man Warsh 發言",
+        "country": "USD",
+        "date": "2026-10-15T23:30:00-04:00",
+        "impact": "High",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "加拿大央行行長 Macklem 發言",
+        "country": "CAD",
+        "date": "2026-10-16T00:15:00-04:00",
+        "impact": "Medium",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "終值 核心CPI 年率",
+        "country": "EUR",
+        "date": "2026-10-16T05:00:00-04:00",
+        "impact": "Low",
+        "forecast": "2.5%",
+        "previous": "2.5%"
+    },
+    {
+        "title": "終值 CPI 年率",
+        "country": "EUR",
+        "date": "2026-10-16T05:00:00-04:00",
+        "impact": "Low",
+        "forecast": "3.8%",
+        "previous": "3.8%"
+    },
+    {
+        "title": "貿易帳",
+        "country": "EUR",
+        "date": "2026-10-16T05:00:00-04:00",
+        "impact": "Low",
+        "forecast": "4.5B",
+        "previous": "5.0B"
+    },
+    {
+        "title": "義 貿易帳",
+        "country": "EUR",
+        "date": "2026-10-16T06:00:00-04:00",
+        "impact": "Low",
+        "forecast": "7.50B",
+        "previous": "8.24B"
+    },
+    {
+        "title": "央行總裁 Council Member Alexopoulos 發言",
+        "country": "CAD",
+        "date": "2026-10-16T08:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "Housing Starts",
+        "country": "CAD",
+        "date": "2026-10-16T08:15:00-04:00",
+        "impact": "Low",
+        "forecast": "230K",
+        "previous": "229K"
+    },
+    {
+        "title": "Foreign Securities Purchases",
+        "country": "CAD",
+        "date": "2026-10-16T08:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "20.65B"
+    },
+    {
+        "title": "Import Prices 月率",
+        "country": "USD",
+        "date": "2026-10-16T08:30:00-04:00",
+        "impact": "Low",
+        "forecast": "0.6%",
         "previous": "0.7%"
     },
     {
-        "title": "ECOFIN Meetings",
-        "country": "EUR",
-        "date": "2026-10-09T05:15:00-04:00",
+        "title": "Capacity Utilization Rate",
+        "country": "USD",
+        "date": "2026-10-16T09:15:00-04:00",
+        "impact": "Low",
+        "forecast": "76.5%",
+        "previous": "76.3%"
+    },
+    {
+        "title": "Industrial Production 月率",
+        "country": "USD",
+        "date": "2026-10-16T09:15:00-04:00",
+        "impact": "Low",
+        "forecast": "0.4%",
+        "previous": "0.0%"
+    },
+    {
+        "title": "IMF Meetings",
+        "country": "All",
+        "date": "2026-10-16T10:15:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
     },
     {
-        "title": "就業變動",
-        "country": "CAD",
-        "date": "2026-10-09T08:30:00-04:00",
-        "impact": "High",
-        "forecast": "6.1K",
-        "previous": "-41.7K"
-    },
-    {
-        "title": "失業率",
-        "country": "CAD",
-        "date": "2026-10-09T08:30:00-04:00",
-        "impact": "High",
-        "forecast": "6.5%",
-        "previous": "6.4%"
-    },
-    {
-        "title": "初值 密大消費者信心",
+        "title": "Federal Budget Balance",
         "country": "USD",
-        "date": "2026-10-09T10:00:00-04:00",
-        "impact": "Medium",
-        "forecast": "47.5",
-        "previous": "47.8"
+        "date": "2026-10-16T14:00:00-04:00",
+        "impact": "Low",
+        "forecast": "75.3B",
+        "previous": "-166.8B"
     },
     {
-        "title": "初值 UoM Inflation Expectations",
+        "title": "TIC Long-Term Purchases",
         "country": "USD",
-        "date": "2026-10-09T10:00:00-04:00",
+        "date": "2026-10-16T16:00:00-04:00",
+        "impact": "Low",
+        "forecast": "125.7B",
+        "previous": "-27.9B"
+    },
+    {
+        "title": "德 德央行長 Nagel 發言",
+        "country": "EUR",
+        "date": "2026-10-17T00:45:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "英國央行行長 Bailey 發言",
+        "country": "GBP",
+        "date": "2026-10-17T02:45:00-04:00",
         "impact": "Medium",
         "forecast": "",
-        "previous": "4.6%"
+        "previous": ""
     },
     {
-        "title": "FOMC 委員 Collins 發言",
-        "country": "USD",
-        "date": "2026-10-09T16:00:00-04:00",
+        "title": "IMF Meetings",
+        "country": "All",
+        "date": "2026-10-17T10:15:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "RBA Assist 央行總裁 Kent 發言",
+        "country": "AUD",
+        "date": "2026-10-17T20:00:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
