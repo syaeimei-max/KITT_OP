@@ -216,9 +216,17 @@
         "previous": "3.8%"
     },
     {
+        "title": "歐央總裁拉加德 發言",
+        "country": "EUR",
+        "date": "2026-10-13T22:10:00-04:00",
+        "impact": "Medium",
+        "forecast": "",
+        "previous": ""
+    },
+    {
         "title": "貿易帳",
         "country": "CNY",
-        "date": "2026-10-13T22:03:00-04:00",
+        "date": "2026-10-13T22:31:00-04:00",
         "impact": "Low",
         "forecast": "790B",
         "previous": "809B"
@@ -226,18 +234,10 @@
     {
         "title": "USD-Denominated 貿易帳",
         "country": "CNY",
-        "date": "2026-10-13T22:04:00-04:00",
+        "date": "2026-10-13T22:31:00-04:00",
         "impact": "Low",
         "forecast": "116.8B",
         "previous": "119.1B"
-    },
-    {
-        "title": "歐央總裁拉加德 發言",
-        "country": "EUR",
-        "date": "2026-10-13T22:10:00-04:00",
-        "impact": "Medium",
-        "forecast": "",
-        "previous": ""
     },
     {
         "title": "央行委員 Breeden 發言",
@@ -280,22 +280,6 @@
         "previous": ""
     },
     {
-        "title": "M2 Money Supply 年率",
-        "country": "CNY",
-        "date": "2026-10-14T04:03:00-04:00",
-        "impact": "Low",
-        "forecast": "7.4%",
-        "previous": "7.5%"
-    },
-    {
-        "title": "New Loans",
-        "country": "CNY",
-        "date": "2026-10-14T04:03:00-04:00",
-        "impact": "Low",
-        "forecast": "1025B",
-        "previous": "60B"
-    },
-    {
         "title": "歐央總裁拉加德 發言",
         "country": "EUR",
         "date": "2026-10-14T04:30:00-04:00",
@@ -304,9 +288,25 @@
         "previous": ""
     },
     {
+        "title": "M2 Money Supply 年率",
+        "country": "CNY",
+        "date": "2026-10-14T05:00:00-04:00",
+        "impact": "Low",
+        "forecast": "7.4%",
+        "previous": "7.5%"
+    },
+    {
+        "title": "New Loans",
+        "country": "CNY",
+        "date": "2026-10-14T05:01:00-04:00",
+        "impact": "Low",
+        "forecast": "1025B",
+        "previous": "60B"
+    },
+    {
         "title": "德 30年期公債拍賣",
         "country": "EUR",
-        "date": "2026-10-14T05:34:00-04:00",
+        "date": "2026-10-14T05:38:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": "3.80|1.6"
@@ -395,6 +395,14 @@
         "title": "Beige Book",
         "country": "USD",
         "date": "2026-10-14T14:00:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "FOMC 委員 Goolsbee 發言",
+        "country": "USD",
+        "date": "2026-10-14T15:00:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
@@ -676,7 +684,7 @@
         "country": "USD",
         "date": "2026-10-15T10:30:00-04:00",
         "impact": "Low",
-        "forecast": "",
+        "forecast": "76B",
         "previous": "85B"
     },
     {
@@ -684,7 +692,7 @@
         "country": "USD",
         "date": "2026-10-15T12:00:00-04:00",
         "impact": "Low",
-        "forecast": "",
+        "forecast": "-0.2M",
         "previous": "-3.2M"
     },
     {
@@ -796,7 +804,7 @@
         "country": "CAD",
         "date": "2026-10-16T08:30:00-04:00",
         "impact": "Low",
-        "forecast": "",
+        "forecast": "23.59B",
         "previous": "20.65B"
     },
     {
