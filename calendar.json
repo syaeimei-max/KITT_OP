@@ -458,7 +458,7 @@
     {
         "title": "RBA Annual Report",
         "country": "AUD",
-        "date": "2026-10-15T00:25:00-04:00",
+        "date": "2026-10-15T00:30:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
@@ -692,7 +692,7 @@
         "country": "USD",
         "date": "2026-10-15T12:00:00-04:00",
         "impact": "Low",
-        "forecast": "-0.2M",
+        "forecast": "0.2M",
         "previous": "-3.2M"
     },
     {
