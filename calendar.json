@@ -104,14 +104,6 @@
         "previous": "0.4%"
     },
     {
-        "title": "Foreign Direct Investment ytd/y",
-        "country": "CNY",
-        "date": "2026-10-19T02:02:00-04:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "-5.3%"
-    },
-    {
         "title": "CPI 月率",
         "country": "CAD",
         "date": "2026-10-19T08:30:00-04:00",
@@ -240,6 +232,14 @@
         "previous": "25.8"
     },
     {
+        "title": "Foreign Direct Investment ytd/y",
+        "country": "CNY",
+        "date": "2026-10-20T05:10:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "-5.3%"
+    },
+    {
         "title": "10年期公債拍賣",
         "country": "GBP",
         "date": "2026-10-20T05:33:00-04:00",
@@ -276,7 +276,7 @@
         "country": "USD",
         "date": "2026-10-20T10:00:00-04:00",
         "impact": "Low",
-        "forecast": "-0.4%",
+        "forecast": "-0.7%",
         "previous": "0.3%"
     },
     {
@@ -316,7 +316,7 @@
         "country": "JPY",
         "date": "2026-10-20T19:50:00-04:00",
         "impact": "Low",
-        "forecast": "-0.21T",
+        "forecast": "-0.26T",
         "previous": "-0.84T"
     },
     {
