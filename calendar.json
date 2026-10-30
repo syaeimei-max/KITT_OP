@@ -552,9 +552,17 @@
         "previous": "0.6%"
     },
     {
+        "title": "BOJ Outlook Report",
+        "country": "JPY",
+        "date": "2026-10-29T23:02:00-04:00",
+        "impact": "High",
+        "forecast": "",
+        "previous": ""
+    },
+    {
         "title": "BOJ 政策利率",
         "country": "JPY",
-        "date": "2026-10-29T22:30:00-04:00",
+        "date": "2026-10-29T23:02:00-04:00",
         "impact": "High",
         "forecast": "<1.25%",
         "previous": "<1.25%"
@@ -562,15 +570,7 @@
     {
         "title": "貨幣政策聲明",
         "country": "JPY",
-        "date": "2026-10-29T22:30:00-04:00",
-        "impact": "High",
-        "forecast": "",
-        "previous": ""
-    },
-    {
-        "title": "BOJ Outlook Report",
-        "country": "JPY",
-        "date": "2026-10-29T22:31:00-04:00",
+        "date": "2026-10-29T23:02:00-04:00",
         "impact": "High",
         "forecast": "",
         "previous": ""
@@ -582,14 +582,6 @@
         "impact": "Low",
         "forecast": "2.7%",
         "previous": "6.1%"
-    },
-    {
-        "title": "BOJ 記者會",
-        "country": "JPY",
-        "date": "2026-10-30T01:30:00-04:00",
-        "impact": "High",
-        "forecast": "",
-        "previous": ""
     },
     {
         "title": "法 Consumer Spending 月率",
@@ -606,6 +598,14 @@
         "impact": "Low",
         "forecast": "0.1%",
         "previous": "0.2%"
+    },
+    {
+        "title": "BOJ 記者會",
+        "country": "JPY",
+        "date": "2026-10-30T02:30:00-04:00",
+        "impact": "High",
+        "forecast": "",
+        "previous": ""
     },
     {
         "title": "德 Import Prices 月率",
@@ -755,6 +755,14 @@
         "title": "FOMC 委員 Musalem 發言",
         "country": "USD",
         "date": "2026-10-30T12:30:00-04:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
+    },
+    {
+        "title": "FOMC 委員 Logan 發言",
+        "country": "USD",
+        "date": "2026-10-30T13:30:00-04:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
