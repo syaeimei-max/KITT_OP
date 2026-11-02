@@ -40,14 +40,6 @@
         "previous": "53.3"
     },
     {
-        "title": "ANZ Job Advertisements 月率",
-        "country": "AUD",
-        "date": "2026-11-01T19:45:00-05:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "2.2%"
-    },
-    {
         "title": "RatingDog 製造業 PMI",
         "country": "CNY",
         "date": "2026-11-01T20:45:00-05:00",
@@ -74,7 +66,7 @@
     {
         "title": "零售銷售 年率",
         "country": "CHF",
-        "date": "2026-11-02T02:30:00-05:00",
+        "date": "2026-11-02T02:33:00-05:00",
         "impact": "Low",
         "forecast": "3.0%",
         "previous": "3.2%"
@@ -164,7 +156,7 @@
         "country": "USD",
         "date": "2026-11-02T10:00:00-05:00",
         "impact": "Medium",
-        "forecast": "54.7",
+        "forecast": "54.5",
         "previous": "54.5"
     },
     {
@@ -172,7 +164,7 @@
         "country": "USD",
         "date": "2026-11-02T10:00:00-05:00",
         "impact": "Low",
-        "forecast": "0.3%",
+        "forecast": "0.4%",
         "previous": "0.9%"
     },
     {
