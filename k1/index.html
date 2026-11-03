@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>選擇權交易輔助工具 | 專為選擇權與策略研究者打造的桌面輔助軟體</title>
+  <meta name="description" content="AI時代來臨，您還在盯盤嗎？選擇權交易輔助工具將繁瑣的數值計算與風險監控交給工具，配備龍珠雷達、嘆息之牆、結算預估圖，陪伴您找回生活品質。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;900&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #F8F5F0;
+      --bg-warm: #EFE8DC;
+      --bg-card: #FFFFFF;
+      --bg-card-soft: #FAF7F2;
+      --primary-brown: #704838;
+      --primary-dark: #533325;
+      --accent-caramel: #C78238;
+      --accent-light: #F4E8D7;
+      --text-title: #2B211B;
+      --text-body: #55483F;
+      --text-muted: #82756B;
+      --border-color: #E2D7C8;
+      --border-hover: #CDBEAA;
+      --profit-green: #2E7D32;
+      --profit-bg: #EAF5EA;
+      --loss-red: #C62828;
+      --loss-bg: #FDECEC;
+      --radar-teal: #086047;
+      --shadow-sm: 0 4px 12px rgba(83, 51, 37, 0.05);
+      --shadow-md: 0 8px 24px rgba(83, 51, 37, 0.08);
+      --shadow-lg: 0 16px 40px rgba(83, 51, 37, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 頂部通知導覽 */
+    .top-banner {
+      background-color: var(--bg-warm);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 8px 16px;
+      color: var(--primary-brown);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .top-banner span.badge {
+      background-color: var(--accent-caramel);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    header.nav-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background-color: rgba(248, 245, 240, 0.92);
+      border-bottom: 1px solid rgba(226, 215, 200, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--primary-brown);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-body);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-caramel);
+    }
+
+    .cta-btn {
+      background-color: var(--primary-brown);
+      color: #ffffff !important;
+      padding: 9px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* 主要容器 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* 首頁 Hero 區塊 */
+    .hero-section {
+      padding: 72px 0 64px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background-color: var(--bg-warm);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      color: var(--primary-brown);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: 2.85rem;
+      font-weight: 900;
+      color: var(--text-title);
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-title .highlight {
+      color: var(--primary-brown);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title .highlight::after {
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background-color: rgba(199, 130, 56, 0.25);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.18rem;
+      color: var(--text-body);
+      max-width: 740px;
+      margin: 0 auto 36px auto;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-body);
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-warm);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+    }
+
+    /* 軟體預覽視窗框 */
+    .hero-preview {
+      position: relative;
+      max-width: 1040px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      padding: 12px;
+      background: linear-gradient(145deg, #ffffff, #efe8dc);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .window-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px 14px 12px;
+    }
+
+    .window-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: #e5beae;
+    }
+    .window-dot:nth-child(1) { background-color: #df8073; }
+    .window-dot:nth-child(2) { background-color: #e2ba64; }
+    .window-dot:nth-child(3) { background-color: #8bc28c; }
+
+    .window-title {
+      margin-left: auto;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-img-wrap {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-img-wrap:hover img {
+      transform: scale(1.015);
+    }
+
+    .zoom-hint {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(43, 33, 27, 0.78);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    /* 通用章節標題 */
+    .section-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-tag {
+      color: var(--accent-caramel);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.15rem;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* 四大交易輔助卡片 */
+    .features-section {
+      padding: 80px 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px 26px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: var(--accent-light);
+      color: var(--primary-brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-title);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* 雙旗艦特色展示 (龍珠雷達 + 嘆息之牆) */
+    .flagship-section {
+      padding: 80px 0;
+      background-color: var(--bg-warm);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .showcase-block {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 84px;
+    }
+
+    .showcase-block.reverse {
+      grid-template-columns: 1.15fr 1fr;
+    }
+
+    .showcase-block.reverse .showcase-text {
+      order: 2;
+    }
+
+    .showcase-block.reverse .showcase-media {
+      order: 1;
+    }
+
+    .showcase-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .badge-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+    }
+
+    .badge-radar {
+      background-color: #E2F3E9;
+      color: var(--radar-teal);
+    }
+
+    .badge-wall {
+      background-color: #F8EAD8;
+      color: #925319;
+    }
+
+    .showcase-text h3 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .showcase-text p {
+      font-size: 1.02rem;
+      color: var(--text-body);
+      margin-bottom: 22px;
+      line-height: 1.75;
+    }
+
+    .feature-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .feature-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--text-body);
+    }
+
+    .feature-bullets li span.check {
+      color: var(--primary-brown);
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-bullets li strong {
+      color: var(--text-title);
+      white-space: nowrap;
+    }
+
+    .quote-box {
+      border-left: 3px solid var(--accent-caramel);
+      padding: 10px 16px;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.9rem;
+      color: var(--primary-brown);
+      font-weight: 500;
+    }
+
+    .showcase-media {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+    }
+
+    .showcase-media:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .showcase-media img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+
+    /* 軟體優勢與結算圖 */
+    .advantage-section {
+      padding: 88px 0;
+    }
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .advantage-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .adv-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: all 0.25s ease;
+    }
+
+    .adv-item:hover {
+      border-color: var(--accent-caramel);
+      transform: translateX(4px);
+    }
+
+    .adv-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      padding-top: 2px;
+    }
+
+    .adv-info h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-title);
+      margin-bottom: 6px;
+    }
+
+    .adv-info p {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    /* 交易心法金句橫幅 */
+    .quote-banner {
+      background: linear-gradient(135deg, var(--primary-brown), var(--primary-dark));
+      color: #FFFFFF;
+      padding: 56px 24px;
+      text-align: center;
+      border-radius: var(--radius-lg);
+      margin: 40px auto 80px auto;
+      max-width: 1150px;
+      position: relative;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .quote-banner::before {
+      content: "“";
+      position: absolute;
+      top: -20px;
+      left: 30px;
+      font-size: 8rem;
+      color: rgba(255, 255, 255, 0.08);
+      font-family: Georgia, serif;
+    }
+
+    .quote-banner h3 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .quote-banner p {
+      font-size: 1.05rem;
+      color: #E2D7C8;
+      font-weight: 400;
+    }
+
+    /* 電腦配備與環境 */
+    .specs-section {
+      padding: 40px 0 80px 0;
+    }
+
+    .specs-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .specs-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .specs-icon-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background-color: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--primary-brown);
+      flex-shrink: 0;
+    }
+
+    .specs-text h5 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+
+    .specs-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* 免責聲明 */
+    .disclaimer-section {
+      padding: 64px 0 80px 0;
+      background-color: var(--bg-warm);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .disclaimer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .disclaimer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      font-size: 0.9rem;
+    }
+
+    .disclaimer-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-title);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .disclaimer-card p {
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* 頁尾 */
+    footer.site-footer {
+      background-color: #241B16;
+      color: #AFA59C;
+      padding: 56px 0 32px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #3A2F28;
+    }
+
+    .footer-brand h4 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .footer-brand p {
+      color: #8C7F74;
+      font-size: 0.85rem;
+    }
+
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .email-btn {
+      background-color: #382C24;
+      border: 1px solid #4C3C32;
+      color: #F4E8D7;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .email-btn:hover {
+      background-color: var(--accent-caramel);
+      color: #ffffff;
+      border-color: var(--accent-caramel);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #72665C;
+    }
+
+    /* 圖片彈出檢視 (Modal) */
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(20, 14, 11, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      background-color: #fff;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      color: #ffffff;
+      font-size: 2.5rem;
+      font-weight: 300;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s ease;
+    }
+
+    .modal-close:hover {
+      transform: scale(1.15);
+    }
+
+    /* Toast 提示 */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: var(--primary-brown);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* 響應式優化 */
+    @media (max-width: 992px) {
+      .showcase-block,
+      .showcase-block.reverse {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .showcase-block.reverse .showcase-text {
+        order: 1;
+      }
+      .showcase-block.reverse .showcase-media {
+        order: 2;
+      }
+      .advantage-grid {
+        grid-template-columns: 1fr;
+      }
+      .specs-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2.15rem;
+      }
+      .section-title {
+        font-size: 1.75rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+      }
+      .cta-btn, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部宣傳列 -->
+  <div class="top-banner">
+    <span class="badge">溫暖奶茶風</span>
+    <span>告別刺眼紅綠盤面，用平靜與紀律守護交易品質</span>
+  </div>
+
+  <!-- 導覽列 -->
+  <header class="nav-header">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <img src="./images/logo.png" alt="K1 Logo">
+        <div class="brand-text">
+          <h1>選擇權交易輔助工具</h1>
+          <span>OPTIONS TRADING ASSISTANT</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">交易輔助</a>
+        <a href="#radar">龍珠雷達</a>
+        <a href="#sighwall">嘆息之牆</a>
+        <a href="#advantage">結算預估</a>
+        <a href="#disclaimer">免責聲明</a>
+      </nav>
+      <button class="cta-btn" onclick="copyContact()">
+        <span>聯絡作者</span>
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.547Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- 首屏區塊 -->
+  <main>
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          <span>☕ 專為選擇權與策略研究者打造的桌面輔助軟體</span>
+        </div>
+        <h2 class="hero-title">
+          AI 時代來臨，<br><span class="highlight">您還在盯盤嗎？</span>
+        </h2>
+        <p class="hero-subtitle">
+          將繁瑣的數值計算與風險監控交給工具，讓交易決策更輕鬆、更安心。<br>
+          拒絕無休止的緊繃心跳，找回專屬於您的生活與睡眠品質。
+        </p>
+
+        <div class="hero-actions">
+          <a href="#radar" class="cta-btn" style="padding: 12px 32px; font-size: 1rem;">
+            探索獨創功能
+          </a>
+          <a href="#disclaimer" class="btn-secondary">
+            閱讀合規宣告
+          </a>
+        </div>
+
+        <!-- 軟體主控制台預覽 (指揮艇) -->
+        <div class="hero-preview">
+          <div class="window-header">
+            <div class="window-dot"></div>
+            <div class="window-dot"></div>
+            <div class="window-dot"></div>
+            <div class="window-title">K1 指揮艇主控台 ─ 實盤連線監控中</div>
+          </div>
+          <div class="hero-img-wrap" onclick="openModal('./images/command_dock.jpg')">
+            <img src="./images/command_dock.jpg" alt="K1 指揮艇主畫面">
+            <div class="zoom-hint">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+              <span>點擊放大查看介面細節</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 四大交易輔助 -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Core Capabilities</span>
+          <h2 class="section-title">四大核心輔助，助您步步為營</h2>
+          <p class="section-desc">不作主觀行情預測，專注於工具該有的本分：守護紀律與優化執行效率。</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-num">01</div>
+            <h3>參數自由設定</h3>
+            <p>畫面簡潔俐落，摒棄冗餘複雜操作。所有委託點數、口數、保護邊界皆由您依個人喜好與交易風格自由配置。</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">02</div>
+            <h3>遠離盯盤疲累</h3>
+            <p>告別每日數小時緊盯跳動報價的雙眼酸澀與精神內耗，堅決拒絕無謂盯盤，讓您重新取回生活與睡眠品質。</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">03</div>
+            <h3>因應滑價插針</h3>
+            <p>針對市場流動性不足與瞬間非理性插針跳價進行機制優化，降低因突發波動導致的不必要滑價衝擊。</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">04</div>
+            <h3>輔助紀律執行</h3>
+            <p>嚴格執行預設風控，防止主觀情緒介入盲目凹單，克制人性手癢與衝動下單，做您最冷靜的交易防線。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 獨創旗艦功能展示 (龍珠雷達 + 嘆息之牆) -->
+    <section class="flagship-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Exclusive Innovations</span>
+          <h2 class="section-title">原創功能：讓嚴肅交易兼具智慧與樂趣</h2>
+          <p class="section-desc">奶茶配色舒緩緊繃神經，獨特視覺語言讓繁複部位一眼看清。</p>
+        </div>
+
+        <!-- 旗艦 1：龍珠雷達 -->
+        <div id="radar" class="showcase-block">
+          <div class="showcase-text">
+            <div class="badge-label badge-radar">✨ 獨創視覺化庫存</div>
+            <h3>龍珠雷達：戰場雷達投影</h3>
+            <p>
+              告別傳統券商密密麻麻、眼花撩亂的庫存清單。K1 將選擇權履約價與持倉分布，轉化為直觀經典的圓形綠網格雷達熒幕。
+            </p>
+            <ul class="feature-bullets">
+              <li><span class="check">●</span> <strong>部位發光光球</strong>：SC、SP、BC、BP 口數與履約價分布一目了然。</li>
+              <li><span class="check">●</span> <strong>GAP 即時監控</strong>：CALL GAP / PUT GAP 數值與價差燈號（綠/黃/紅三階）動態警示。</li>
+              <li><span class="check">●</span> <strong>減壓趣味細節</strong>：附帶超舒壓「✨ 動感光波 ✨」互動，緩解盤中焦慮。</li>
+            </ul>
+            <div class="quote-box">
+              💡 你的部位不是無聊的數字，而是一張運籌帷幄的戰場陣形圖。
+            </div>
+          </div>
+          <div class="showcase-media" onclick="openModal('./images/dragon_radar.png')">
+            <img src="./images/dragon_radar.png" alt="龍珠雷達 戰場雷達投影截圖">
+            <div class="zoom-hint">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+              <span>點擊看高清雷達</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 旗艦 2：嘆息之牆 -->
+        <div id="sighwall" class="showcase-block reverse">
+          <div class="showcase-text">
+            <div class="badge-label badge-wall">📊 告別人工手抄試算表</div>
+            <h3>嘆息之牆：價平和與期貨振幅</h3>
+            <p>
+              期權策略研究者與賣方最常面臨的苦差事，就是手動統計每日、每時段的價平和與期貨振幅。K1「嘆息之牆」為您把繁瑣功課完全自動化。
+            </p>
+            <ul class="feature-bullets">
+              <li><span class="check">●</span> <strong>近五週完整資料</strong>：包含日盤、夜盤、週三選、週五選及期貨振幅數據。</li>
+              <li><span class="check">●</span> <strong>歷史平均值自動計算</strong>：自動統計最新、最有用的關鍵均值，快速對照波動高低。</li>
+              <li><span class="check">●</span> <strong>一鍵同步雲端資料</strong>：免去人工抄寫失誤，隨時獲取最純粹的客觀統計數據。</li>
+            </ul>
+            <div class="quote-box">
+              💡 不憑感覺猜振幅，讓扎實的歷史統計為您的策略定心。
+            </div>
+          </div>
+          <div class="showcase-media" onclick="openModal('./images/sigh_wall.png')">
+            <img src="./images/sigh_wall.png" alt="嘆息之牆 價平和與期貨振幅截圖">
+            <div class="zoom-hint">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+              <span>點擊看數據矩陣</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 軟體優勢與結算圖 -->
+    <section id="advantage" class="advantage-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Practical Edge</span>
+          <h2 class="section-title">全方位軟體優勢</h2>
+          <p class="section-desc">開倉前看清風險底線，持倉時心有定數。</p>
+        </div>
+
+        <div class="advantage-grid">
+          <!-- 結算圖展示卡 -->
+          <div class="showcase-media" onclick="openModal('./images/profit_chart.jpg')">
+            <img src="./images/profit_chart.jpg" alt="結算預估損益圖">
+            <div class="zoom-hint">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+              <span>點擊放大損益曲線</span>
+            </div>
+          </div>
+
+          <div class="advantage-cards">
+            <div class="adv-item">
+              <div class="adv-icon">📈</div>
+              <div class="adv-info">
+                <h4>結算預估圖（圖形化風險邊界）</h4>
+                <p>精確計算部位的「最大獲利」、「最大損失」與「兩平點 (BEP)」，搭配綠色獲利安全區與紅色虧損警示區，盈虧結構一清二楚。</p>
+              </div>
+            </div>
+
+            <div class="adv-item">
+              <div class="adv-icon">🎛️</div>
+              <div class="adv-info">
+                <h4>持倉四宮格（條件式佈局）</h4>
+                <p>清晰區隔「克制手癢（進場條件）」與「專治腳麻（出場條件）」，外加跨式策略模式，條理井然，絕不混亂。</p>
+              </div>
+            </div>
+
+            <div class="adv-item">
+              <div class="adv-icon">⏱️</div>
+              <div class="adv-info">
+                <h4>定時清倉機制（紀律落袋）</h4>
+                <p>支援預定時間自動執行平倉出場，避免將過夜風險與非理性波動帶入休市期間，讓您真正安心入眠。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 交易語錄金句橫幅 -->
+        <div class="quote-banner">
+          <h3>「交易的本質不是預測未來，而是管理意外。」</h3>
+          <p>放下預測行情的執念，將專注力投注在可控的部位與風險管理上。</p>
+        </div>
+
+        <!-- 電腦配備與技術規格 -->
+        <div id="specs" class="specs-section">
+          <div class="specs-card">
+            <div class="specs-item">
+              <div class="specs-icon-circle">⚡</div>
+              <div class="specs-text">
+                <h5>經紀商 API 對接</h5>
+                <p>採用台灣永豐金證券 Shioaji API 高速直連通道。</p>
+              </div>
+            </div>
+
+            <div class="specs-item">
+              <div class="specs-icon-circle">💻</div>
+              <div class="specs-text">
+                <h5>本機桌面獨立執行</h5>
+                <p>輕量簡約，支援 Windows 桌面作業環境，低系統負載。</p>
+              </div>
+            </div>
+
+            <div class="specs-item">
+              <div class="specs-icon-circle">🔒</div>
+              <div class="specs-text">
+                <h5>100% 本機隱私保護</h5>
+                <p>金鑰與憑證皆留在本機電腦，絕不透過第三方伺服器中轉。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 免責聲明 -->
+    <section id="disclaimer" class="disclaimer-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Compliance & Safety</span>
+          <h2 class="section-title">使用須知與免責聲明</h2>
+          <p class="section-desc">請於使用本輔助工具前，詳閱以下法律及風險宣告條款。</p>
+        </div>
+
+        <div class="disclaimer-grid">
+          <div class="disclaimer-card">
+            <h4>🛡️ 1. 輔助工具性質</h4>
+            <p>本軟體無任何買賣推薦、亦無自動判斷行情進出場之功能。所有交易參數均由使用者自主輸入與設定，僅供輔助下單與數值計算使用。</p>
+          </div>
+
+          <div class="disclaimer-card">
+            <h4>⚠️ 2. 交易風險自負</h4>
+            <p>期貨與選擇權屬於高槓桿、高風險之衍生性金融商品，使用者須具備相應風險承擔能力，並全權自行評估承擔所有實盤交易之盈虧與責任。</p>
+          </div>
+
+          <div class="disclaimer-card">
+            <h4>🌐 3. 連線責任免除</h4>
+            <p>委託與行情回報速度受限於使用者本機端網路環境、硬體效能及期貨商 API 連線品質，本軟體不承擔任何延遲、中斷或斷線所生之損失責任。</p>
+          </div>
+
+          <div class="disclaimer-card">
+            <h4>🔐 4. 本機隱私保護</h4>
+            <p>所有帳號密碼、CA 憑證與 API 金鑰均僅加密儲存於使用者個人電腦本機端，絕不上傳至任何外部雲端或伺服器，嚴密守護個資隱私。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h4>選擇權交易輔助工具</h4>
+          <p>OPTIONS TRADING ASSISTANT</p>
+        </div>
+        <div class="footer-contact">
+          <button class="email-btn" onclick="copyContact()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.547Z"/></svg>
+            <span>聯絡作者：kitt3721@gmail.com</span>
+          </button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 選擇權交易輔助工具. All rights reserved. 僅供個人策略研究與交易輔助使用。</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 圖片放大檢視 Lightbox Modal -->
+  <div id="imageModal" class="image-modal" onclick="closeModal()">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img id="modalImg" class="modal-content" src="" alt="放大檢視">
+  </div>
+
+  <!-- Toast 訊息提示 -->
+  <div id="toast" class="toast">
+    <span>📋 已複製作者信箱：kitt3721@gmail.com</span>
+  </div>
+
+  <script>
+    // 複製信箱功能與 Toast 提示
+    function copyContact() {
+      const email = 'kitt3721@gmail.com';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast();
+        }).catch(() => {
+          fallbackMailto(email);
+        });
+      } else {
+        fallbackMailto(email);
+      }
+    }
+
+    function fallbackMailto(email) {
+      window.location.href = 'mailto:' + email;
+    }
+
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // 圖片燈箱互動
+    function openModal(imgSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = imgSrc;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // 按下 ESC 鍵關閉燈箱
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
