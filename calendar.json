@@ -314,7 +314,7 @@
     {
         "title": "德 德央行長 Nagel 發言",
         "country": "EUR",
-        "date": "2026-11-03T12:00:00-05:00",
+        "date": "2026-11-03T13:00:00-05:00",
         "impact": "Low",
         "forecast": "",
         "previous": ""
@@ -500,7 +500,7 @@
         "country": "USD",
         "date": "2026-11-04T10:30:00-05:00",
         "impact": "Low",
-        "forecast": "-0.1M",
+        "forecast": "-1.7M",
         "previous": "-1.9M"
     },
     {
@@ -708,7 +708,7 @@
         "country": "USD",
         "date": "2026-11-05T10:30:00-05:00",
         "impact": "Low",
-        "forecast": "",
+        "forecast": "81B",
         "previous": "80B"
     },
     {
