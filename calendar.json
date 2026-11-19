@@ -808,20 +808,20 @@
         "previous": "0.0%"
     },
     {
-        "title": "Mortgage Delinquencies",
-        "country": "USD",
-        "date": "2026-11-19T10:15:00-05:00",
-        "impact": "Low",
-        "forecast": "",
-        "previous": "4.37%"
-    },
-    {
         "title": "Natural Gas Storage",
         "country": "USD",
         "date": "2026-11-19T10:30:00-05:00",
         "impact": "Low",
         "forecast": "25B",
         "previous": "61B"
+    },
+    {
+        "title": "Mortgage Delinquencies",
+        "country": "USD",
+        "date": "2026-11-19T10:46:00-05:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": "4.37%"
     },
     {
         "title": "FOMC 委員 Goolsbee 發言",
