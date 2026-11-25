@@ -314,10 +314,18 @@
     {
         "title": "德 10年期公債拍賣",
         "country": "EUR",
-        "date": "2026-11-25T05:42:00-05:00",
+        "date": "2026-11-25T05:32:00-05:00",
         "impact": "Low",
         "forecast": "",
         "previous": "3.37|1.1"
+    },
+    {
+        "title": "FOMC 委員 Bowman 發言",
+        "country": "USD",
+        "date": "2026-11-25T07:25:00-05:00",
+        "impact": "Low",
+        "forecast": "",
+        "previous": ""
     },
     {
         "title": "核心 PCE 物價指數 月率",
@@ -384,6 +392,14 @@
         "previous": "203K"
     },
     {
+        "title": "貨幣政策報告 Hearings",
+        "country": "GBP",
+        "date": "2026-11-25T09:15:00-05:00",
+        "impact": "Medium",
+        "forecast": "",
+        "previous": ""
+    },
+    {
         "title": "新屋銷售",
         "country": "USD",
         "date": "2026-11-25T10:00:00-05:00",
@@ -396,7 +412,7 @@
         "country": "USD",
         "date": "2026-11-25T10:30:00-05:00",
         "impact": "Low",
-        "forecast": "",
+        "forecast": "2.0M",
         "previous": "3.4M"
     },
     {
@@ -557,7 +573,7 @@
         "date": "2026-11-27T05:33:00-05:00",
         "impact": "Low",
         "forecast": "",
-        "previous": ""
+        "previous": "4.49|1.6"
     },
     {
         "title": "德 德央行長 Nagel 發言",
